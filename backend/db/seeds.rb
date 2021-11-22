@@ -18,14 +18,17 @@ User.destroy_all
 
 
 
-# Shelf.create(name: 'Main Shelf')
-# Shelf.create(name: 'Other')
 
-shelf1 = Shelf.create(name: 'Main Shelf')
-shelf2 = Shelf.create(name: 'Other')
 
-shelf1.bookmarks.create!({name: 'Facebook', url: 'www.facebook.com', description: 'Social media app', color: 'Blue'})
-shelf2.bookmarks.create!({name: 'Google', url: 'www.google.com', description: 'search engine', color: 'Orange'})
+user1 = User.create(name: 'Jimmy', email: 'jimmy@gmail.com', password: 'password')
+user2 = User.create(name: 'Bella', email: 'bella@gmail.com', password: 'password')
+User.create(name: 'Bob', email: 'bob@gmail.com', password: 'password')
+User.create(name: 'Dave', email: 'dave@gmail.com', password: 'password')
+User.create(name: 'Jennifer', email: 'Jennifer@gmail.com', password: 'password')
+
+Shelf.create(name: 'Main Shelf', user_id: user1.id)
+Shelf.create(name: 'Other', user_id: user2.id)
+
 
 
 # User.create(name: 'Jimmy', email: 'jimmy@gmail.com', password: 'password')
