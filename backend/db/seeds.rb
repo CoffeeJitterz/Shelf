@@ -10,23 +10,30 @@ Bookmark.destroy_all
 Shelf.destroy_all
 User.destroy_all
 
-Bookmark.create(name: 'Facebook', url: 'www.facebook.com', description: 'Social media app', color: 'Blue')
-Bookmark.create(name: 'Google', url: 'www.google.com', description: 'search engine', color: 'Orange')
-Bookmark.create(name: 'Lighthouse Labs', url: 'www.lighthouselabs.ca', description: 'Education', color: 'Green')
-Bookmark.create(name: 'Youtube', url: 'www.youtube.com', description: 'music app', color: 'Yellow')
-Bookmark.create(name: 'Hudson Bay', url: 'www.thebay.com', description: 'shopping', color: 'Pink')
+# Bookmark.create(name: 'Facebook', url: 'www.facebook.com', description: 'Social media app', color: 'Blue')
+# Bookmark.create(name: 'Google', url: 'www.google.com', description: 'search engine', color: 'Orange')
+# Bookmark.create(name: 'Lighthouse Labs', url: 'www.lighthouselabs.ca', description: 'Education', color: 'Green')
+# Bookmark.create(name: 'Youtube', url: 'www.youtube.com', description: 'music app', color: 'Yellow')
+# Bookmark.create(name: 'Hudson Bay', url: 'www.thebay.com', description: 'shopping', color: 'Pink')
 
 
 
-Shelf.create(name: 'Main Shelf')
-Shelf.create(name: 'Other')
+# Shelf.create(name: 'Main Shelf')
+# Shelf.create(name: 'Other')
 
-User.create(name: 'Jimmy', email: 'jimmy@gmail.com', password: 'password')
-User.create(name: 'Bella', email: 'bella@gmail.com', password: 'password')
-User.create(name: 'Bob', email: 'bob@gmail.com', password: 'password')
-User.create(name: 'Dave', email: 'dave@gmail.com', password: 'password')
-User.create(name: 'Jennifer', email: 'Jennifer@gmail.com', password: 'password')
+shelf1 = Shelf.create(name: 'Main Shelf')
+shelf2 = Shelf.create(name: 'Other')
+
+shelf1.bookmarks.create!({name: 'Facebook', url: 'www.facebook.com', description: 'Social media app', color: 'Blue'})
+shelf2.bookmarks.create!({name: 'Google', url: 'www.google.com', description: 'search engine', color: 'Orange'})
 
 
-Category.create(name: 'Entertainment')
-Category.create(name: 'News')
+# User.create(name: 'Jimmy', email: 'jimmy@gmail.com', password: 'password')
+# User.create(name: 'Bella', email: 'bella@gmail.com', password: 'password')
+# User.create(name: 'Bob', email: 'bob@gmail.com', password: 'password')
+# User.create(name: 'Dave', email: 'dave@gmail.com', password: 'password')
+# User.create(name: 'Jennifer', email: 'Jennifer@gmail.com', password: 'password')
+
+
+# Category.create(name: 'Entertainment')
+# Category.create(name: 'News')
