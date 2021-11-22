@@ -1,10 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import { useEffect } from 'react'
 
 function App() {
+
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/bookmarks')
+    .then(res => {
+      console.log(res);
+    })}, [])
+  
   return (
     <div className="App">
-      <header className="App-header">
+      <h1>Bookmarks</h1>
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -17,7 +28,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }
