@@ -5,6 +5,8 @@ class CreateBookmarks < ActiveRecord::Migration[6.1]
       t.string :url
       t.string :description
       t.string :color
+      t.integer :shelf_id, index: true
+      
 
       t.timestamps null: false
     end
