@@ -18,14 +18,16 @@ Bookmark.create(name: 'Hudson Bay', url: 'www.thebay.com', description: 'shoppin
 
 
 
-Shelf.create(name: 'Main Shelf')
-Shelf.create(name: 'Other')
 
-User.create(name: 'Jimmy', email: 'jimmy@gmail.com', password: 'password')
-User.create(name: 'Bella', email: 'bella@gmail.com', password: 'password')
+
+user1 = User.create(name: 'Jimmy', email: 'jimmy@gmail.com', password: 'password')
+user2 = User.create(name: 'Bella', email: 'bella@gmail.com', password: 'password')
 User.create(name: 'Bob', email: 'bob@gmail.com', password: 'password')
 User.create(name: 'Dave', email: 'dave@gmail.com', password: 'password')
 User.create(name: 'Jennifer', email: 'Jennifer@gmail.com', password: 'password')
+
+Shelf.create(name: 'Main Shelf', user_id: user1.id)
+Shelf.create(name: 'Other', user_id: user2.id)
 
 
 Category.create(name: 'Entertainment')
