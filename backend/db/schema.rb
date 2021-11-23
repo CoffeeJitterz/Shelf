@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(version: 2021_11_22_194320) do
   end
 
   create_table "bookmarks_categories", force: :cascade do |t|
-    t.bigint "bookmark_id"
-    t.bigint "category_id"
+    t.bigint "bookmarks_id"
+    t.bigint "categories_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["bookmark_id"], name: "index_bookmarks_categories_on_bookmark_id"
-    t.index ["category_id"], name: "index_bookmarks_categories_on_category_id"
+    t.index ["bookmarks_id"], name: "index_bookmarks_categories_on_bookmarks_id"
+    t.index ["categories_id"], name: "index_bookmarks_categories_on_categories_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -57,6 +57,6 @@ ActiveRecord::Schema.define(version: 2021_11_22_194320) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "bookmarks_categories", "bookmarks"
-  add_foreign_key "bookmarks_categories", "categories"
+  add_foreign_key "bookmarks_categories", "bookmarks", column: "bookmarks_id"
+  add_foreign_key "bookmarks_categories", "categories", column: "categories_id"
 end

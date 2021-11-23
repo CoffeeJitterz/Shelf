@@ -32,8 +32,8 @@ Bookmark.create(name: 'Lighthouse Labs', url: 'www.lighthouselabs.ca', descripti
 Bookmark.create(name: 'Youtube', url: 'www.youtube.com', description: 'music app', color: 'Yellow')
 Bookmark.create(name: 'Hudson Bay', url: 'www.thebay.com', description: 'shopping', color: 'Pink')
 
-bookmarks_categories1 = BookmarksCategory.create(bookmark_id: bookmark1.id, category_id: category1.id)
-bookmarks_categories2 = BookmarksCategory.create(bookmark_id: bookmark2.id, category_id: category2.id)
+bookmarks_categories1 = BookmarksCategory.create(bookmarks_id: bookmark1.id, categories_id: category1.id)
+bookmarks_categories2 = BookmarksCategory.create(bookmarks_id: bookmark2.id, categories_id: category2.id)
 
 
 
