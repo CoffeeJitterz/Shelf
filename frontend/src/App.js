@@ -1,7 +1,9 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-import { useEffect } from 'react'
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Bookmark from './components/Bookmark';
 
 function App() {
 
@@ -13,23 +15,20 @@ function App() {
     })}, [])
   
   return (
+    <BrowserRouter>
     <div className="App">
       <h1>Bookmarks</h1>
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      <nav>
+        <Link to="/">Login / Register</Link>
+      </nav>
+      
+
+      <Routes>
+        <Route path="/bookmarks" element={<Bookmark />}> </Route>
+        <Route></Route>
+      </Routes>
     </div>
+    </BrowserRouter>
   );
 }
 

@@ -1,3 +1,4 @@
 class Category < ActiveRecord::Base
-  belongs_to :bookmark
+  has_many :bookmark_categories
+  has_many :bookmarks, through: :bookmark_categories
 end
