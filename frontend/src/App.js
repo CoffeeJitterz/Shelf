@@ -8,6 +8,7 @@ import Bookmark from './components/Home/Bookmark';
 import Login from './components/Login/Register/Login';
 import Register from './components/Login/Register/Register';
 import Home from './components/Home/Home';
+import Navbar from './components/Navbar/Navbar'
 
 function App() {
 
@@ -21,22 +22,13 @@ function App() {
   return(
 
     <BrowserRouter>
-      <div className="App">
-      <h1>Bookmarks</h1>
-      <nav>
-        <Link to="/login">Login</Link>
-
-        <Link to="/register">Register</Link>
-
-        <Link to="/home">Home</Link>
-      </nav>
-
+    <Navbar />
       <Routes>
-        <Route path="/login" element={<Login/>} />
         <Route path="/home" element={<Home/>} />
+        <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
       </Routes>
-      </div>
+      
 
     </BrowserRouter> 
   ); 

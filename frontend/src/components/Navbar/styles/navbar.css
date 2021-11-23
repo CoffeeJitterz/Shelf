@@ -1,0 +1,9 @@
+nav {
+  position:fixed;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  z-index: 1;
+  width:100%;
+  background-color: blueviolet;
+}
