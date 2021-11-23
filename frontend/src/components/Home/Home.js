@@ -2,11 +2,8 @@ export default function Home(props){
   return (
     <div>
       <h1>
-        Bookmark
+        Home
       </h1>
     </div>
-
-
   )
-
 }
