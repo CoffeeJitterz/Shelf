@@ -7,9 +7,10 @@ export default function Navbar(props){
     <nav>
       <Link to="/home">Home</Link>
 
+      <div>
       <Link to="/login">Login</Link>
-
       <Link to="/register">Register</Link>
+      </div>
     </nav>
 
   )

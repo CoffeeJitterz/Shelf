@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import './styles/bookmark.css'
 import { HuePicker} from "react-color";
+import { Bookmark_panel } from "./Bookmark_panel";
 export function Bookmark(props){
   const {website, name} = props;
 
@@ -42,11 +43,7 @@ export function Bookmark(props){
         </div>
       <button onClick={handleClick}>^</button>
       </div>
-      <div className="edit">
-        <p>Name: <input type="text" placeholder={name}></input></p>
-        <p>URL: <input type="text" placeholder={website}></input></p>
-        <HuePicker color={color} onChange={color => setColor(color.hex)}/>
-      </div>  
+      <Bookmark_panel name={name} website={website} color={color} setColor={setColor}/>
       </section>
     )}
   </Fragment>

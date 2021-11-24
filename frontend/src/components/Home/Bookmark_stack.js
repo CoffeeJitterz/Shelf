@@ -3,6 +3,7 @@ import { HuePicker} from "react-color";
 import { hextoRgb, complimentaryColor } from '../../helpers/color_helpers';
 import {Bookmark} from './Bookmark'
 import './styles/bookmark_stack.css'
+import { Shelf_panel } from "./Shelf_panel";
 
 export function Bookmark_stack(props){
   const First = 'First';
@@ -42,17 +43,14 @@ const handleClick = () => {
     </section>
     )}
      {mode === Second && (
-    <section className="bookmark_stack_edit" >
-      <div style={{backgroundColor: color}}>
-        <div className="shelf_name" style={{backgroundColor:`rgb(${compColor[0]}, ${compColor[1]}, ${compColor[2]})`}}>
-          <h1 style={{color:`rgb(${compColor2[0]}, ${compColor2[1]}, ${compColor2[2]})`}}>{shelfName}</h1>
-          <button onClick={handleClick}>^</button>
+    <section className="bookmark_stack" >
+    <div style={{backgroundColor: color}}>
+      <div className="shelf_name" style={     {backgroundColor:`rgb(${compColor[0]}, ${compColor[1]}, ${compColor[2]})`}}>
+        <h1  style={{color:`rgb(${compColor2[0]}, ${compColor2[1]}, ${compColor2[2]})`}}>{shelfName}</h1>
+        <button onClick={handleClick}>V</button>
         </div>
       </div>
-      <div className="stack_edit">
-        <p>Name: <input type="text" placeholder={shelfName}></input></p>
-        <HuePicker color={color} onChange={color => setColor(color.hex)}/>
-      </div>
+        <Shelf_panel shelfName={shelfName} color={color} setColor={setColor} />
         <div>
           {output}
         </div>
