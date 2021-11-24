@@ -4,4 +4,5 @@ class ShelvesController < ApplicationController
     @shelves = Shelf.all
     render json: @shelves
   end
+
 end
