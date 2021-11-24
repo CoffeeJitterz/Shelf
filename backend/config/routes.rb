@@ -55,6 +55,6 @@ Rails.application.routes.draw do
   #   end
   resources :users, only: [:index]
   resources :shelves, only: [:index]
-  resources :bookmarks, only: [:index]
+  resources :bookmarks, only: [:index, :create, :delete]
   resources :categories, only: [:index]
 end

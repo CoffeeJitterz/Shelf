@@ -1,9 +1,10 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { HuePicker} from "react-color";
 import { hextoRgb, complimentaryColor } from '../../helpers/color_helpers';
 import {Bookmark} from './Bookmark'
 import './styles/bookmark_stack.css'
 import { Shelf_panel } from "./Shelf_panel";
+import axios from 'axios';
 
 export function Bookmark_stack(props){
   const First = 'First';
@@ -19,14 +20,23 @@ const handleClick = () => {
     console.log(mode)
   }
 };
+const [bookmarks, setBookmarks] = useState([]);
+
+useEffect(() => {
+  axios.get('http://localhost:3000/bookmarks').then(res => {
+    console.log(res.data)
+    setBookmarks(res.data)
+  })
+}, []);
 
   const {onClick, shelfName} = props;
- const websites = [{name:'Facebook', site: 'www.facebook.com'}, {name:'google', site: 'www.google.com'}, {name:'youtube', site: 'www.youtube.com'}, {name:'tmall', site: 'www.tmall.com'}, {name:'baidu', site: 'www.baidu.com'}, {name:'qq', site: 'www.qq.com'}, {name:'yahoo', site: 'www.yahoo.com'}, {name:'wikipedia', site: 'www.wikipedia.org'}, {name:'zoom', site: 'www.zoom.com'}, {name:'reddit', site: 'www.reddit.com'}];
+//  const websites = [{name:'Facebook', site: 'www.facebook.com'}, {name:'google', site: 'www.google.com'}, {name:'youtube', site: 'www.youtube.com'}, {name:'tmall', site: 'www.tmall.com'}, {name:'baidu', site: 'www.baidu.com'}, {name:'qq', site: 'www.qq.com'}, {name:'yahoo', site: 'www.yahoo.com'}, {name:'wikipedia', site: 'www.wikipedia.org'}, {name:'zoom', site: 'www.zoom.com'}, {name:'reddit', site: 'www.reddit.com'}];
  
  const compColor = complimentaryColor(hextoRgb(color), 180)
  const compColor2 = complimentaryColor(hextoRgb(color), 20)
 
- const output = Array.isArray(websites) && websites.map((website) => {return <Bookmark name={website.name} website={website.site} onClick={onClick}/>})
+
+ const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <Bookmark key={bookmark.id} name={bookmark.name} onClick={onClick}/>})
   return (
     <Fragment>
     {mode === First && (
