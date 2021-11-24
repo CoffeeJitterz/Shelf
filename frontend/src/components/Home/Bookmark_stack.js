@@ -29,7 +29,7 @@ const handleClick = () => {
   return (
     <Fragment>
     {mode === First && (
-    <section className="Spine_Stack" >
+    <section className="bookmark_stack" >
       <div style={{backgroundColor: color}}>
         <div className="shelf_name" style={     {backgroundColor:`rgb(${compColor[0]}, ${compColor[1]}, ${compColor[2]})`}}>
           <h1  style={{color:`rgb(${compColor2[0]}, ${compColor2[1]}, ${compColor2[2]})`}}>{shelfName}</h1>
@@ -42,20 +42,20 @@ const handleClick = () => {
     </section>
     )}
      {mode === Second && (
-    <section className="Spine_Stack" >
+    <section className="bookmark_stack_edit" >
       <div style={{backgroundColor: color}}>
         <div className="shelf_name" style={{backgroundColor:`rgb(${compColor[0]}, ${compColor[1]}, ${compColor[2]})`}}>
           <h1 style={{color:`rgb(${compColor2[0]}, ${compColor2[1]}, ${compColor2[2]})`}}>{shelfName}</h1>
           <button onClick={handleClick}>^</button>
         </div>
       </div>
-      <div className="Spine_Stack_edit">
+      <div className="stack_edit">
         <p>Name: <input type="text" placeholder={shelfName}></input></p>
         <HuePicker color={color} onChange={color => setColor(color.hex)}/>
+      </div>
         <div>
           {output}
         </div>
-      </div>
     </section>
     )}
     </Fragment>

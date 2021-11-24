@@ -24,7 +24,7 @@ export function Bookmark(props){
     <Fragment>
     {mode === First && (
       <section>
-      <div className="spine" style={{backgroundColor: color}}>
+      <div className="bookmark" style={{backgroundColor: color}}>
         <div>
           <p>{name}</p>
           <p>{website}</p>
