@@ -5,4 +5,6 @@ class BookmarksController < ApplicationController
     render json: @bookmarks
   end
 
+  
+
 end

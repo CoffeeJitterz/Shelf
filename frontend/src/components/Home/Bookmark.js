@@ -1,13 +1,17 @@
 import React, { Fragment, useState } from "react";
-import './styles/bookmark.css'
+
+//import components
 import { HuePicker} from "react-color";
+import { Edit_panel } from "./Edit_panel";
+
+//import styles
+import './styles/bookmark.css'
+
 export function Bookmark(props){
-  const {website, name} = props;
+//deconstruct props
+const {url, name, websiteColor} = props;
 
-  //color hook
-  const [color, setColor] = useState('#fff')
-
-  //toggle for edit bookmark window
+//Create modes for handelClick (toggle)
   const First = 'First';
   const Second = 'Second';
   const [mode, setMode] = useState(First)
@@ -20,33 +24,33 @@ export function Bookmark(props){
       }
   };
 
+//Set state for bookmarkColor
+const [bookmarkColor, setBookmarkColor] = useState(websiteColor)
+
   return (
     <Fragment>
+    {/* Bookmark_stack */}
     {mode === First && (
       <section>
-      <div className="spine" style={{backgroundColor: color}}>
+      <div className="bookmark" style={{backgroundColor: bookmarkColor}} onClick={()=> window.open(url, "_blank")}>
         <div>
           <p>{name}</p>
-          <p>{website}</p>
         </div>
       <button onClick={handleClick}>V</button>
       </div>
       </section>
     )}
+    {/* Bookmark with edit_panel */}
     {mode === Second && (
       <section>
-      <div className="bookmark_edit" style={{backgroundColor: color}}>
+      <div className="bookmark_edit" style={{backgroundColor: bookmarkColor}}>
         <div>
           <p>{name}</p>
-          <p>{website}</p>
+          <p>{url}</p>
         </div>
       <button onClick={handleClick}>^</button>
       </div>
-      <div className="edit">
-        <p>Name: <input type="text" placeholder={name}></input></p>
-        <p>URL: <input type="text" placeholder={website}></input></p>
-        <HuePicker color={color} onChange={color => setColor(color.hex)}/>
-      </div>  
+      <Edit_panel name={name} website={url} color={bookmarkColor} setColor={setBookmarkColor}/>
       </section>
     )}
   </Fragment>
