@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import {Create_panel} from './Create_panel'
+import { Create_panel } from './Create_panel'
 
 export function Create(props){
 

@@ -16,4 +16,8 @@ class ShelvesController < ApplicationController
     render json: @shelves
   end
 
+  def create
+
+  end
+
 end

@@ -1,4 +1,4 @@
-import { useState } from "react";
+//import { useState } from "react";
 import { HuePicker} from "react-color";
 
 export function Create_panel(props){
@@ -11,8 +11,8 @@ export function Create_panel(props){
         <p>Name: <input type="text" placeholder={shelfName}></input></p>
         <HuePicker color={color} onChange={color => setColor(color.hex)}/>
         <div>
-        <button onClick={onClick}>cancel</button>
-        <button>Create</button>
+        <button onClick={onClick}>Cancel</button>
+        <button onClick={onClick}>Create</button>
         </div>
       </div>
   )
