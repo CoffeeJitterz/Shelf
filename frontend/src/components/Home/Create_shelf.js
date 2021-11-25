@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { Create_panel } from './Create_panel'
+import {Create_shelf_panel} from './Create_shelf_panel'
 
-export function Create(props){
+export function Create_shelf(props){
 
 //Create modes for handelClick (toggle)
 const First = 'First';
@@ -18,19 +18,19 @@ const handleClick = () => {
   };
 
 //Set state for newBookmarkColor 
-const [newBookmarkColor, setNewBookmarkColor] = useState('#fff')
+const [newShelfColor, setShelfColor] = useState('#fff')
 
   return (
     <Fragment>
       {mode === First && (
         <div >
-            <button onClick={handleClick} >CREATE+</button>
+            <button onClick={handleClick} >CREATE SHELF</button>
           </div>
   
       )}
       {mode === Second && (
         <div >
-            <Create_panel onClick={handleClick} color={newBookmarkColor} setColor={setNewBookmarkColor}/>
+            <Create_shelf_panel onClick={handleClick} color={newShelfColor} setColor={setShelfColor}/>
           </div>
   
       )}
