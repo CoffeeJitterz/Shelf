@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_194320) do
+ActiveRecord::Schema.define(version: 2021_11_24_213210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(version: 2021_11_22_194320) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest", null: false
   end
 
   add_foreign_key "bookmarks_categories", "bookmarks", column: "bookmarks_id"

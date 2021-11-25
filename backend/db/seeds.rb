@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 puts "Creating tables"
+BookmarksCategory.destroy_all
 Bookmark.destroy_all
 Shelf.destroy_all
 User.destroy_all
