@@ -3,15 +3,6 @@ import {Create_bookmark_panel} from './Create_bookmark_panel'
 import axios from 'axios';
 
 export function Create(props){
-//axios request
-axios.post('http://localhost:3000/bookmarks', {
-  name: 'Facebook',
-  url: 'https://www.facebook.com/'
-})
-.then((response) => {
-  console.log(response)
-})
-
 //Create modes for handelClick (toggle)
 const First = 'First';
 const Second = 'Second';
