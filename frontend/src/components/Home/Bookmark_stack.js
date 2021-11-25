@@ -8,7 +8,7 @@ import { hextoRgb, complimentaryColor } from '../../helpers/color_helpers';
 //import components
 import {Bookmark} from './Bookmark'
 import { Edit_Shelf_panel } from "./Edit_shelf_panel";
-import {Create} from './Create'
+import {Create} from './Create_bookmark'
 
 //import styles
 import './styles/bookmark_stack.css'
@@ -48,7 +48,7 @@ const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <
       <div style={{backgroundColor: shelfColor}}>
         <div className="shelf_name" style={     {backgroundColor:`rgb(${compColor[0]}, ${compColor[1]}, ${compColor[2]})`}}>
           <h1  style={{color:`rgb(${compColor2[0]}, ${compColor2[1]}, ${compColor2[2]})`}}>{shelfName}</h1>
-          <button onClick={handleClick}>V</button>
+          <button onClick={handleClick}>edit</button>
         </div>
         <div>
           <Create onClick={handleClick} color={shelfColor} setColor={setShelfColor}/>

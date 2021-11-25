@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { HuePicker} from "react-color";
 
-export function Edit_panel(props){
+export function Edit_bookmark_panel(props){
 //deconstruct props
 const {name, website, color, setColor} = props;
  

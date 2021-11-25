@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 
 //import components
 import { HuePicker} from "react-color";
-import { Edit_panel } from "./Edit_panel";
+import { Edit_bookmark_panel } from "./Edit_bookmark_panel";
 
 //import styles
 import './styles/bookmark.css'
@@ -36,21 +36,21 @@ const [bookmarkColor, setBookmarkColor] = useState(websiteColor)
         <div>
           <p>{name}</p>
         </div>
-      <button onClick={handleClick}>V</button>
+      <button onClick={handleClick}>edit</button>
       </div>
       </section>
     )}
     {/* Bookmark with edit_panel */}
     {mode === Second && (
       <section>
-      <div className="bookmark_edit" style={{backgroundColor: bookmarkColor}}>
+      <div className="bookmark" style={{backgroundColor: bookmarkColor}}>
         <div>
           <p>{name}</p>
           <p>{url}</p>
         </div>
       <button onClick={handleClick}>^</button>
       </div>
-      <Edit_panel name={name} website={url} color={bookmarkColor} setColor={setBookmarkColor}/>
+      <Edit_bookmark_panel name={name} website={url} color={bookmarkColor} setColor={setBookmarkColor}/>
       </section>
     )}
   </Fragment>

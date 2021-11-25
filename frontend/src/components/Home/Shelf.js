@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import axios from 'axios';
 
 import {Bookmark_stack} from './Bookmark_stack'
+import {Create_shelf} from './Create_shelf'
 
 import './styles/shelf.css'
 
@@ -27,6 +28,7 @@ const output = Array.isArray(shelves) && shelves.map(shelf => {
   return (
    
     <div className="shelf">
+      <Create_shelf />
       {output}
 
     </div>  
