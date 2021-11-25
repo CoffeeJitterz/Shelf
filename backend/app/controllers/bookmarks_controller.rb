@@ -5,6 +5,9 @@ class BookmarksController < ApplicationController
     render json: @bookmarks
   end
 
-  
+  def create
+    Bookmark.new(bookmarks_params)
+    puts params[:desc]
+  end  
 
 end

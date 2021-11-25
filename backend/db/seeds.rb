@@ -39,20 +39,4 @@ bookmarks_categories4 = BookmarksCategory.create(bookmarks_id: bookmark4.id, cat
 bookmarks_categories5 = BookmarksCategory.create(bookmarks_id: bookmark5.id, categories_id: category5.id)
 
 
-Message Smiti
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
