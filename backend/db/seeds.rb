@@ -40,18 +40,3 @@ bookmarks_categories5 = BookmarksCategory.create(bookmarks_id: bookmark5.id, cat
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
