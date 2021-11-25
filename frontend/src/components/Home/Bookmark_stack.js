@@ -1,16 +1,26 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { HuePicker} from "react-color";
-import { hextoRgb, complimentaryColor } from '../../helpers/color_helpers';
-import {Bookmark} from './Bookmark'
-import './styles/bookmark_stack.css'
-import { Shelf_panel } from "./Shelf_panel";
 import axios from 'axios';
+import { HuePicker} from "react-color";
+
+//import helpers
+import { hextoRgb, complimentaryColor } from '../../helpers/color_helpers';
+
+//import components
+import {Bookmark} from './Bookmark'
+import { Edit_Shelf_panel } from "./Edit_shelf_panel";
+import {Create} from './Create'
+
+//import styles
+import './styles/bookmark_stack.css'
 
 export function Bookmark_stack(props){
-  const First = 'First';
+//deconstruct props
+const {onClick, shelfName, bookmarks} = props;
+
+//Create modes for handelClick (toggle)
+const First = 'First';
 const Second = 'Second';
 const [mode, setMode] = useState(First)
-const [color, setColor] = useState('#fff')
 const handleClick = () => {
   if (mode === First) {
     setMode(Second)
@@ -20,49 +30,46 @@ const handleClick = () => {
     console.log(mode)
   }
 };
-const [bookmarks, setBookmarks] = useState([]);
 
-useEffect(() => {
-  axios.get('http://localhost:3000/bookmarks').then(res => {
-    console.log(res.data)
-    setBookmarks(res.data)
-  })
-}, []);
+//Set state for ShelfColor
+const [shelfColor, setShelfColor] = useState('#fff')
 
-  const {onClick, shelfName} = props;
-//  const websites = [{name:'Facebook', site: 'www.facebook.com'}, {name:'google', site: 'www.google.com'}, {name:'youtube', site: 'www.youtube.com'}, {name:'tmall', site: 'www.tmall.com'}, {name:'baidu', site: 'www.baidu.com'}, {name:'qq', site: 'www.qq.com'}, {name:'yahoo', site: 'www.yahoo.com'}, {name:'wikipedia', site: 'www.wikipedia.org'}, {name:'zoom', site: 'www.zoom.com'}, {name:'reddit', site: 'www.reddit.com'}];
- 
- const compColor = complimentaryColor(hextoRgb(color), 180)
- const compColor2 = complimentaryColor(hextoRgb(color), 20)
+//create complimentary colors usering helper function complimentaryColor
+const compColor = complimentaryColor(hextoRgb(shelfColor), 180)
+const compColor2 = complimentaryColor(hextoRgb(shelfColor), 20)
 
-
- const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <Bookmark key={bookmark.id} name={bookmark.name} onClick={onClick}/>})
+//map through bookmarks array and pass props to <Bookmark />
+const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <Bookmark key={bookmark.id} name={bookmark.name} url={bookmark.url} websiteColor={bookmark.color} onClick={onClick}/>})
   return (
     <Fragment>
+   {/* Bookmark_stack */}
     {mode === First && (
     <section className="bookmark_stack" >
-      <div style={{backgroundColor: color}}>
+      <div style={{backgroundColor: shelfColor}}>
         <div className="shelf_name" style={     {backgroundColor:`rgb(${compColor[0]}, ${compColor[1]}, ${compColor[2]})`}}>
           <h1  style={{color:`rgb(${compColor2[0]}, ${compColor2[1]}, ${compColor2[2]})`}}>{shelfName}</h1>
           <button onClick={handleClick}>V</button>
         </div>
         <div>
+          <Create onClick={handleClick} color={shelfColor} setColor={setShelfColor}/>
           {output}
         </div>
       </div>
     </section>
     )}
+    {/* Bookmark_stack with Edit_shelf_panel */}
      {mode === Second && (
     <section className="bookmark_stack" >
-    <div style={{backgroundColor: color}}>
+    <div style={{backgroundColor: shelfColor}}>
       <div className="shelf_name" style={     {backgroundColor:`rgb(${compColor[0]}, ${compColor[1]}, ${compColor[2]})`}}>
         <h1  style={{color:`rgb(${compColor2[0]}, ${compColor2[1]}, ${compColor2[2]})`}}>{shelfName}</h1>
         <button onClick={handleClick}>V</button>
         </div>
       </div>
-        <Shelf_panel shelfName={shelfName} color={color} setColor={setColor} />
+        <Edit_Shelf_panel shelfName={shelfName} color={shelfColor} setColor={setShelfColor} />
         <div>
           {output}
+          <Create onClick={handleClick} color={shelfColor} setColor={setShelfColor}/>
         </div>
     </section>
     )}

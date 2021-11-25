@@ -1,27 +1,32 @@
 import React, { Fragment, useState, useEffect } from "react";
-import {Bookmark_stack} from './Bookmark_stack'
 import axios from 'axios';
+
+import {Bookmark_stack} from './Bookmark_stack'
+
 import './styles/shelf.css'
 
 export function Shelf (props) {
-  const [shelves, setShelves] = useState();
+//deconstruct props
+const {onClick} = props;
 
+//set state for shelves array
+const [shelves, setShelves] = useState();
+
+//get shelves array from api and set shelves state to array
 useEffect(() => {
   axios.get('http://localhost:3000/shelves').then(res => {
     console.log(res.data)
     setShelves(res.data)
   })
 }, []);
-  const {onClick} = props;
 
-  // const shelves = ['my shelf', 'classic games', 'science articles', 'funny', 'thing'];
-  console.log('shelves', shelves)
-  const output = Array.isArray(shelves) && shelves.map(shelf => {
-   return <Bookmark_stack shelfName={shelf.name} onClick={onClick} />
+//map through shelves array and pass props to <Bookmark_stack />
+const output = Array.isArray(shelves) && shelves.map(shelf => {
+ return <Bookmark_stack shelfName={shelf.name} onClick={onClick} bookmarks={shelf.bookmarks}/>
   }) 
   return (
    
-    <div className="shelf" >
+    <div className="shelf">
       {output}
 
     </div>  

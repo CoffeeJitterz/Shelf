@@ -55,7 +55,7 @@ Rails.application.routes.draw do
   #   end
   resources :users, only: [:index]
   resources :shelves, only: [:index]
-  resources :bookmarks, only: [:index, :create, :delete]
+  resources :bookmarks, only: [:index]
   resources :categories, only: [:index]
 
   get '/login' => 'sessions#new'
