@@ -1,10 +1,12 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './styles/navbar.css'
 
 export default function Navbar(props){
   return (
 
     <nav>
+      <h1>URLShelves</h1>
+
       <Link to="/home">Home</Link>
 
       <div>
@@ -13,5 +15,6 @@ export default function Navbar(props){
       </div>
     </nav>
 
+    
   )
 }
