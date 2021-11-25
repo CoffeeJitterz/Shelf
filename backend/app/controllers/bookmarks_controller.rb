@@ -5,11 +5,6 @@ class BookmarksController < ApplicationController
     render json: @bookmarks
   end
 
-  def create
-    
-  end
-
-  def delete
-  def
+  
 
 end
