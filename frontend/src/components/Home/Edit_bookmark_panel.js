@@ -4,15 +4,15 @@ import { HuePicker} from "react-color";
 
 export function Edit_bookmark_panel(props){
 //deconstruct props
-const {id, website, color, setColor, onClick, newName, setNewName} = props;
+const {id, website, color, setColor, onClick, newName, setNewName, shelf_id} = props;
 console.log('bookmark id', id)
 const [url, setUrl] = useState(website)
-const editedBookmark = {id, newName, url, color};
+const editedBookmark = {shelf_id, id: id, name: newName, url: url, color: color};
 const handleSubmit = (e) => {
   e.preventDefault();
   console.log(editedBookmark)
   //axios update request
-axios.put('http://localhost:3000/bookmarks', editedBookmark)
+axios.put(`http://localhost:3000/bookmarks/${id}`, editedBookmark)
 .then((response) => {
   console.log("Bookmark Updated")
 })

@@ -54,8 +54,8 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   resources :users, only: [:index]
-  resources :shelves, only: [:index, :create, :destroy, :update]
-  resources :bookmarks, only: [:index, :create, :destroy, :update]
+  resources :shelves, only: [:index, :create, :update, :destroy]
+  resources :bookmarks, only: [:index, :create, :update, :destroy]
   resources :categories, only: [:index]
 
   get '/login' => 'sessions#new'

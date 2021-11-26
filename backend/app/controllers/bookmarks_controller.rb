@@ -32,19 +32,19 @@ class BookmarksController < ApplicationController
   bookmark = Bookmark.create(bookmark_params)
     render json: bookmark
   end
+  
+    def update
+      bookmark = Bookmark.find(params[:id])
+      bookmark.update_attributes(bookmark_params)
+      render json: bookmark
+  
+    end
 
   def destroy
     Bookmark.destroy(params[:id])
   end
 
-  def update
-    bookmark = Bookmark.find(params[:id])
-    bookmark.update_attributes(bookmark_params)
-    render json: bookmark
-
-  end
-
   def bookmark_params
-    params.require(:bookmark).permit(:id, :name, :url)
+    params.require(:bookmark).permit(:id, :name, :url, :color, :shelf_id)
   end
   end

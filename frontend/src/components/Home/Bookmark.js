@@ -53,7 +53,7 @@ console.log(shelfId)
         </div>
       <button onClick={handleClick}>^</button>
       </div>
-      <Edit_bookmark_panel id={id} name={name} website={url} color={bookmarkColor} onClick={handleClick} setColor={setBookmarkColor} newName={newBookmarkName} setNewName={setNewBookmarkName}/>
+      <Edit_bookmark_panel id={id} name={name} website={url} color={bookmarkColor} onClick={handleClick} setColor={setBookmarkColor} newName={newBookmarkName} setNewName={setNewBookmarkName} shelf_id={shelfId}/>
       </section>
     )}
   </Fragment>
