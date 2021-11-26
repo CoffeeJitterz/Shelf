@@ -15,7 +15,7 @@ import './styles/bookmark_stack.css'
 
 export function Bookmark_stack(props){
 //deconstruct props
-const {onClick, shelfName, bookmarks, shelfId, user_id} = props;
+const {Delete, Update, Create, onClick, shelfName, bookmarks, shelfId, user_id} = props;
 //set state for adding bookmarks in front end
 const [addBookmark, setAddBookmark] = useState(bookmarks)
 //Create modes for handelClick (toggle)
@@ -43,7 +43,17 @@ const compColor = complimentaryColor(hextoRgb(shelfColor), 180)
 const compColor2 = complimentaryColor(hextoRgb(shelfColor), 20)
 
 //map through bookmarks array and pass props to <Bookmark />
-const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <Bookmark key={bookmark.id} name={bookmark.name} url={bookmark.url} id={bookmark.id}websiteColor={bookmark.color} onClick={onClick} shelfId={shelfId} shelfName={shelfName} />})
+const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <Bookmark 
+                        key={bookmark.id} 
+                        name={bookmark.name} 
+                        url={bookmark.url} 
+                        id={bookmark.id}
+                        websiteColor={bookmark.color} onClick={onClick} 
+                        shelfId={shelfId} 
+                        shelfName={shelfName} 
+                        Delete={Delete}
+                        Update={Update}
+                        />})
   return (
     <Fragment>
    {/* Bookmark_stack */}
@@ -55,7 +65,14 @@ const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <
           <button onClick={handleClick}>edit</button>
         </div>
         <div>
-          <Create_bookmark onClick={handleClick} color={shelfColor} setColor={setShelfColor} shelfId={shelfId} shelfName={newShelfName}/>
+          <Create_bookmark 
+              onClick={handleClick} 
+              color={shelfColor} 
+              setColor={setShelfColor} 
+              shelfId={shelfId} 
+              shelfName={newShelfName}
+              Create={Create}
+              />
           {output}
         </div>
       </div>
@@ -70,7 +87,18 @@ const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <
         <button onClick={handleClick}>edit</button>
         </div>
       </div>
-        <Edit_Shelf_panel shelfName={shelfName} color={shelfColor} setColor={setShelfColor} onClick={handleClick} newName={newShelfName} setNewName={setNewShelfName} id={shelfId} user_id={user_id}/>
+        <Edit_Shelf_panel 
+        shelfName={shelfName} 
+        color={shelfColor} 
+        setColor={setShelfColor} 
+        onClick={handleClick} 
+        newName={newShelfName} 
+        setNewName={setNewShelfName} 
+        id={shelfId} 
+        user_id={user_id}
+        Delete={Delete}
+        Update={Update}
+        />
         <div>
           {output}
           <Create_bookmark onClick={handleClick} color={shelfColor} setColor={setShelfColor} shelfId={shelfId} shelfName={shelfName}/>

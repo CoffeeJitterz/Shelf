@@ -8,7 +8,7 @@ import './styles/shelf.css'
 
 export function Shelf (props) {
 //deconstruct props
-const {onClick} = props;
+const {onClick, Delete, Update, Create} = props;
 
 //set state for shelves array
 const [shelves, setShelves] = useState();
@@ -23,12 +23,25 @@ useEffect(() => {
 
 //map through shelves array and pass props to <Bookmark_stack />
 const output = Array.isArray(shelves) && shelves.map(shelf => {
- return <Bookmark_stack user_id={shelf.user_id} shelfName={shelf.name} shelfId={shelf.id} onClick={onClick} bookmarks={shelf.bookmarks}/>
+ return <Bookmark_stack 
+          user_id={shelf.user_id} 
+          shelfName={shelf.name} 
+          shelfId={shelf.id} 
+          onClick={onClick} 
+          bookmarks={shelf.bookmarks}
+          Delete={Delete}
+          Update={Update}
+          Create={Create}
+          />
   }) 
   return (
    
     <div className="shelf">
-      <Create_shelf user_id='6' onClick={onClick}/>
+      <Create_shelf 
+        user_id='1' 
+        onClick={onClick}
+        Create={Create}
+        />
       {output}
 
     </div>  

@@ -4,30 +4,26 @@ import { HuePicker} from "react-color";
 
 export function Edit_bookmark_panel(props){
 //deconstruct props
-const {id, website, color, setColor, onClick, newName, setNewName, shelf_id} = props;
+const {Delete, Update, id, website, color, setColor, onClick, newName, setNewName, shelf_id} = props;
 console.log('bookmark id', id)
 const [url, setUrl] = useState(website)
 const editedBookmark = {shelf_id, id: id, name: newName, url: url, color: color};
-const handleSubmit = (e) => {
+
+const updateBookmark = (e) => {
   e.preventDefault();
-  console.log(editedBookmark)
-  //axios update request
-axios.put(`http://localhost:3000/bookmarks/${id}`, editedBookmark)
-.then((response) => {
-  console.log("Bookmark Updated")
-})
+  Update('bookmarks', id, editedBookmark).then(()=>{
+    console.log("THEN I DID THIS")
+  })
+}
+const deleteBookmark = () => {
+  Delete('bookmarks', id).then(()=>{
+    console.log("THEN I DID THIS")
+  })
 }
 
-const handleDelete = (e) => {
-    //axios delete request
-axios.delete(`http://localhost:3000/bookmarks/${id}`)
-.then((response) => {
-  console.log("Bookmark Deleted")
-})
-}
   return (
     <div className="edit_bookmark_panel">
-     <form className="edit_bookmark_form" onSubmit={handleSubmit}>
+     <form className="edit_bookmark_form" onSubmit={updateBookmark}>
         <input 
           type="text"
           required
@@ -43,10 +39,10 @@ axios.delete(`http://localhost:3000/bookmarks/${id}`)
         <HuePicker color={color} onChange={color => setColor(color.hex)}/>
         <div>
         <button>Save</button>
-        <button onClick={handleDelete}>Delete</button>
+        <button onClick={deleteBookmark}>Delete</button>
         </div>
         </form>
-        <button onClick={onClick}>cancel</button>
+        <button onClick={deleteBookmark}>cancel</button>
       </div>
   )
 }

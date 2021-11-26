@@ -9,7 +9,7 @@ import './styles/bookmark.css'
 
 export function Bookmark(props){
 //deconstruct props
-const {id, url, name, websiteColor, shelfId} = props;
+const {Delete, Update, id, url, name, websiteColor, shelfId} = props;
 
 //Create modes for handelClick (toggle)
   const First = 'First';
@@ -53,7 +53,19 @@ console.log(shelfId)
         </div>
       <button onClick={handleClick}>^</button>
       </div>
-      <Edit_bookmark_panel id={id} name={name} website={url} color={bookmarkColor} onClick={handleClick} setColor={setBookmarkColor} newName={newBookmarkName} setNewName={setNewBookmarkName} shelf_id={shelfId}/>
+      <Edit_bookmark_panel 
+          id={id} 
+          name={name} 
+          website={url} 
+          color={bookmarkColor}
+          onClick={handleClick} 
+          setColor={setBookmarkColor} 
+          newName={newBookmarkName} 
+          setNewName={setNewBookmarkName} 
+          shelf_id={shelfId}
+          Delete={Delete}
+          Update={Update}
+          />
       </section>
     )}
   </Fragment>

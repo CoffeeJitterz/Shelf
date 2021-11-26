@@ -3,8 +3,8 @@ class ShelvesController < ApplicationController
   def index
     # @shelves = Shelf.all
 
-    @shelves = Shelf.includes(:bookmarks).where(user_id: 6).map do |shelf|
-      bookmarks = shelf.bookmarks
+    @shelves = Shelf.includes(:bookmarks).where(user_id: 1).order(created_at: :asc).map do |shelf|
+      bookmarks = shelf.bookmarks.order(created_at: :desc)
       shelf.as_json.merge({bookmarks: bookmarks})
     end
 
