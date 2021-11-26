@@ -23,7 +23,7 @@ useEffect(() => {
 
 //map through shelves array and pass props to <Bookmark_stack />
 const output = Array.isArray(shelves) && shelves.map(shelf => {
- return <Bookmark_stack shelfName={shelf.name} onClick={onClick} bookmarks={shelf.bookmarks}/>
+ return <Bookmark_stack shelfName={shelf.name} shelfId={shelf.id} onClick={onClick} bookmarks={shelf.bookmarks}/>
   }) 
   return (
    

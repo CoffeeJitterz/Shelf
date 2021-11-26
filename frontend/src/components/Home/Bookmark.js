@@ -9,7 +9,7 @@ import './styles/bookmark.css'
 
 export function Bookmark(props){
 //deconstruct props
-const {url, name, websiteColor} = props;
+const {url, name, websiteColor, shelfId} = props;
 
 //Create modes for handelClick (toggle)
   const First = 'First';
@@ -26,7 +26,7 @@ const {url, name, websiteColor} = props;
 
 //Set state for bookmarkColor
 const [bookmarkColor, setBookmarkColor] = useState(websiteColor)
-
+console.log(shelfId)
   return (
     <Fragment>
     {/* Bookmark_stack */}
