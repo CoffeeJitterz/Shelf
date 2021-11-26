@@ -2,6 +2,10 @@ import React, { Fragment, useState, useEffect } from "react";
 import {Create_bookmark_panel} from './Create_bookmark_panel'
 import axios from 'axios';
 
+//import styles
+import './styles/create_bookmark.css'
+
+
 export function Create_bookmark(props){
   const {shelfId, shelfName} = props;
 //Create modes for handelClick (toggle)
@@ -24,7 +28,7 @@ const [newBookmarkColor, setNewBookmarkColor] = useState('#fff')
   return (
     <Fragment>
       {mode === First && (
-        <div >
+        <div className="create_bookmark_button">
             <button onClick={handleClick} >CREATE BOOKMARK</button>
           </div>
   
