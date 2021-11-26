@@ -1,0 +1,13 @@
+.create_bookmark_panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: brown;
+ 
+}
+
+.create_bookmark_form{
+  display: flex;
+  flex-direction: column;
+
+}

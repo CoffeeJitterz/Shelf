@@ -2,6 +2,9 @@ import { useState } from "react";
 import axios from 'axios';
 import { HuePicker} from "react-color";
 
+//import styles
+import './styles/create_bookmark_panel.css'
+
 export function Create_bookmark_panel(props){
   //deconstruct props
   const {shelfName, shelfId, color, setColor, onClick} = props;
@@ -23,13 +26,13 @@ export function Create_bookmark_panel(props){
   
 
   return (
-    <div className="stack_edit" >
-      <h6>Create Bookmark on {shelfName}</h6>
+    <div className="create_bookmark_panel" >
+      <p>Create Bookmark on {shelfName}</p>
 
       <div className="displayBookmark" style={{backgroundColor: color}} >
         <p>{name}</p>
       </div>
-        <form onSubmit={handleSubmit}>
+        <form className="create_bookmark_form" onSubmit={handleSubmit}>
         <input 
           type="text"
           required
@@ -44,7 +47,6 @@ export function Create_bookmark_panel(props){
         />
         <HuePicker color={color} onChange={color => setColor(color.hex)}/>
         <div>
-        <button onClick={onClick}>cancel</button>
         <button>Create</button>
         </div>
         </form>
