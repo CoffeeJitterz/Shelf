@@ -15,7 +15,7 @@ import './styles/bookmark_stack.css'
 
 export function Bookmark_stack(props){
 //deconstruct props
-const {onClick, shelfName, bookmarks, shelfId} = props;
+const {onClick, shelfName, bookmarks, shelfId, user_id} = props;
 //set state for adding bookmarks in front end
 const [addBookmark, setAddBookmark] = useState(bookmarks)
 //Create modes for handelClick (toggle)
@@ -70,7 +70,7 @@ const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <
         <button onClick={handleClick}>edit</button>
         </div>
       </div>
-        <Edit_Shelf_panel shelfName={shelfName} color={shelfColor} setColor={setShelfColor} onClick={handleClick} newName={newShelfName} setNewName={setNewShelfName} id={shelfId}/>
+        <Edit_Shelf_panel shelfName={shelfName} color={shelfColor} setColor={setShelfColor} onClick={handleClick} newName={newShelfName} setNewName={setNewShelfName} id={shelfId} user_id={user_id}/>
         <div>
           {output}
           <Create_bookmark onClick={handleClick} color={shelfColor} setColor={setShelfColor} shelfId={shelfId} shelfName={shelfName}/>

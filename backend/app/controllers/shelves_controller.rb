@@ -24,7 +24,7 @@ class ShelvesController < ApplicationController
 
   def update
     shelf = Shelf.find(params[:id])
-    shelf.update_attributes(shelf_params)
+    shelf.update(shelf_params)
     render json: shelf
 
   end
