@@ -8,14 +8,14 @@ import { hextoRgb, complimentaryColor } from '../../helpers/color_helpers';
 //import components
 import {Bookmark} from './Bookmark'
 import { Edit_Shelf_panel } from "./Edit_shelf_panel";
-import {Create} from './Create_bookmark'
+import {Create_bookmark} from './Create_bookmark'
 
 //import styles
 import './styles/bookmark_stack.css'
 
 export function Bookmark_stack(props){
 //deconstruct props
-const {onClick, shelfName, bookmarks} = props;
+const {onClick, shelfName, bookmarks, shelfId} = props;
 
 //Create modes for handelClick (toggle)
 const First = 'First';
@@ -39,7 +39,8 @@ const compColor = complimentaryColor(hextoRgb(shelfColor), 180)
 const compColor2 = complimentaryColor(hextoRgb(shelfColor), 20)
 
 //map through bookmarks array and pass props to <Bookmark />
-const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <Bookmark key={bookmark.id} name={bookmark.name} url={bookmark.url} websiteColor={bookmark.color} onClick={onClick}/>})
+const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <Bookmark key={bookmark.id} name={bookmark.name} url={bookmark.url} websiteColor={bookmark.color} onClick={onClick} shelfId={shelfId} shelfName={shelfName} />})
+console.log(shelfName)
   return (
     <Fragment>
    {/* Bookmark_stack */}
@@ -51,7 +52,7 @@ const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <
           <button onClick={handleClick}>edit</button>
         </div>
         <div>
-          <Create onClick={handleClick} color={shelfColor} setColor={setShelfColor}/>
+          <Create_bookmark onClick={handleClick} color={shelfColor} setColor={setShelfColor} shelfId={shelfId} shelfName={shelfName}/>
           {output}
         </div>
       </div>
@@ -69,7 +70,7 @@ const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <
         <Edit_Shelf_panel shelfName={shelfName} color={shelfColor} setColor={setShelfColor} />
         <div>
           {output}
-          <Create onClick={handleClick} color={shelfColor} setColor={setShelfColor}/>
+          <Create_bookmark onClick={handleClick} color={shelfColor} setColor={setShelfColor} shelfId={shelfId} shelfName={shelfName}/>
         </div>
     </section>
     )}

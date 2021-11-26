@@ -3,34 +3,29 @@ import axios from 'axios';
 import { HuePicker} from "react-color";
 
 export function Create_bookmark_panel(props){
-  //axios request
-axios.post('http://localhost:3000/bookmarks/create', {
-  name: 'Facebook',
-  url: 'https://www.facebook.com/'
-})
-.then((response) => {
-  console.log(response)
-})
-
-  const [name, setName] = useState("null");
-  
   //deconstruct props
-  const {shelfName, color, setColor, onClick} = props;
-
-  //set state for display_bookmark
-  const [displayWebsite, setDisplayWebsite] = useState("Website")
+  const {shelfName, shelfId, color, setColor, onClick} = props;
   const [url, setUrl] = useState("Url")
-
+  const [name, setName] = useState("null");
+  const bookmark = {shelfId, name, url, color};
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    const bookmark = {name, url, color};
-
     console.log(bookmark)
+    //axios request
+    console.log('line 14')
+  axios.post('http://localhost:3000/bookmarks', bookmark)
+  .then((response) => {
+    console.log("Bookmark added")
+  })
   }
+  
+
+  
+
   return (
     <div className="stack_edit" >
-      <h6>Create Bookmark Panel</h6>
+      <h6>Create Bookmark on {shelfName}</h6>
+
       <div className="displayBookmark" style={{backgroundColor: color}} >
         <p>{name}</p>
       </div>
