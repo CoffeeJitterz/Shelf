@@ -7,7 +7,7 @@ export function Create_shelf_panel(props){
 
   return (
     <div className="stack_edit">
-      <h3>Create Shelf Panel</h3>
+      <h3>Create Shelf Panel </h3>
         <p>Name: <input type="text" placeholder={shelfName}></input></p>
         <HuePicker color={color} onChange={color => setColor(color.hex)}/>
         <div>

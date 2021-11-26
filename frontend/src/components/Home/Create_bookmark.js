@@ -2,7 +2,8 @@ import React, { Fragment, useState, useEffect } from "react";
 import {Create_bookmark_panel} from './Create_bookmark_panel'
 import axios from 'axios';
 
-export function Create(props){
+export function Create_bookmark(props){
+  const {shelfId, shelfName} = props;
 //Create modes for handelClick (toggle)
 const First = 'First';
 const Second = 'Second';
@@ -30,7 +31,7 @@ const [newBookmarkColor, setNewBookmarkColor] = useState('#fff')
       )}
       {mode === Second && (
         <div >
-            <Create_bookmark_panel onClick={handleClick} color={newBookmarkColor} setColor={setNewBookmarkColor}/>
+            <Create_bookmark_panel onClick={handleClick} color={newBookmarkColor} setColor={setNewBookmarkColor} shelfId={shelfId} shelfName={shelfName}/>
           </div>
   
       )}

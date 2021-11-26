@@ -4,10 +4,10 @@ import { HuePicker} from "react-color";
 
 export function Create_bookmark_panel(props){
   //deconstruct props
-  const {shelfName, color, setColor, onClick} = props;
+  const {shelfName, shelfId, color, setColor, onClick} = props;
   const [url, setUrl] = useState("Url")
   const [name, setName] = useState("null");
-  const bookmark = {name, url, color};
+  const bookmark = {shelfId, name, url, color};
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(bookmark)
@@ -24,7 +24,8 @@ export function Create_bookmark_panel(props){
 
   return (
     <div className="stack_edit" >
-      <h6>Create Bookmark Panel</h6>
+      <h6>Create Bookmark on {shelfName}</h6>
+
       <div className="displayBookmark" style={{backgroundColor: color}} >
         <p>{name}</p>
       </div>
