@@ -1,16 +1,18 @@
 import { useEffect } from 'react'
-import { useApplicationData } from "../../hooks/userApplicationData";
+import { useApplicationData } from "../../hooks/useApplicationData";
 //import component
 import { Shelf } from './Shelf'
 
 export default function Home(props){
-const { handleDelete, handleUpdate, handleCreate} = useApplicationData();
+const { shelves, handleDelete, handleUpdate, handleCreate, handleGet} = useApplicationData();
   return (
     <div>
       <Shelf 
+      shelves={shelves}
       Delete={handleDelete}
       Update={handleUpdate}
       Create={handleCreate}
+      Get={handleGet}
       />
     </div>
   )

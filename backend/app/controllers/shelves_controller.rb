@@ -19,7 +19,7 @@ class ShelvesController < ApplicationController
   def create
     shelf = Shelf.create(shelf_params)
     render json: shelf
-
+    
   end
 
   def update

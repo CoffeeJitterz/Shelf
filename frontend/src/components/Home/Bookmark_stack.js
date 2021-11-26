@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import axios from 'axios';
+import { useApplicationData } from "../../hooks/useApplicationData";
 import { HuePicker} from "react-color";
 
 //import helpers
@@ -15,9 +15,9 @@ import './styles/bookmark_stack.css'
 
 export function Bookmark_stack(props){
 //deconstruct props
-const {Delete, Update, Create, onClick, shelfName, bookmarks, shelfId, user_id} = props;
-//set state for adding bookmarks in front end
-const [addBookmark, setAddBookmark] = useState(bookmarks)
+const {shelf, Delete, Create, Update, onClick, shelfName, bookmarks, shelfId, user_id} = props;
+const {handleCreate} = useApplicationData();
+
 //Create modes for handelClick (toggle)
 const First = 'First';
 const Second = 'Second';
@@ -32,6 +32,19 @@ const handleClick = () => {
   }
 };
 
+//Create bookmark
+const [url, setUrl] = useState("Url")
+const [name, setName] = useState("null");
+const [bookmarkColor, setBookmarkColor] = useState()
+
+const newBookmark = {shelf_id: shelfId, name, url, color: bookmarkColor};
+const createBookmark = (e) => {
+  e.preventDefault();
+  Create('bookmarks', newBookmark).then(()=>{
+    
+  })
+}
+
 //set state for newShelfName
 const [newShelfName, setNewShelfName] = useState(shelfName);
 
@@ -43,7 +56,7 @@ const compColor = complimentaryColor(hextoRgb(shelfColor), 180)
 const compColor2 = complimentaryColor(hextoRgb(shelfColor), 20)
 
 //map through bookmarks array and pass props to <Bookmark />
-const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <Bookmark 
+const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) => {return <Bookmark 
                         key={bookmark.id} 
                         name={bookmark.name} 
                         url={bookmark.url} 
@@ -66,12 +79,14 @@ const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <
         </div>
         <div>
           <Create_bookmark 
-              onClick={handleClick} 
-              color={shelfColor} 
-              setColor={setShelfColor} 
+              color={bookmarkColor} 
+              setColor={setBookmarkColor} 
+              name={name}
+              setName={setName}
+              url={url}
+              setUrl={setUrl}
               shelfId={shelfId} 
-              shelfName={newShelfName}
-              Create={Create}
+              Create={createBookmark}
               />
           {output}
         </div>
@@ -101,7 +116,16 @@ const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <
         />
         <div>
           {output}
-          <Create_bookmark onClick={handleClick} color={shelfColor} setColor={setShelfColor} shelfId={shelfId} shelfName={shelfName}/>
+          <Create_bookmark 
+            onClick={handleClick} 
+            color={bookmarkColor} 
+            setColor={setBookmarkColor} 
+            name={name}
+            setName={setName}
+            url={url}
+            setUrl={setUrl}
+            shelfId={shelfId} 
+            shelfName={shelfName}/>
         </div>
     </section>
     )}
