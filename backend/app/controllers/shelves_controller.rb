@@ -17,6 +17,24 @@ class ShelvesController < ApplicationController
   end
 
   def create
+    shelf = Shelf.create(shelf_params)
+    render json: shelf
+
+  end
+
+  def destroy
+    Shelf.destroy(params[:id])
+  end
+
+  def update
+    shelf = Shelf.find(params[:id])
+    shelf.update_attributes(shelf_params)
+    render json: shelf
+
+  end
+
+  def shelf_params
+    params.require(:shelf).permit(:id, :name)
 
   end
 

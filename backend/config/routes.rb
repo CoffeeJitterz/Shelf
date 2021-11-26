@@ -54,13 +54,16 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   resources :users, only: [:index]
-  resources :shelves, only: [:index, :create]
-  resources :bookmarks, only: [:index, :create]
+  resources :shelves, only: [:index, :create, :destroy, :update]
+  resources :bookmarks, only: [:index, :create, :destroy, :update]
   resources :categories, only: [:index]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+
+  get '/register' => 'users#new'
+  post '/users' => 'users#create'
 
 
 end
