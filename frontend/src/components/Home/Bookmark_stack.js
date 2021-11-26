@@ -16,7 +16,8 @@ import './styles/bookmark_stack.css'
 export function Bookmark_stack(props){
 //deconstruct props
 const {onClick, shelfName, bookmarks, shelfId} = props;
-
+//set state for adding bookmarks in front end
+const [addBookmark, setAddBookmark] = useState(bookmarks)
 //Create modes for handelClick (toggle)
 const First = 'First';
 const Second = 'Second';
@@ -31,6 +32,9 @@ const handleClick = () => {
   }
 };
 
+//set state for newShelfName
+const [newShelfName, setNewShelfName] = useState(shelfName);
+
 //Set state for ShelfColor
 const [shelfColor, setShelfColor] = useState('#fff')
 
@@ -39,8 +43,7 @@ const compColor = complimentaryColor(hextoRgb(shelfColor), 180)
 const compColor2 = complimentaryColor(hextoRgb(shelfColor), 20)
 
 //map through bookmarks array and pass props to <Bookmark />
-const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <Bookmark key={bookmark.id} name={bookmark.name} url={bookmark.url} websiteColor={bookmark.color} onClick={onClick} shelfId={shelfId} shelfName={shelfName} />})
-console.log(shelfName)
+const output = Array.isArray(bookmarks) && bookmarks.map((bookmark) => {return <Bookmark key={bookmark.id} name={bookmark.name} url={bookmark.url} id={bookmark.id}websiteColor={bookmark.color} onClick={onClick} shelfId={shelfId} shelfName={shelfName} />})
   return (
     <Fragment>
    {/* Bookmark_stack */}
@@ -48,11 +51,11 @@ console.log(shelfName)
     <section className="bookmark_stack" >
       <div style={{backgroundColor: shelfColor}}>
         <div className="shelf_name" style={     {backgroundColor:`rgb(${compColor[0]}, ${compColor[1]}, ${compColor[2]})`}}>
-          <h1  style={{color:`rgb(${compColor2[0]}, ${compColor2[1]}, ${compColor2[2]})`}}>{shelfName}</h1>
+          <h1  style={{color:`rgb(${compColor2[0]}, ${compColor2[1]}, ${compColor2[2]})`}}>{newShelfName}</h1>
           <button onClick={handleClick}>edit</button>
         </div>
         <div>
-          <Create_bookmark onClick={handleClick} color={shelfColor} setColor={setShelfColor} shelfId={shelfId} shelfName={shelfName}/>
+          <Create_bookmark onClick={handleClick} color={shelfColor} setColor={setShelfColor} shelfId={shelfId} shelfName={newShelfName}/>
           {output}
         </div>
       </div>
@@ -63,11 +66,11 @@ console.log(shelfName)
     <section className="bookmark_stack" >
     <div style={{backgroundColor: shelfColor}}>
       <div className="shelf_name" style={     {backgroundColor:`rgb(${compColor[0]}, ${compColor[1]}, ${compColor[2]})`}}>
-        <h1  style={{color:`rgb(${compColor2[0]}, ${compColor2[1]}, ${compColor2[2]})`}}>{shelfName}</h1>
-        <button onClick={handleClick}>V</button>
+        <h1  style={{color:`rgb(${compColor2[0]}, ${compColor2[1]}, ${compColor2[2]})`}}>{newShelfName}</h1>
+        <button onClick={handleClick}>edit</button>
         </div>
       </div>
-        <Edit_Shelf_panel shelfName={shelfName} color={shelfColor} setColor={setShelfColor} />
+        <Edit_Shelf_panel shelfName={shelfName} color={shelfColor} setColor={setShelfColor} onClick={handleClick} newName={newShelfName} setNewName={setNewShelfName} id={shelfId}/>
         <div>
           {output}
           <Create_bookmark onClick={handleClick} color={shelfColor} setColor={setShelfColor} shelfId={shelfId} shelfName={shelfName}/>

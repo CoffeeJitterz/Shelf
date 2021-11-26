@@ -50,7 +50,6 @@ export function Create_bookmark_panel(props){
         <button>Create</button>
         </div>
         </form>
-        <button onClick={onClick}>cancel</button>
       </div>
   )
 }

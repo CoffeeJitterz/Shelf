@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import {Create_shelf_panel} from './Create_shelf_panel'
 
 export function Create_shelf(props){
-
+  
 //Create modes for handelClick (toggle)
 const First = 'First';
 const Second = 'Second';

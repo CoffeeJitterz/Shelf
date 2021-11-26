@@ -1,20 +1,52 @@
 import { useState } from "react";
+import axios from 'axios';
 import { HuePicker} from "react-color";
 
 export function Edit_bookmark_panel(props){
 //deconstruct props
-const {name, website, color, setColor} = props;
- 
+const {id, website, color, setColor, onClick, newName, setNewName} = props;
+console.log('bookmark id', id)
+const [url, setUrl] = useState(website)
+const editedBookmark = {id, newName, url, color};
+const handleSubmit = (e) => {
+  e.preventDefault();
+  console.log(editedBookmark)
+  //axios update request
+axios.put('http://localhost:3000/bookmarks', editedBookmark)
+.then((response) => {
+  console.log("Bookmark Updated")
+})
+}
+
+const handleDelete = (e) => {
+    //axios delete request
+axios.delete(`http://localhost:3000/bookmarks/${id}`)
+.then((response) => {
+  console.log("Bookmark Deleted")
+})
+}
   return (
-    <div className="edit">
-      <h3>Edit Panel</h3>
-        <p>Name: <input type="text" placeholder={name}></input></p>
-        <p>URL: <input type="text" placeholder={website}></input></p>
+    <div className="edit_bookmark_panel">
+     <form className="edit_bookmark_form" onSubmit={handleSubmit}>
+        <input 
+          type="text"
+          required
+          value={newName}
+          onChange={e => setNewName(e.target.value)}
+        />
+         <input 
+          type="text"
+          required
+          value={url}
+          onChange={e => setUrl(e.target.value)}
+        />
         <HuePicker color={color} onChange={color => setColor(color.hex)}/>
         <div>
-        <button>Delete</button>
         <button>Save</button>
+        <button onClick={handleDelete}>Delete</button>
         </div>
-    </div>  
+        </form>
+        <button onClick={onClick}>cancel</button>
+      </div>
   )
 }

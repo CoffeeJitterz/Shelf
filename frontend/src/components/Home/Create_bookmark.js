@@ -28,14 +28,16 @@ const [newBookmarkColor, setNewBookmarkColor] = useState('#fff')
   return (
     <Fragment>
       {mode === First && (
-        <div className="create_bookmark_button">
-            <button onClick={handleClick} >CREATE BOOKMARK</button>
+        <div className="create_bookmark">
+          <input className="open_button" value="+" type="button" onClick={handleClick} />
+         
           </div>
   
       )}
       {mode === Second && (
         <div >
             <Create_bookmark_panel onClick={handleClick} color={newBookmarkColor} setColor={setNewBookmarkColor} shelfId={shelfId} shelfName={shelfName}/>
+            <input className="close_button" value="-" type="button" onClick={handleClick} data-hover="Create New Bookmark" />
           </div>
   
       )}

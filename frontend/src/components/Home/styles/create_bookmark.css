@@ -1,8 +1,15 @@
-.create_bookmark_button {
+.create_bookmark {
   display: flex;
   justify-content: center;
   margin-top: .5em;
 }
-button:hover {
-  margin: 1em;
+.open_button {
+  background-color: transparent;
+  border: none;
+}
+
+
+.open_button:hover::after{
+  content: attr(data-hover);
+
 }
