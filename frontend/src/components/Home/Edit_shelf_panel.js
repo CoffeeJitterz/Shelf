@@ -20,7 +20,7 @@ const handleDelete = (e) => {
   //axios delete request
 axios.delete(`http://localhost:3000/shelves/${id}`)
 .then((response) => {
-console.log("Bookmark Deleted")
+console.log("Shelf Deleted")
 })}
   return (
     <div className="edit_shelf_panel">

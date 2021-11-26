@@ -7,9 +7,9 @@ import './styles/create_shelf_panel.css'
 
 export function Create_shelf_panel(props){
   //deconstruct props
-  const {shelfName, color, setColor, onClick} = props;
+  const {shelfName, color, setColor, onClick, user_id, shelf_id} = props;
   const [newShelfName, setNewShelfName] = useState('New Shelf');
-  const newShelf = {newShelfName, color};
+  const newShelf = {user_id, name: newShelfName, color};
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -22,10 +22,6 @@ class ShelvesController < ApplicationController
 
   end
 
-  def destroy
-    Shelf.destroy(params[:id])
-  end
-
   def update
     shelf = Shelf.find(params[:id])
     shelf.update_attributes(shelf_params)
@@ -33,8 +29,12 @@ class ShelvesController < ApplicationController
 
   end
 
+  def destroy
+    Shelf.destroy(params[:id])
+  end
+
   def shelf_params
-    params.require(:shelf).permit(:id, :name)
+    params.require(:shelf).permit(:id, :name, :color, :user_id)
 
   end
 

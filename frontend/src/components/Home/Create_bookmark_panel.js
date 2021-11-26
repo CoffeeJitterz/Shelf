@@ -10,12 +10,11 @@ export function Create_bookmark_panel(props){
   const {shelfName, shelfId, color, setColor, onClick} = props;
   const [url, setUrl] = useState("Url")
   const [name, setName] = useState("null");
-  const bookmark = {shelfId, name, url, color};
+  const bookmark = {shelf_id: shelfId, name, url, color};
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(bookmark)
     //axios request
-    console.log('line 14')
   axios.post('http://localhost:3000/bookmarks', bookmark)
   .then((response) => {
     console.log("Bookmark added")
