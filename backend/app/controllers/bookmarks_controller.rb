@@ -6,13 +6,16 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = Bookmark.create(params[:bookmark])
+    @bookmark = Bookmark.create(bookmark_params)
     if @bookmark
       flash[:success] = "Thanks for adding new bookmark"
-      redirect_to @bookmark
+      render json: @bookmark
     else
       flash[:error] = 'Error, please try again.'
     redirect_to @bookmark
     end
-
+  end
+  def bookmark_params 
+    params.require(:bookmark).permit(:name, :url, :color)
+  end
   end
