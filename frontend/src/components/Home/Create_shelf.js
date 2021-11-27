@@ -1,6 +1,8 @@
 import React, { Fragment, useState, useEffect } from "react";
 import {Create_shelf_panel} from './Create_shelf_panel'
 
+import './styles/create_shelf.css'
+
 export function Create_shelf(props){
   const {Create, user_id} = props;
 //Create modes for handelClick (toggle)
@@ -23,13 +25,13 @@ const [newShelfColor, setShelfColor] = useState('#fff')
   return (
     <Fragment>
       {mode === First && (
-        <div >
-            <button onClick={handleClick} >CREATE SHELF</button>
+        <div className="create_shelf">
+            <input className="create_button" type="button" value="+" onClick={handleClick} />
           </div>
   
       )}
       {mode === Second && (
-        <div >
+        <div className="create_shelf">
             <Create_shelf_panel 
               onClick={handleClick} 
               color={newShelfColor} 

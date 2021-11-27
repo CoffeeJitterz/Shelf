@@ -21,6 +21,7 @@ const output = Array.isArray(shelves) && shelves.map(shelf => {
           user_id={shelf.user_id} 
           shelfName={shelf.name} 
           shelfId={shelf.id} 
+          baseColor={shelf.color}
           onClick={onClick} 
           bookmarks={shelf.bookmarks}
           Delete={Delete}
@@ -33,7 +34,7 @@ const output = Array.isArray(shelves) && shelves.map(shelf => {
    
     <div className="shelf">
       <Create_shelf 
-        user_id='1' 
+        user_id='6' 
         onClick={onClick}
         Create={Create}
         />

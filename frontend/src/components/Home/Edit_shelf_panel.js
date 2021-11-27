@@ -8,6 +8,7 @@ const {Delete, Update, id, shelfName, color, setColor, onClick, newName, setNewN
 const editedShelf = {user_id, id, name: newName, color};
 
 const updateShelf = (e) => {
+  console.log(editedShelf)
   e.preventDefault();
   Update('shelves', id, editedShelf).then(()=>{
     console.log("THEN I DID THIS")
@@ -29,7 +30,7 @@ const deleteShelf = () => {
         />
         <HuePicker color={color} onChange={color => setColor(color.hex)}/>
         <div>
-        <button>Save</button>
+        <button onClick={onClick}>Save</button>
         <button onClick={deleteShelf}>Delete</button>
         </div>
         </form>

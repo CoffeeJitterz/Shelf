@@ -4,17 +4,35 @@ import axios from "axios";
 export function useApplicationData() {
 const [shelves, setShelves] = useState()
 
+const handleGet = (param) => {
+  axios.get(`http://localhost:3000/${param}`).then(res => {
+    console.log(res.data)
+    setShelves(res.data)
+  })
+}
+
   const handleDelete = (param, id) => {
     //axios delete request
 return axios.delete(`http://localhost:3000/${param}/${id}`)
 .then((response) => {
+  axios.get(`http://localhost:3000/shelves`)
+     .then ((response) => {
+      console.log(response)
+      setShelves(response.data)
+     })
   console.log(`${param} Deleted`)
+  
 })
 }
 const handleUpdate = (param, id, update) => {
   //axios request
 return axios.put(`http://localhost:3000/${param}/${id}`, update)
 .then((response) => {
+  axios.get(`http://localhost:3000/shelves`)
+     .then ((response) => {
+      console.log(response)
+      setShelves(response.data)
+     })
   console.log(`${param} Updated`)
 })
 }
@@ -32,11 +50,5 @@ const handleCreate = (param, creation) => {
    })
 }
 
-const handleGet = (param) => {
-  axios.get(`http://localhost:3000/${param}`).then(res => {
-    console.log(res.data)
-    setShelves(res.data)
-  })
-}
-return { shelves, handleDelete, handleUpdate, handleCreate, handleGet, getBookmarks}
+return { shelves, handleDelete, handleUpdate, handleCreate, handleGet}
 }

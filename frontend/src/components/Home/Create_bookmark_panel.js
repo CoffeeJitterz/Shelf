@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from 'axios';
 import { HuePicker} from "react-color";
 
+
 //import styles
 import './styles/create_bookmark_panel.css'
 
@@ -40,6 +41,7 @@ export function Create_bookmark_panel(props){
         <button>Create</button>
         </div>
         </form>
+        
       </div>
   )
 }

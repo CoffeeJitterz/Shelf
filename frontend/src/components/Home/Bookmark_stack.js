@@ -15,8 +15,8 @@ import './styles/bookmark_stack.css'
 
 export function Bookmark_stack(props){
 //deconstruct props
-const {shelf, Delete, Create, Update, onClick, shelfName, bookmarks, shelfId, user_id} = props;
-const {handleCreate} = useApplicationData();
+const {shelf, Delete, Create, Update, onClick, shelfName, bookmarks, shelfId, user_id, baseColor} = props;
+
 
 //Create modes for handelClick (toggle)
 const First = 'First';
@@ -49,11 +49,11 @@ const createBookmark = (e) => {
 const [newShelfName, setNewShelfName] = useState(shelfName);
 
 //Set state for ShelfColor
-const [shelfColor, setShelfColor] = useState('#fff')
+const [shelfColor, setShelfColor] = useState(baseColor)
 
 //create complimentary colors usering helper function complimentaryColor
-const compColor = complimentaryColor(hextoRgb(shelfColor), 180)
-const compColor2 = complimentaryColor(hextoRgb(shelfColor), 20)
+// const compColor = complimentaryColor(hextoRgb(shelfColor), 180)
+// const compColor2 = complimentaryColor(hextoRgb(shelfColor), 20)
 
 //map through bookmarks array and pass props to <Bookmark />
 const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) => {return <Bookmark 
@@ -73,8 +73,8 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
     {mode === First && (
     <section className="bookmark_stack" >
       <div style={{backgroundColor: shelfColor}}>
-        <div className="shelf_name" style={     {backgroundColor:`rgb(${compColor[0]}, ${compColor[1]}, ${compColor[2]})`}}>
-          <h1  style={{color:`rgb(${compColor2[0]}, ${compColor2[1]}, ${compColor2[2]})`}}>{newShelfName}</h1>
+        <div className="shelf_name">
+          <h1>{newShelfName}</h1>
           <button onClick={handleClick}>edit</button>
         </div>
         <div>
@@ -96,12 +96,6 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
     {/* Bookmark_stack with Edit_shelf_panel */}
      {mode === Second && (
     <section className="bookmark_stack" >
-    <div style={{backgroundColor: shelfColor}}>
-      <div className="shelf_name" style={     {backgroundColor:`rgb(${compColor[0]}, ${compColor[1]}, ${compColor[2]})`}}>
-        <h1  style={{color:`rgb(${compColor2[0]}, ${compColor2[1]}, ${compColor2[2]})`}}>{newShelfName}</h1>
-        <button onClick={handleClick}>edit</button>
-        </div>
-      </div>
         <Edit_Shelf_panel 
         shelfName={shelfName} 
         color={shelfColor} 
@@ -114,6 +108,13 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
         Delete={Delete}
         Update={Update}
         />
+    <div style={{backgroundColor: shelfColor}}>
+      <div>
+        <h1>{newShelfName}</h1>
+        <button onClick={handleClick}>edit</button>
+        </div>
+      </div>
+      
         <div>
           {output}
           <Create_bookmark 
