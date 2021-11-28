@@ -4,8 +4,8 @@ import { HuePicker} from "react-color";
 
 export function Edit_bookmark_panel(props){
 //deconstruct props
-const {Delete, Update, id, website, color, setColor, onClick, newName, setNewName, shelf_id} = props;
-console.log('bookmark id', id)
+const {Delete, Update, id, website, color, setColor, newName, setNewName, shelf_id} = props;
+
 const [url, setUrl] = useState(website)
 const editedBookmark = {shelf_id, id: id, name: newName, url: url, color: color};
 
@@ -20,6 +20,8 @@ const deleteBookmark = () => {
     console.log("THEN I DID THIS")
   })
 }
+
+
 
   return (
     <div className="edit_bookmark_panel">

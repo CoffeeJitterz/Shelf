@@ -71,8 +71,8 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
     <Fragment>
    {/* Bookmark_stack */}
     {mode === First && (
-    <section className="bookmark_stack" >
-      <div style={{backgroundColor: shelfColor}}>
+    <section className="bookmark_stack" style={{backgroundColor: shelfColor}}>
+      <div >
         <div className="shelf_name">
           <h1>{newShelfName}</h1>
           <button onClick={handleClick}>edit</button>
@@ -95,7 +95,7 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
     )}
     {/* Bookmark_stack with Edit_shelf_panel */}
      {mode === Second && (
-    <section className="bookmark_stack" >
+    <section className="bookmark_stack" style={{backgroundColor: shelfColor}}>
         <Edit_Shelf_panel 
         shelfName={shelfName} 
         color={shelfColor} 
@@ -108,7 +108,7 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
         Delete={Delete}
         Update={Update}
         />
-    <div style={{backgroundColor: shelfColor}}>
+    <div >
       <div>
         <h1>{newShelfName}</h1>
         <button onClick={handleClick}>edit</button>
