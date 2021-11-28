@@ -28,7 +28,7 @@ const output = Array.isArray(shelves) && shelves.map(shelf => {
   return (
    
     <div className="shelf">
-      <Create_shelf user_id='6' onClick={onClick}/>
+      <Create_shelf user_id='11' onClick={onClick}/>
       {output}
 
     </div>  
