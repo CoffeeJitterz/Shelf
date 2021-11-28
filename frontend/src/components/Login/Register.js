@@ -4,6 +4,8 @@ import axios from "axios";
 
 import './styles/login.css'
 
+import './styles/login.css'
+
 export default function Register(props){
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
