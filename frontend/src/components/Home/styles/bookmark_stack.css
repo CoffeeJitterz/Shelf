@@ -1,8 +1,9 @@
 .bookmark_stack {
   display: flex;
   flex-direction: column;
-  width: 40em;
-  height: 22vh;
+  
+  height:30em;
+  margin-top: 4em;
 }
 
 

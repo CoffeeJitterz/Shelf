@@ -4,27 +4,24 @@ import { HuePicker} from "react-color";
 
 export function Edit_Shelf_panel(props){
 //deconstruct props
-const {id, shelfName, color, setColor, onClick, newName, setNewName} = props;
-const editedShelf = {id, newName, color};
+const {Delete, Update, id, shelfName, color, setColor, onClick, newName, setNewName, user_id} = props;
+const editedShelf = {user_id, id, name: newName, color};
 
-const handleSubmit = (e) => {
-  e.preventDefault();
+const updateShelf = (e) => {
   console.log(editedShelf)
-  //axios request
-axios.put('http://localhost:3000/shelves', editedShelf)
-.then((response) => {
-  console.log("Shelf updated")
-})
+  e.preventDefault();
+  Update('shelves', id, editedShelf).then(()=>{
+    console.log("THEN I DID THIS")
+  })
 }
-const handleDelete = (e) => {
-  //axios delete request
-axios.delete(`http://localhost:3000/shelves/${id}`)
-.then((response) => {
-console.log("Shelf Deleted")
-})}
+const deleteShelf = () => {
+  Delete('shelves', id).then(()=>{
+    console.log("THEN I DID THIS")
+  })
+}
   return (
     <div className="edit_shelf_panel">
-     <form className="edit_shelf_form" onSubmit={handleSubmit}>
+     <form className="edit_shelf_form" onSubmit={updateShelf}>
         <input 
           type="text"
           required
@@ -33,8 +30,8 @@ console.log("Shelf Deleted")
         />
         <HuePicker color={color} onChange={color => setColor(color.hex)}/>
         <div>
-        <button>Save</button>
-        <button onClick={handleDelete}>Delete</button>
+        <button onClick={onClick}>Save</button>
+        <button onClick={deleteShelf}>Delete</button>
         </div>
         </form>
         <button onClick={onClick}>cancel</button>
