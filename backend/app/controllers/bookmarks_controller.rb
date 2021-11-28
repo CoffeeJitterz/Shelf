@@ -35,7 +35,7 @@ class BookmarksController < ApplicationController
   
     def update
       bookmark = Bookmark.find(params[:id])
-      bookmark.update_attributes(bookmark_params)
+      bookmark.update(bookmark_params)
       render json: bookmark
   
     end

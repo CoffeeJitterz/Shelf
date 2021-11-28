@@ -2,28 +2,20 @@ import { useState } from "react";
 import axios from 'axios';
 import { HuePicker} from "react-color";
 
+
 //import styles
 import './styles/create_bookmark_panel.css'
 
 export function Create_bookmark_panel(props){
   //deconstruct props
-  const {shelfName, shelfId, color, setColor, onClick} = props;
-  const [url, setUrl] = useState("Url")
-  const [name, setName] = useState("null");
-  const bookmark = {shelf_id: shelfId, name, url, color};
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(bookmark)
-    //axios request
-  axios.post('http://localhost:3000/bookmarks', bookmark)
-  .then((response) => {
-    console.log("Bookmark added")
-  })
-  }
+  const {Create, name, setName, url, setUrl, color, setColor, shelfName, shelfId,  onClick} = props;
   
-
-  
-
+// const createBookmark = (e) => {
+//   e.preventDefault();
+//   Create('bookmarks', newBookmark).then(()=>{
+//     console.log("Then I did this")
+//   })
+// }
   return (
     <div className="create_bookmark_panel" >
       <p>Create Bookmark on {shelfName}</p>
@@ -31,7 +23,7 @@ export function Create_bookmark_panel(props){
       <div className="displayBookmark" style={{backgroundColor: color}} >
         <p>{name}</p>
       </div>
-        <form className="create_bookmark_form" onSubmit={handleSubmit}>
+        <form className="create_bookmark_form" onSubmit={Create}>
         <input 
           type="text"
           required
@@ -49,6 +41,7 @@ export function Create_bookmark_panel(props){
         <button>Create</button>
         </div>
         </form>
+        
       </div>
   )
 }

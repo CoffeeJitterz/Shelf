@@ -5,7 +5,7 @@ import React, { useState } from "react";
 //import { useHistory } from "react-router-dom";
 //import { useNavigate } from "react-router-dom";
 
-
+import './styles/login.css'
 
 
 export default function Login(props){
@@ -37,7 +37,7 @@ export default function Login(props){
   }
 
   return (
-    <div>
+    <div className="login">
       <h1>Login</h1>
       
       <input
