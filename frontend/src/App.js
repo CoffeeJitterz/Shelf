@@ -19,7 +19,7 @@ function App() {
     <BrowserRouter>
     <Navbar />
       <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route path="/" element={loggedIn ? <Home/> : <Login/>} /> 
         <Route path="/login" element={loggedIn.loggedInStatus ? <Navigate to="/"/> : <Login loggedIn={loggedIn} setloggedIn={setloggedIn}  />} />
         <Route path="/register" element={<Register/>} />
      

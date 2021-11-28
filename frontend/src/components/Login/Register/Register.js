@@ -1,10 +1,28 @@
 
 import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom"; 
+
 
 export default function Register(props){
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   function handleSubmit(event) {
+    axios.post('http://localhost:3000/users', { user: {
+      email,
+      password
+    }},
+    //  { withCredentials: true }
+    )
+    .then(res => {
+      console.log(res)
+      navigate("/")
+    })
+     
+    .catch(e => {
+      console.log(e)
+    })
     event.preventDefault();
 
   }
@@ -13,21 +31,21 @@ export default function Register(props){
       <h1>
         Register
       </h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input type="text" 
-        className="login_form"
+        className="registration_form"
             value={email}
             placeholder="Enter email..."
             onChange={(e) => setEmail(e.target.value)}>
         </input>
         <input
-            className="login_form_password"
+            className="registration_form_password"
             type="password"
             value={password}
             placeholder="Enter password..."
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button onClick={handleSubmit} >Login</button>
+          <button type="submit">Register</button>
       </form>
     </div>
   )
