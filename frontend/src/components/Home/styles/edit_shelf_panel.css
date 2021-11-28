@@ -1,0 +1,27 @@
+.edit_shelf_panel {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 1em;
+}
+
+.edit_shelf_form {
+  display: flex;
+flex-direction: column;
+align-items: center;
+
+}
+.color_picker {
+  margin:1em;
+  margin-bottom: 0em;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin:1em;
+}
+.save_delete {
+  display: flex;
+  justify-content: flex-end;
+}

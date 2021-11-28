@@ -20,17 +20,19 @@ export function Create_bookmark_panel(props){
     <div className="create_bookmark_panel" >
       <p>Create Bookmark on {shelfName}</p>
 
-      <div className="displayBookmark" style={{backgroundColor: color}} >
+      <div className="display_bookmark" style={{backgroundColor: color}} >
         <p>{name}</p>
       </div>
         <form className="create_bookmark_form" onSubmit={Create}>
         <input 
+          className="name_input"
           type="text"
           required
           value={name}
           onChange={e => setName(e.target.value)}
         />
         <input 
+          className="url_input"
           type="text"
           required
           value={url}
@@ -41,7 +43,7 @@ export function Create_bookmark_panel(props){
         <button>Create</button>
         </div>
         </form>
-        
+        <input className="close_button" value="-" type="button" onClick={onClick} />
       </div>
   )
 }

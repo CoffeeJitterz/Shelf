@@ -2,9 +2,16 @@
   display: flex;
   justify-content: center;
   margin-top: .5em;
+  background-color: transparent;
+  border-style: dashed;
+  border-width: 3px;
+  border-color: violet;
+  width: 40vw;
+  height: 8vh;
 }
 .open_button {
   background-color: transparent;
+  color: violet;
   border: none;
 }
 

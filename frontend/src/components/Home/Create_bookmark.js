@@ -48,7 +48,6 @@ const [newBookmarkColor, setNewBookmarkColor] = useState('#fff')
               shelfName={shelfName}
               Create={Create}
               />
-            <input className="close_button" value="-" type="button" onClick={handleClick} />
           </div>
   
       )}

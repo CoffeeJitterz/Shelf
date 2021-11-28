@@ -2,12 +2,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: brown;
+  background-color: transparent;
+  border-style: dashed;
+  border-width: 3px;
+  border-color: violet;
  
 }
-
+.display_bookmark {
+  display: flex;
+  justify-content: center;
+  width: 40vw;
+  height: 8vh;
+  margin:1em;
+}
 .create_bookmark_form{
   display: flex;
   flex-direction: column;
-
+}
+.name_input {
+  margin: 1em;
+}
+.url_input {
+  margin: 1em;
+}
+.close_button {
+  background-color: transparent;
+  border: none;
+  color: violet;
 }

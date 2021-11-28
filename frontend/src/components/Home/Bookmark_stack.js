@@ -15,7 +15,7 @@ import './styles/bookmark_stack.css'
 
 export function Bookmark_stack(props){
 //deconstruct props
-const {shelf, Delete, Create, Update, onClick, shelfName, bookmarks, shelfId, user_id, baseColor} = props;
+const {shelf, Delete, Create, Update, shelfName, bookmarks, shelfId, user_id, baseColor} = props;
 
 
 //Create modes for handelClick (toggle)
@@ -49,7 +49,7 @@ const createBookmark = (e) => {
 const [newShelfName, setNewShelfName] = useState(shelfName);
 
 //Set state for ShelfColor
-const [shelfColor, setShelfColor] = useState(baseColor)
+const [shelfColor, setShelfColor] = useState(baseColor ? baseColor : '#fff')
 
 //create complimentary colors usering helper function complimentaryColor
 // const compColor = complimentaryColor(hextoRgb(shelfColor), 180)
@@ -61,7 +61,7 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
                         name={bookmark.name} 
                         url={bookmark.url} 
                         id={bookmark.id}
-                        websiteColor={bookmark.color} onClick={onClick} 
+                        websiteColor={bookmark.color} onClick={handleClick} 
                         shelfId={shelfId} 
                         shelfName={shelfName} 
                         Delete={Delete}
@@ -72,12 +72,8 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
    {/* Bookmark_stack */}
     {mode === First && (
     <section className="bookmark_stack" style={{backgroundColor: shelfColor}}>
-      <div >
-        <div className="shelf_name">
+        <input className="edit_button" type="button" value="Edit Shelf" onClick={handleClick}/>
           <h1>{newShelfName}</h1>
-          <button onClick={handleClick}>edit</button>
-        </div>
-        <div>
           <Create_bookmark 
               color={bookmarkColor} 
               setColor={setBookmarkColor} 
@@ -89,8 +85,6 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
               Create={createBookmark}
               />
           {output}
-        </div>
-      </div>
     </section>
     )}
     {/* Bookmark_stack with Edit_shelf_panel */}
@@ -111,7 +105,6 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
     <div >
       <div>
         <h1>{newShelfName}</h1>
-        <button onClick={handleClick}>edit</button>
         </div>
       </div>
       

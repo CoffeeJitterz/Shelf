@@ -12,7 +12,7 @@ import './styles/bookmark.css'
 
 export function Bookmark(props){
 //deconstruct props
-const {Delete, Update, id, url, name, websiteColor, shelfId} = props;
+const {Delete, Update, id, url, name, websiteColor, shelfId, onClick} = props;
 
 //Create modes for handelClick (toggle)
 const Closed = 'Closed';
@@ -37,13 +37,13 @@ console.log(shelfId)
     <Fragment>
     {/* Bookmark_stack */}
     {mode === Closed && (
-      <section>
+      <section className="bookmark_container">
       <div className="bookmark" style={{backgroundColor: bookmarkColor}} onClick={()=> window.open(url, "_blank")}>
         <div>
           <p>{newBookmarkName}</p>
         </div>
-      <button onClick={handleClick}>edit</button>
       </div>
+      <input className="edit_button" type="button" Value="Edit Bookmark" onClick={handleClick}/>
       </section>
     )}
     {/* Bookmark with edit_panel */}
@@ -54,7 +54,6 @@ console.log(shelfId)
           <p>{newBookmarkName}</p>
           <p>{url}</p>
         </div>
-      <button onClick={handleClick}>^</button>
       </div>
       <Edit_bookmark_panel 
           id={id} 
@@ -67,6 +66,7 @@ console.log(shelfId)
           shelf_id={shelfId}
           Delete={Delete}
           Update={Update}
+          onClick={onClick}
           />
       </section>
     )}

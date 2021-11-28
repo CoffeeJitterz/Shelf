@@ -1,27 +1,25 @@
 .bookmark_stack {
   display: flex;
-  flex-direction: column;
-  
+  flex-direction: column; 
+  align-items: center;
   height:30em;
-  margin-top: 4em;
+  margin-top: 3em;
 }
 
 
 .stack_edit {
-  display: flex;
-flex-direction: column;
-align-items: center;
-width: 40em;
+display: flex;
+width: 40vw;
 height: 22vh;
 padding: 1em;
 background-color: rgb(255, 225, 189);
 }
-
-
+.edit_button {
+  width: 40vw;
+}
 
 .shelf_name {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
 }
