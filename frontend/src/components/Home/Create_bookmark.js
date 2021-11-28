@@ -7,7 +7,7 @@ import './styles/create_bookmark.css'
 
 
 export function Create_bookmark(props){
-  const {shelfId, shelfName} = props;
+  const {Create, name, setName, url, setUrl, color, setColor, shelfId, shelfName} = props;
 //Create modes for handelClick (toggle)
 const First = 'First';
 const Second = 'Second';
@@ -36,8 +36,19 @@ const [newBookmarkColor, setNewBookmarkColor] = useState('#fff')
       )}
       {mode === Second && (
         <div >
-            <Create_bookmark_panel onClick={handleClick} color={newBookmarkColor} setColor={setNewBookmarkColor} shelfId={shelfId} shelfName={shelfName}/>
-            <input className="close_button" value="-" type="button" onClick={handleClick} data-hover="Create New Bookmark" />
+            <Create_bookmark_panel
+               color={color} 
+               setColor={setColor} 
+               name={name}
+               setName={setName}
+               url={url}
+              setUrl={setUrl} 
+              onClick={handleClick} 
+              shelfId={shelfId} 
+              shelfName={shelfName}
+              Create={Create}
+              />
+            <input className="close_button" value="-" type="button" onClick={handleClick} />
           </div>
   
       )}

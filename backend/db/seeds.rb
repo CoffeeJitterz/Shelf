@@ -19,12 +19,14 @@ shelf3 = Shelf.create(name: 'Other', user_id: user4.id)
 shelf4 = Shelf.create(name: 'Other', user_id: user5.id)
 
 # Jimmy's Shelves
+
 jimmyShelf1 = Shelf.create(name: 'Main Shelf', user_id: user1.id)
 jimmyShelf2 = Shelf.create(name: 'Games', user_id: user1.id)
 jimmyShelf3 = Shelf.create(name: 'News', user_id: user1.id)
 jimmyShelf4 = Shelf.create(name: 'Movies', user_id: user1.id)
 jimmyShelf5 = Shelf.create(name: 'Blogs', user_id: user1.id)
 jimmyShelf6 = Shelf.create(name: 'Articals', user_id: user1.id)
+
 
 category1 = Category.create(name: 'Entertainment')
 category2 = Category.create(name: 'News')

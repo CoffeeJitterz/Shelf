@@ -3,8 +3,12 @@ class ShelvesController < ApplicationController
   def index
     # @shelves = Shelf.all
 
+
     @shelves = Shelf.includes(:bookmarks).where(user_id: 11).map do |shelf|
       bookmarks = shelf.bookmarks
+
+    
+
       shelf.as_json.merge({bookmarks: bookmarks})
     end
 
@@ -19,12 +23,12 @@ class ShelvesController < ApplicationController
   def create
     shelf = Shelf.create(shelf_params)
     render json: shelf
-
+    
   end
 
   def update
     shelf = Shelf.find(params[:id])
-    shelf.update_attributes(shelf_params)
+    shelf.update(shelf_params)
     render json: shelf
 
   end
