@@ -1,22 +1,29 @@
 .create_bookmark {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: .5em;
   background-color: transparent;
   border-style: dashed;
   border-width: 3px;
   border-color: violet;
+  box-shadow: purple;
   width: 40vw;
   height: 8vh;
 }
-.open_button {
+.create_bookmark:hover{
+  box-shadow: 5px 5px purple;
+}
+.open_create_bookmark {
   background-color: transparent;
-  color: violet;
-  border: none;
+  border-width: 4px;
+  height: 2em;
+  border-style: outset; 
+  border-color: rgb(99, 97, 255);
 }
 
 
-.open_button:hover::after{
-  content: attr(data-hover);
+.open_create_bookmark:hover{
+  border-style: inset; 
 
 }

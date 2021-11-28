@@ -2,6 +2,10 @@ import { useState } from "react";
 import axios from 'axios';
 import { HuePicker} from "react-color";
 
+//Font awesome
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faTrashAlt, faSave} from '@fortawesome/free-solid-svg-icons'
+
 //import styles
 import './styles/edit_shelf_panel.css'
 
@@ -24,6 +28,7 @@ const deleteShelf = () => {
 }
   return (
     <div className="edit_shelf_panel">
+   
      <form className="edit_shelf_form" onSubmit={updateShelf}>
         <input 
           type="text"
@@ -32,13 +37,14 @@ const deleteShelf = () => {
           onChange={e => setNewName(e.target.value)}
         />
         <HuePicker className="color_picker" color={color} onChange={color => setColor(color.hex)}/>
-        <div className="buttons">
+        <div className="edit_shelf_buttons">
           <div>
-            <button>Save</button>
-            <button onClick={deleteShelf}>Delete</button>
+            <button className="bookmark_trash"><FontAwesomeIcon icon={faSave}></FontAwesomeIcon></button>
+      <button className="bookmark_trash" onClick={deleteShelf}><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon></button>
+            
           </div>
           <div>
-            <button onClick={onClick}>cancel</button>
+            
           </div>
         </div>
         </form>

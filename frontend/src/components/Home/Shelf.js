@@ -3,6 +3,9 @@ import React, { Fragment, useState, useEffect } from "react";
 import {Bookmark_stack} from './Bookmark_stack'
 import {Create_shelf} from './Create_shelf'
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faWrench} from '@fortawesome/free-solid-svg-icons'
+
 import './styles/shelf.css'
 
 export function Shelf (props) {
@@ -37,6 +40,7 @@ const output = Array.isArray(shelves) && shelves.map(shelf => {
       Create={Create}
       />            
       {output}
+      
     </div>  
   
    

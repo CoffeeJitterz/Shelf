@@ -1,7 +1,19 @@
+.create_shelf {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border-style: dashed;
+  border-width: 3px;
+  border-color: violet;
+  margin: 1em;
+  margin-top: 3.5em;
+}
+
 .create_button {
   background-color: transparent;
   border: none;
   width:2em;
-  height: 13vh;
+  height: 10vh;
   margin-top: 4em;
+  color: violet;
 }

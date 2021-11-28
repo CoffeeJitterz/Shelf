@@ -2,6 +2,10 @@ import { useState } from "react";
 import axios from 'axios';
 import { HuePicker} from "react-color";
 
+//Font awesome
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faTrashAlt, faSave} from '@fortawesome/free-solid-svg-icons'
+
 //import styles
 import './styles/edit_bookmark_panel.css'
 export function Edit_bookmark_panel(props){
@@ -41,10 +45,9 @@ const deleteBookmark = () => {
           onChange={e => setUrl(e.target.value)}
         />
         <HuePicker className="color_picker" color={color} onChange={color => setColor(color.hex)}/>
-        <div className="buttons">
-        <button>Save</button>
-        <button onClick={deleteBookmark}>Delete</button>
-        <button onClick={onClick}>cancel</button>
+        <div className="edit_bookmark_buttons">
+        <button className="bookmark_save" onClick={onClick}><FontAwesomeIcon icon={faSave}></FontAwesomeIcon></button>
+        <button className="bookmark_delete" onClick={deleteBookmark}><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon></button>
         </div>
         </form>
       </div>

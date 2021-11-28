@@ -2,6 +2,9 @@ import { useState } from "react";
 import axios from 'axios';
 import { HuePicker} from "react-color";
 
+//Font awesome
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faTimesCircle} from '@fortawesome/free-solid-svg-icons'
 
 //import styles
 import './styles/create_bookmark_panel.css'
@@ -43,7 +46,7 @@ export function Create_bookmark_panel(props){
         <button>Create</button>
         </div>
         </form>
-        <input className="close_button" value="-" type="button" onClick={onClick} />
+        <button onClick={onClick}><FontAwesomeIcon icon={faTimesCircle} /></button>
       </div>
   )
 }

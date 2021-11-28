@@ -2,6 +2,10 @@ import React, { Fragment, useState, useEffect } from "react";
 import { useApplicationData } from "../../hooks/useApplicationData";
 import { HuePicker} from "react-color";
 
+//Font awesome
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faWrench, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
+
 //import helpers
 import { hextoRgb, complimentaryColor } from '../../helpers/color_helpers';
 
@@ -72,7 +76,7 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
    {/* Bookmark_stack */}
     {mode === First && (
     <section className="bookmark_stack" style={{backgroundColor: shelfColor}}>
-        <input className="edit_button" type="button" value="Edit Shelf" onClick={handleClick}/>
+      <button className="bookmark_stack_wrench" onClick={handleClick}><FontAwesomeIcon icon={faWrench}></FontAwesomeIcon></button>
           <h1>{newShelfName}</h1>
           <Create_bookmark 
               color={bookmarkColor} 
@@ -90,6 +94,7 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
     {/* Bookmark_stack with Edit_shelf_panel */}
      {mode === Second && (
     <section className="bookmark_stack" style={{backgroundColor: shelfColor}}>
+      <button className="bookmark_wrench" onClick={handleClick}><FontAwesomeIcon icon={faTimesCircle}></FontAwesomeIcon></button>
         <Edit_Shelf_panel 
         shelfName={shelfName} 
         color={shelfColor} 
@@ -106,10 +111,8 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
       <div>
         <h1>{newShelfName}</h1>
         </div>
-      </div>
-      
+      </div>  
         <div>
-          {output}
           <Create_bookmark 
             onClick={handleClick} 
             color={bookmarkColor} 
@@ -120,6 +123,7 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
             setUrl={setUrl}
             shelfId={shelfId} 
             shelfName={shelfName}/>
+          {output}
         </div>
     </section>
     )}

@@ -6,20 +6,27 @@
 .bookmark {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content:space-evenly;
+  justify-content: space-between;
+  align-items:center;
   width: 40vw;
   height: 8vh;
   padding: 1em;
   margin: 1em;
-  margin-bottom: 0px;
-
+}
+.bookmark_name {
+  display: flex;
+  justify-self: center;
+}
+.bookmark:hover {
+  box-shadow:6px 6px rgb(13, 5, 126);
 }
 
-.edit_button {
-  width: 100%;
+.bookmark_wrench {
+  background-color: transparent;
+  border-width: 5px;
+  height: 2em;
+  border-style: outset; 
 }
-
-input {
-  width: 30vw;
+.bookmark_wrench:hover {
+  border-style: inset;  
 }

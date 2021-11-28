@@ -8,16 +8,40 @@
   .edit_bookmark_form {
     display: flex;
   flex-direction: column;
-  align-items: center;
+  
   }
 
   .color_picker {
     margin:1em;
     margin-bottom: 0em;
   }
-  .buttons {
+  .edit_bookmark_buttons {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin:1em;
+    justify-content: flex-end;
+
+    
   }
+ .bookmark_save{
+   display: flex;
+   align-self: flex-end;
+   margin:1em;
+   background-color: transparent;
+   border-width: 4px;
+  height: 2em;
+  border-style: outset; 
+  border-color: rgb(99, 97, 255);
+ }
+ .bookmark_save:hover {
+  border-style: inset; 
+ }
+ .bookmark_delete {
+  margin:1em;
+   background-color: transparent;
+   border-width: 4px;
+  height: 2em;
+  border-style: outset; 
+  border-color: rgb(99, 97, 255);
+ }
+ .bookmark_delete:hover {
+  border-style: inset; 
+ }

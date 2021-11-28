@@ -1,5 +1,9 @@
 import React, { Fragment, useState } from "react";
 
+//Font awesome
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faWrench, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
+
 //import components
 import { HuePicker} from "react-color";
 import { Edit_bookmark_panel } from "./Edit_bookmark_panel";
@@ -38,23 +42,26 @@ console.log(shelfId)
     {/* Bookmark_stack */}
     {mode === Closed && (
       <section className="bookmark_container">
-      <div className="bookmark" style={{backgroundColor: bookmarkColor}} onClick={()=> window.open(url, "_blank")}>
-        <div>
-          <p>{newBookmarkName}</p>
-        </div>
+      <div className="bookmark" style={{backgroundColor: bookmarkColor}}>
+      <div className="click_box"  onClick={()=> window.open(url, "_blank")}>
+        
+          <p className="bookmark_name">{newBookmarkName}</p>
       </div>
-      <input className="edit_button" type="button" Value="Edit Bookmark" onClick={handleClick}/>
+      <button className="bookmark_wrench" onClick={handleClick}><FontAwesomeIcon icon={faWrench}></FontAwesomeIcon></button>
+      </div>
       </section>
     )}
     {/* Bookmark with edit_panel */}
     {mode === Open && (
-      <section>
+      <section >
       <div className="bookmark" style={{backgroundColor: bookmarkColor}}>
-        <div>
+        <div className="click_box"  onClick={()=> window.open(url, "_blank")}>
           <p>{newBookmarkName}</p>
           <p>{url}</p>
         </div>
+        <button className="bookmark_wrench" onClick={handleClick}><FontAwesomeIcon icon={faTimesCircle}></FontAwesomeIcon></button>
       </div>
+      
       <Edit_bookmark_panel 
           id={id} 
           name={name} 
@@ -68,6 +75,7 @@ console.log(shelfId)
           Update={Update}
           onClick={onClick}
           />
+          
       </section>
     )}
   </Fragment>
