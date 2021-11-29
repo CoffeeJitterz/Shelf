@@ -61,8 +61,8 @@ const compColor2 = complimentaryColor(hextoRgb(bookmarkColor), -90)
         <div className="bookmark_wrapper" style={{backgroundColor: shelfCompColor}}>
       <div className="bookmark" style={{backgroundColor: bookmarkColor, borderColor: 'black' }}>
       <div className="click_box"  onClick={()=> window.open(url, "_blank")}>
-        
           <p className="bookmark_name" style={{color: compColor}}>{newBookmarkName}</p>
+          <p className="bookmark_url">{url}</p>
       </div>
       <div className="bookmark_buttons">
       <button className="bookmark_wrench" onClick={handleClick}><FontAwesomeIcon icon={faWrench}></FontAwesomeIcon></button>
@@ -79,7 +79,7 @@ const compColor2 = complimentaryColor(hextoRgb(bookmarkColor), -90)
       <div className="bookmark" style={{backgroundColor: bookmarkColor}}>
         <div className="click_box"  onClick={()=> window.open(url, "_blank")}>
           <p className="bookmark_name" style={{color: compColor}}>{newBookmarkName}</p>
-          <p>{url}</p>
+          <p className="bookmark_url">{url}</p>
         </div>
         <button className="bookmark_wrench" onClick={handleClick}><FontAwesomeIcon icon={faTimesCircle}></FontAwesomeIcon></button>
         </div>
