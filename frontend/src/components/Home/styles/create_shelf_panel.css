@@ -1,4 +1,39 @@
 .create_shelf_panel {
+  display: flex;
+  flex-direction: column;
   background-color: transparent;
   height: 100vh;
+  margin-top: 3em;
+}
+.create_shelf_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.create_shelf_color_picker {
+  width: 40vw;
+}
+.create_shelf_save {
+  background-color: transparent;
+  border-width: 5px;
+  height: 2em;
+  border-style: outset;
+  margin: .25em; 
+}
+.create_shelf_save:hover {
+  border-style:inset;
+}
+.create_shelf_exit {
+  background-color: transparent;
+  border-width: 5px;
+  height: 2em;
+  border-style: outset;
+  margin: .25em; 
+}
+.create_shelf_exit:hover {
+  border-style:inset;
+}
+.create_shelf_buttons {
+  display: flex;
+  align-self: flex-end;
 }

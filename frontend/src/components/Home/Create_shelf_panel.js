@@ -4,6 +4,9 @@ import { HuePicker} from "react-color";
 
 import { Create_bookmark } from "./Create_bookmark";
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faSave, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
+
 //import styles
 import './styles/create_shelf_panel.css'
 
@@ -33,18 +36,18 @@ export function Create_shelf_panel(props){
       <h3>{newShelfName}</h3>
       <form className="create_shelf_form" onSubmit={createShelf}>
         <input
-          
+          className="name_input"
           type="text"
           required
           value={newShelfName}
           onChange={e => setNewShelfName(e.target.value)}
         />
-        <HuePicker color={color} onChange={color => setColor(color.hex)}/>
-        <div>
-        <button>Create</button>
+        <HuePicker className="color_picker" color={color} onChange={color => setColor(color.hex)}/>
+        <div className="create_shelf_buttons">
+        <button className="create_shelf_save"><FontAwesomeIcon  icon={faSave} /></button>
+        <button className="create_shelf_exit" onClick={onClick}><FontAwesomeIcon   icon={faTimesCircle} /></button>
         </div>
         </form>
-        <button onClick={onClick}>cancel</button>
         </div>
       
   )

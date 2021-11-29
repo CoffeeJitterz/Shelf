@@ -13,10 +13,10 @@ export function Shelf (props) {
 const {shelves, Get, Delete, Update, Create} = props;
 
 
-//get shelves array from api and set shelves state to array
-useEffect(() => {
- Get('shelves')
-}, []);
+
+
+// const shelfColor = shelves[0].color;
+// console.log('shelves', shelves)
 
 //map through shelves array and pass props to <Bookmark_stack />
 const output = Array.isArray(shelves) && shelves.map(shelf => {
@@ -38,6 +38,8 @@ const output = Array.isArray(shelves) && shelves.map(shelf => {
       <Create_shelf 
       user_id='6' 
       Create={Create}
+      shelves={shelves}
+   
       />            
       {output}
       

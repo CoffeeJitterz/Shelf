@@ -1,6 +1,8 @@
 import React, { Fragment, useState, useEffect } from "react";
 import {Create_shelf_panel} from './Create_shelf_panel'
 
+//import helpers
+import { hextoRgb, complimentaryColor, increaseBrightness } from '../../helpers/color_helpers';
 
 //Font awesome
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
@@ -9,7 +11,7 @@ import {faPlusCircle, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
 import './styles/create_shelf.css'
 
 export function Create_shelf(props){
-  const {Create, user_id} = props;
+  const {Create, user_id, shelves} = props;
 //Create modes for handelClick (toggle)
 const First = 'First';
 const Second = 'Second';
@@ -27,6 +29,10 @@ const handleClick = () => {
 //Set state for newBookmarkColor 
 const [newShelfColor, setShelfColor] = useState('#fff')
 
+// const [createShelfColor] = shelves;
+// console.log("shelvesShelves", createShelfColor)
+// const createShelfColor = shelves[0].color 
+// const brightColor = increaseBrightness(createShelfColor, 50)
   return (
     <Fragment>
       {mode === First && (
@@ -36,7 +42,7 @@ const [newShelfColor, setShelfColor] = useState('#fff')
   
       )}
       {mode === Second && (
-        <div className="create_shelf">
+        <div className="create_shelf_open">
             <Create_shelf_panel 
               onClick={handleClick} 
               color={newShelfColor} 
@@ -44,7 +50,6 @@ const [newShelfColor, setShelfColor] = useState('#fff')
               user_id={user_id}
               Create={Create}
               />
-              <button className="close_create_shelf" onClick={handleClick}><FontAwesomeIcon icon={faTimesCircle}/></button>
           </div>
   
       )}
