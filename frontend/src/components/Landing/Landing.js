@@ -1,11 +1,10 @@
 
-
+import React from 'react';
+import logo from './logo1.svg';
 
 export default function Landing(props){
   return (
-<div>
-  <p>LANDING</p>
-</div>
+    <img src={logo} alt="Logo" />
     
   )
 }
