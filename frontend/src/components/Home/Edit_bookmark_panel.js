@@ -21,11 +21,7 @@ const updateBookmark = (e) => {
     console.log("THEN I DID THIS")
   })
 }
-const deleteBookmark = () => {
-  Delete('bookmarks', id).then(()=>{
-    console.log("THEN I DID THIS")
-  })
-}
+
 
 
 
@@ -47,7 +43,6 @@ const deleteBookmark = () => {
         <HuePicker className="color_picker" color={color} onChange={color => setColor(color.hex)}/>
         <div className="edit_bookmark_buttons">
         <button className="bookmark_save" onClick={onClick}><FontAwesomeIcon icon={faSave}></FontAwesomeIcon></button>
-        <button className="bookmark_delete" onClick={deleteBookmark}><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon></button>
         </div>
         </form>
       </div>

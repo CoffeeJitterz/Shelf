@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 
 //Font awesome
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faWrench, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
+import {faWrench, faTimesCircle, faTrashAlt} from '@fortawesome/free-solid-svg-icons'
 
 //import components
 import { HuePicker} from "react-color";
@@ -20,6 +20,12 @@ import './styles/bookmark.css'
 export function Bookmark(props){
 //deconstruct props
 const {Delete, Update, id, url, name, websiteColor, shelfId, onClick, shelfCompColor} = props;
+
+const deleteBookmark = () => {
+  Delete('bookmarks', id).then(()=>{
+    console.log("THEN I DID THIS")
+  })
+}
 
 //Create modes for handelClick (toggle)
 const Closed = 'Closed';
@@ -55,6 +61,7 @@ const compColor2 = complimentaryColor(hextoRgb(bookmarkColor), -90)
           <p className="bookmark_name" style={{color: compColor}}>{newBookmarkName}</p>
       </div>
       <button className="bookmark_wrench" onClick={handleClick}><FontAwesomeIcon icon={faWrench}></FontAwesomeIcon></button>
+      <button className="bookmark_delete" onClick={deleteBookmark}><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon></button>
       </div>
       </div>
       </section>

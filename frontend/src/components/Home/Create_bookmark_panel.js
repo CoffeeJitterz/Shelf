@@ -30,9 +30,11 @@ const newColor = complimentaryColor(hextoRgb(color ? color : '#fff'), 255);
   return (
     <div className="create_bookmark_panel" >
       <div className="display_bookmark_container" style={{backgroundColor: shelfCompColor}}>
+        <div className="display_bookmark_wrapper">
       <div className="display_bookmark" style={{backgroundColor: color}} >
         <p style={{fontFamily: option, color: complimentaryColor(hextoRgb(color), 255)}}>{name}</p>
       </div>
+        </div>
       </div>
         <form className="create_bookmark_form" onSubmit={Create}>
         <input 
@@ -60,7 +62,7 @@ const newColor = complimentaryColor(hextoRgb(color ? color : '#fff'), 255);
         <button>Create</button>
         </div>
         </form>
-        <button onClick={onClick}><FontAwesomeIcon icon={faTimesCircle} /></button>
+        <button className="close_create_bookmark" onClick={onClick}><FontAwesomeIcon icon={faTimesCircle} /></button>
       </div>
   )
 }
