@@ -1,19 +1,16 @@
 .create_shelf {
   display: flex;
-  align-items: center;
+  align-content: center;
+  margin-top: .5em;
   background-color: transparent;
-  transition: transform 250ms;
-  
-  
+  transition: transform 1s;
+
 }
-.create_shelf:hover {
+.create_shelf:hover{ 
   border-style: dashed;
-  border-width: 3px;
-  margin: 1em;
-  margin-top: 3.5em;
+  background-color: rgb(132, 132, 255);
   transform: scale(1.05);
 }
-
 .open_create_shelf {
   background-color: transparent;
   width:2em;
@@ -22,4 +19,9 @@
 }
 .close_create_shelf {
   background-color: transparent;
+}
+.create_shelf_open {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(109, 112, 255);
 }

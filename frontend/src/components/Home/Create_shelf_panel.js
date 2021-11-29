@@ -4,6 +4,12 @@ import { HuePicker} from "react-color";
 
 import { Create_bookmark } from "./Create_bookmark";
 
+//import helpers
+import { hextoRgb, complimentaryColor, increaseBrightness } from '../../helpers/color_helpers';
+
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faSave, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
+
 //import styles
 import './styles/create_shelf_panel.css'
 
@@ -28,23 +34,29 @@ export function Create_shelf_panel(props){
       console.log("Then I did this")
     })
   }
+  //create colors
+  const brightColor = increaseBrightness(color, 50);
+  const compColor = complimentaryColor(hextoRgb(color), 255);
   return (
-    <div className="create_shelf_panel">
-      <h3>{newShelfName}</h3>
+    <section className="create_shelf_panel" style={{backgroundColor: color}}>
+      <div className="new_shelf_name_box" style={{backgroundColor: brightColor}}>
+      <h1 className="new_shelf_name" style={{color: compColor}}>{newShelfName}</h1>
+      </div>
       <form className="create_shelf_form" onSubmit={createShelf}>
-        <input 
+        <input
+          className="name_input"
           type="text"
           required
           value={newShelfName}
           onChange={e => setNewShelfName(e.target.value)}
         />
-        <HuePicker color={color} onChange={color => setColor(color.hex)}/>
-        <div>
-        <button>Create</button>
+        <HuePicker className="color_picker" color={color} onChange={color => setColor(color.hex)}/>
+        <div className="create_shelf_buttons">
+        <button className="create_shelf_save"><FontAwesomeIcon  icon={faSave} /></button>
+        <button className="create_shelf_exit" onClick={onClick}><FontAwesomeIcon   icon={faTimesCircle} /></button>
         </div>
         </form>
-        <button onClick={onClick}>cancel</button>
-        </div>
+        </section>
       
   )
 }
