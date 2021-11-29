@@ -113,7 +113,7 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
     {/* Bookmark_stack with Edit_shelf_panel */}
      {mode === Second && (
     <section className="bookmark_stack" style={{backgroundColor: shelfColor}}>
-      <button className="bookmark_stack_wrench" onClick={handleClick}><FontAwesomeIcon icon={faTimesCircle}></FontAwesomeIcon></button>
+      <button className="bookmark_stack_exit" onClick={handleClick}><FontAwesomeIcon icon={faTimesCircle}></FontAwesomeIcon></button>
         <Edit_Shelf_panel
         shelfCompColor2={compColor}
         shelfCompColor={brightColor} 

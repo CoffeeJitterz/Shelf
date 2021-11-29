@@ -47,6 +47,18 @@ background-color: rgb(255, 225, 189);
 .bookmark_stack_trash:hover {
   border-style: inset;
 }
+.bookmark_stack_exit {
+  display: flex;
+  align-self: flex-end;
+  background-color: transparent;
+  margin: .25em;
+  border-width: 5px;
+  height: 2em;
+  border-style: outset; 
+}
+.bookmark_stack_exit:hover {
+  border-style: inset;
+}
 
 .shelf_name {
   display: flex;

@@ -32,7 +32,8 @@ export function Create_shelf_panel(props){
     <div className="create_shelf_panel">
       <h3>{newShelfName}</h3>
       <form className="create_shelf_form" onSubmit={createShelf}>
-        <input 
+        <input
+          
           type="text"
           required
           value={newShelfName}
