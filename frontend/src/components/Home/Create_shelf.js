@@ -36,7 +36,7 @@ const [newShelfColor, setShelfColor] = useState('#fff')
   return (
     <Fragment>
       {mode === First && (
-        <div className="create_shelf">
+        <div className="create_shelf" style={{backgroundColor:newShelfColor}}>
             <button className="open_create_shelf" onClick={handleClick}><FontAwesomeIcon icon={faPlusCircle}/></button>
           </div>
   
