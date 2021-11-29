@@ -4,7 +4,7 @@ class ShelvesController < ApplicationController
     # @shelves = Shelf.all
 
 
-    @shelves = Shelf.includes(:bookmarks).where(user_id: 6).map do |shelf|
+    @shelves = Shelf.includes(:bookmarks).where(user_id: 16).map do |shelf|
       bookmarks = shelf.bookmarks
 
     

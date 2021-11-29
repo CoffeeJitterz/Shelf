@@ -9,6 +9,8 @@ import Register from './components/Login/Register';
 import Landing from './components/Landing/Landing'
 import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar'
+import logo from './logo1.svg';
+ 
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
     user: {}
   })    
   return(
+    
     <BrowserRouter>
     <Navbar />
       <Routes>
@@ -28,6 +31,7 @@ function App() {
      
       </Routes>   
     </BrowserRouter> 
+    
   ); 
 }
 
