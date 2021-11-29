@@ -18,16 +18,14 @@ const editedBookmark = {shelf_id, id: id, name: newName, url: url, color: color}
 const updateBookmark = (e) => {
   e.preventDefault();
   Update('bookmarks', id, editedBookmark).then(()=>{
-    console.log("THEN I DID THIS")
+    onClick()
   })
 }
 
 
-
-
   return (
     <div className="edit_bookmark_panel" style={{backgroundColor: shelfCompColor}}>
-     <form className="edit_bookmark_form" onSubmit={updateBookmark}>
+      <form className="edit_bookmark_form" onSubmit={updateBookmark}>
         <input
           className="name_input"
           type="text"
@@ -45,10 +43,8 @@ const updateBookmark = (e) => {
           style={{backgroundColor: shelfCompColor, borderColor: shelfCompColor2}}
         />
         <HuePicker className="color_picker" color={color} onChange={color => setColor(color.hex)}/>
-        <div className="edit_bookmark_buttons">
-        <button className="bookmark_save" onClick={onClick}><FontAwesomeIcon icon={faSave}></FontAwesomeIcon></button>
-        </div>
-        </form>
-      </div>
+        <button className="bookmark_save"><FontAwesomeIcon icon={faSave}></FontAwesomeIcon></button>
+      </form>
+    </div>
   )
 }

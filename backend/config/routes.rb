@@ -57,6 +57,7 @@ Rails.application.routes.draw do
   resources :shelves, only: [:index, :create, :update, :destroy]
   resources :bookmarks, only: [:index, :create, :update, :destroy]
   resources :categories, only: [:index]
+  resource :landing, only: [:index]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

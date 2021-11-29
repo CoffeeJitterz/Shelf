@@ -23,7 +23,7 @@ const {Delete, Update, id, url, name, websiteColor, shelfId, onClick, shelfCompC
 
 const deleteBookmark = () => {
   Delete('bookmarks', id).then(()=>{
-    console.log("THEN I DID THIS")
+    onClick()
   })
 }
 
@@ -36,8 +36,10 @@ const confirmDelete = 'Delete'
 
       if (mode === Closed) {
         setMode(Open)
+        console.log(mode)
       } else {
         setMode(Closed)
+        console.log(mode)
       }
   };
   const handleConfirmDelete = () => {
@@ -61,8 +63,8 @@ const compColor2 = complimentaryColor(hextoRgb(bookmarkColor), -90)
         <div className="bookmark_wrapper" style={{backgroundColor: shelfCompColor}}>
       <div className="bookmark" style={{backgroundColor: bookmarkColor, borderColor: 'black' }}>
       <div className="click_box"  onClick={()=> window.open(url, "_blank")}>
-        
           <p className="bookmark_name" style={{color: compColor}}>{newBookmarkName}</p>
+          <p className="bookmark_url">{url}</p>
       </div>
       <div className="bookmark_buttons">
       <button className="bookmark_wrench" onClick={handleClick}><FontAwesomeIcon icon={faWrench}></FontAwesomeIcon></button>
@@ -79,7 +81,7 @@ const compColor2 = complimentaryColor(hextoRgb(bookmarkColor), -90)
       <div className="bookmark" style={{backgroundColor: bookmarkColor}}>
         <div className="click_box"  onClick={()=> window.open(url, "_blank")}>
           <p className="bookmark_name" style={{color: compColor}}>{newBookmarkName}</p>
-          <p>{url}</p>
+          <p className="bookmark_url">{url}</p>
         </div>
         <button className="bookmark_wrench" onClick={handleClick}><FontAwesomeIcon icon={faTimesCircle}></FontAwesomeIcon></button>
         </div>
@@ -96,7 +98,7 @@ const compColor2 = complimentaryColor(hextoRgb(bookmarkColor), -90)
           shelf_id={shelfId}
           Delete={Delete}
           Update={Update}
-          onClick={onClick}
+          onClick={handleClick}
           shelfCompColor={shelfCompColor}
           shelfCompColor2={shelfCompColor2}
           bookmarkCompColor={compColor}

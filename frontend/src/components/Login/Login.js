@@ -11,6 +11,7 @@ import './styles/login.css'
 export default function Login(props){
   const [email, setEmail] = useState("");
   //const navigate = useNavigate ();
+  
   const [password, setPassword] = useState("");
    console.log("render")
   function validateForm() {
@@ -19,7 +20,7 @@ export default function Login(props){
 
   function handleSubmit(event) {
 
-    console.log(email);
+    // console.log(email);
     axios.post('http://localhost:3000/login', {
       email,
       password
@@ -28,9 +29,14 @@ export default function Login(props){
       props.setloggedIn({
         ...props.loggedIn,
         loggedInStatus: true,
-        user: res.data
+        user: res.data,
+        email: res.data.email
+        
       })
-      console.log(res);
+      
+      
+      console.log(res.data.email);
+     
     })
     .catch(e => console.log(e))
     event.preventDefault();
