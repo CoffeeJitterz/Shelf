@@ -6,13 +6,13 @@
   background-color: transparent;
   border-style: dashed;
   border-width: 3px;
-  border-color: violet;
-  box-shadow: purple;
+  
+  
   width: 40vw;
   height: 8vh;
 }
 .create_bookmark:hover{
-  box-shadow: 5px 5px purple;
+  border-color:yellow
 }
 .open_create_bookmark {
   background-color: transparent;

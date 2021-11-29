@@ -5,7 +5,11 @@
   
   margin-top: 3em;
 }
+.shelf_name {
+  text-shadow: 2px 2px #7b08ff;
+  width: 40vw;
 
+}
 
 .stack_edit {
 display: flex;

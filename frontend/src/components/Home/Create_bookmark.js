@@ -13,7 +13,7 @@ import './styles/create_bookmark.css'
 
 
 export function Create_bookmark(props){
-  const {Create, name, setName, url, setUrl, color, setColor, shelfId, shelfName} = props;
+  const {Create, name, setName, url, setUrl, color, setColor, shelfId, shelfName, shelfColor, shelfCompColor} = props;
 //Create modes for handelClick (toggle)
 const First = 'First';
 const Second = 'Second';
@@ -34,7 +34,7 @@ const [newBookmarkColor, setNewBookmarkColor] = useState('#fff')
   return (
     <Fragment>
       {mode === First && (
-        <div className="create_bookmark">
+        <div className="create_bookmark" style={{backgroundColor: shelfCompColor}}>
           <button className="open_create_bookmark"><FontAwesomeIcon icon={faPlusCircle} onClick={handleClick} /></button>        
           </div>
   

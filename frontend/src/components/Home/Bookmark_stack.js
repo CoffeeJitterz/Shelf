@@ -7,7 +7,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faWrench, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
 
 //import helpers
-import { hextoRgb, complimentaryColor } from '../../helpers/color_helpers';
+import { hextoRgb, complimentaryColor, increaseBrightness} from '../../helpers/color_helpers';
 
 //import components
 import {Bookmark} from './Bookmark'
@@ -40,13 +40,10 @@ const handleClick = () => {
 const [url, setUrl] = useState("Url")
 const [name, setName] = useState("null");
 const [bookmarkColor, setBookmarkColor] = useState()
-
 const newBookmark = {shelf_id: shelfId, name, url, color: bookmarkColor};
 const createBookmark = (e) => {
   e.preventDefault();
-  Create('bookmarks', newBookmark).then(()=>{
-    
-  })
+  Create('bookmarks', newBookmark)
 }
 
 //set state for newShelfName
@@ -56,12 +53,15 @@ const [newShelfName, setNewShelfName] = useState(shelfName);
 const [shelfColor, setShelfColor] = useState(baseColor ? baseColor : '#fff')
 
 //create complimentary colors usering helper function complimentaryColor
-// const compColor = complimentaryColor(hextoRgb(shelfColor), 180)
-// const compColor2 = complimentaryColor(hextoRgb(shelfColor), 20)
-
+const compColor = complimentaryColor(hextoRgb(shelfColor), 255)
+const compColor2 = complimentaryColor(hextoRgb(shelfColor), 90)
+const brightColor = increaseBrightness(shelfColor, 50)
+console.log(compColor)
 //map through bookmarks array and pass props to <Bookmark />
 const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) => {return <Bookmark 
-                        key={bookmark.id} 
+                        key={bookmark.id}
+                        shelfCompColor={brightColor}
+                        shelfColor={shelfColor}
                         name={bookmark.name} 
                         url={bookmark.url} 
                         id={bookmark.id}
@@ -77,8 +77,12 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
     {mode === First && (
     <section className="bookmark_stack" style={{backgroundColor: shelfColor}}>
       <button className="bookmark_stack_wrench" onClick={handleClick}><FontAwesomeIcon icon={faWrench}></FontAwesomeIcon></button>
-          <h1>{newShelfName}</h1>
+      <div style={{backgroundColor: brightColor}}>
+          <h1 className="shelf_name" style={{color: compColor}}>{newShelfName}</h1>
+      </div>
           <Create_bookmark 
+              shelfCompColor={brightColor}
+              shelfColor={shelfColor}
               color={bookmarkColor} 
               setColor={setBookmarkColor} 
               name={name}
@@ -94,7 +98,7 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
     {/* Bookmark_stack with Edit_shelf_panel */}
      {mode === Second && (
     <section className="bookmark_stack" style={{backgroundColor: shelfColor}}>
-      <button className="bookmark_wrench" onClick={handleClick}><FontAwesomeIcon icon={faTimesCircle}></FontAwesomeIcon></button>
+      <button className="bookmark_stack_wrench" onClick={handleClick}><FontAwesomeIcon icon={faTimesCircle}></FontAwesomeIcon></button>
         <Edit_Shelf_panel 
         shelfName={shelfName} 
         color={shelfColor} 
@@ -107,12 +111,11 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
         Delete={Delete}
         Update={Update}
         />
-    <div >
-      <div>
-        <h1>{newShelfName}</h1>
+      <div >
+        <div style={{backgroundColor: brightColor}}>
+        <h1 className="shelf_name" style={{color:compColor}}>{newShelfName}</h1>
         </div>
       </div>  
-        <div>
           <Create_bookmark 
             onClick={handleClick} 
             color={bookmarkColor} 
@@ -123,8 +126,7 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
             setUrl={setUrl}
             shelfId={shelfId} 
             shelfName={shelfName}/>
-          {output}
-        </div>
+          {output}    
     </section>
     )}
     </Fragment>
