@@ -8,7 +8,7 @@ import {complimentaryColor, hextoRgb} from '../../helpers/color_helpers'
 
 //Font awesome
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faTimesCircle} from '@fortawesome/free-solid-svg-icons'
+import {faTimesCircle, faSave} from '@fortawesome/free-solid-svg-icons'
 
 //import styles
 import './styles/create_bookmark_panel.css'
@@ -16,7 +16,7 @@ import './styles/create_bookmark_panel.css'
 export function Create_bookmark_panel(props){
 
 //deconstruct props
-const {Create, name, setName, url, setUrl, color, setColor, shelfName, shelfId,  onClick, shelfCompColor} = props;
+const {Create, name, setName, url, setUrl, color, setColor, shelfName, shelfId,  onClick, shelfCompColor, shelfCompColor2} = props;
 
 const [option, setOption] = useState();
 const handleChange = e => {
@@ -28,7 +28,7 @@ const newColor = complimentaryColor(hextoRgb(color ? color : '#fff'), 255);
 
   
   return (
-    <div className="create_bookmark_panel" >
+    <div className="create_bookmark_panel" style={{borderColor: shelfCompColor}}>
       <div className="display_bookmark_container" style={{backgroundColor: shelfCompColor}}>
         <div className="display_bookmark_wrapper">
       <div className="display_bookmark" style={{backgroundColor: color}} >
@@ -43,8 +43,9 @@ const newColor = complimentaryColor(hextoRgb(color ? color : '#fff'), 255);
           required
           value={name}
           onChange={e => setName(e.target.value)}
+          style={{backgroundColor: shelfCompColor, borderColor: shelfCompColor2, color: complimentaryColor(hextoRgb(color ? color : '#fff'), 255)}}
         />
-        <select name='option' onChange={handleChange}>
+        <select className="select_font" style={{backgroundColor: shelfCompColor, borderColor: shelfCompColor2}} name='option' onChange={handleChange}>
     <option value='Arial'>Arial</option>
     <option value='Copperplate Gothic'>Copperplate Gothic</option>
     <option value='fantasy'>fantasy</option>
@@ -56,11 +57,13 @@ const newColor = complimentaryColor(hextoRgb(color ? color : '#fff'), 255);
           required
           value={url}
           onChange={e => setUrl(e.target.value)}
+          style={{backgroundColor: shelfCompColor, borderColor: shelfCompColor2}}
         />
         <HuePicker color={color} onChange={color => setColor(color.hex)}/>
-        <div>
-        <button>Create</button>
-        </div>
+      <div className="save_bookmark">
+        <button className="save_bookmark_button"><FontAwesomeIcon icon={faSave} /></button>
+      </div>
+       
         </form>
         <button className="close_create_bookmark" onClick={onClick}><FontAwesomeIcon icon={faTimesCircle} /></button>
       </div>

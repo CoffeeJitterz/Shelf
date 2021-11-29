@@ -60,6 +60,7 @@ console.log(compColor)
 //map through bookmarks array and pass props to <Bookmark />
 const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) => {return <Bookmark 
                         key={bookmark.id}
+                        shelfCompColor2={compColor}
                         shelfCompColor={brightColor}
                         shelfColor={shelfColor}
                         name={bookmark.name} 
@@ -81,6 +82,7 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
           <h1 className="shelf_name" style={{color: compColor}}>{newShelfName}</h1>
       </div>
           <Create_bookmark
+              shelfCompColor2={compColor}
               shelfCompColor={brightColor}
               shelfColor={shelfColor}
               color={bookmarkColor} 

@@ -4,15 +4,20 @@
   align-items: center;
   margin-top: .5em;
   background-color: transparent;
-  border-style: dashed;
-  border-width: 3px;
-  
-  
-  width: 40vw;
-  height: 8vh;
+  transition: transform 250ms;
+
 }
-.create_bookmark:hover{
-  border-color:yellow
+.create_bookmark:hover{ 
+  width: 44vw;
+  height: 16vh;
+  border-style: dashed;
+  transform: scale(1.05);
+}
+.create_bookmark:hover:before {
+  content: "CREATE"
+}
+.create_bookmark:hover:after {
+  content: "BOOKMARK"
 }
 .open_create_bookmark {
   background-color: transparent;
@@ -20,6 +25,7 @@
   height: 2em;
   border-style: outset; 
   border-color: rgb(99, 97, 255);
+  
 }
 
 

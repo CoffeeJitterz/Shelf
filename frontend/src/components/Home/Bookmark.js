@@ -30,6 +30,7 @@ const deleteBookmark = () => {
 //Create modes for handelClick (toggle)
 const Closed = 'Closed';
 const Open = 'Open'
+const confirmDelete = 'Delete'
   const [mode, setMode] = useState(Closed)
   const handleClick = () => {
 
@@ -39,6 +40,9 @@ const Open = 'Open'
         setMode(Closed)
       }
   };
+  const handleConfirmDelete = () => {
+    setMode(confirmDelete)
+  }
 
 //set state for bookmarkName
 const [newBookmarkName, setNewBookmarkName] = useState(name)
@@ -60,8 +64,10 @@ const compColor2 = complimentaryColor(hextoRgb(bookmarkColor), -90)
         
           <p className="bookmark_name" style={{color: compColor}}>{newBookmarkName}</p>
       </div>
+      <div className="bookmark_buttons">
       <button className="bookmark_wrench" onClick={handleClick}><FontAwesomeIcon icon={faWrench}></FontAwesomeIcon></button>
-      <button className="bookmark_delete" onClick={deleteBookmark}><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon></button>
+      <button className="bookmark_delete" onClick={handleConfirmDelete}><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon></button>
+      </div>
       </div>
       </div>
       </section>
@@ -95,6 +101,18 @@ const compColor2 = complimentaryColor(hextoRgb(bookmarkColor), -90)
           
       </section>
     )}
+    {mode === confirmDelete && (
+      <section className="bookmark_container">
+      <div className="bookmark_wrapper" style={{backgroundColor: shelfCompColor}}>
+      <div className="bookmark" style={{backgroundColor: bookmarkColor}}>
+        <div className="click_box"  onClick={()=> window.open(url, "_blank")}>
+          <p className="bookmark_name" style={{color: compColor}}>AreYou Sure You Want To Delete?</p>
+        </div>
+        <button onClick={deleteBookmark}>Yes</button><button onClick={handleClick} >No</button>
+        </div>
+        </div>
+      </section>
+    )} 
   </Fragment>
   )
 }
