@@ -9,7 +9,7 @@ import Register from './components/Login/Register';
 import Landing from './components/Landing/Landing'
 import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar'
-import logo from './logo1.svg';
+
  
 
 
@@ -17,12 +17,14 @@ function App() {
 
   const [loggedIn, setloggedIn] = useState({
     loggedInStatus: false,
-    user: {}
-  })    
+    user: {},
+    email: ""
+  })   
+
   return(
     
     <BrowserRouter>
-    <Navbar />
+    <Navbar loggedIn ={loggedIn.loggedInStatus} email={loggedIn.email}/>
       <Routes>
         <Route path="/" element={!loggedIn ? <Navigate to="/landing"/> : <Home />} />
         <Route path="/login" element={loggedIn.loggedInStatus ? <Navigate to="/"/> : <Login loggedIn={loggedIn} setloggedIn={setloggedIn}  />} />
