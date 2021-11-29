@@ -23,7 +23,7 @@ const {Delete, Update, id, url, name, websiteColor, shelfId, onClick, shelfCompC
 
 const deleteBookmark = () => {
   Delete('bookmarks', id).then(()=>{
-    console.log("THEN I DID THIS")
+    onClick()
   })
 }
 
@@ -36,8 +36,10 @@ const confirmDelete = 'Delete'
 
       if (mode === Closed) {
         setMode(Open)
+        console.log(mode)
       } else {
         setMode(Closed)
+        console.log(mode)
       }
   };
   const handleConfirmDelete = () => {

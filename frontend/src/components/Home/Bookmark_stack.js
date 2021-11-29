@@ -42,14 +42,10 @@ const handleClick = () => {
 const [url, setUrl] = useState("Url")
 const [name, setName] = useState("Your Name");
 const [bookmarkColor, setBookmarkColor] = useState('#fff')
-const newBookmark = {shelf_id: shelfId, name, url, color: bookmarkColor};
-const createBookmark = (e) => {
-  e.preventDefault();
-  Create('bookmarks', newBookmark)
-}
+
 const deleteShelf = () => {
     Delete('shelves', shelfId).then(()=>{
-      console.log("THEN I DID THIS")
+      handleClick()
     })
   }
 const handleConfirmDelete = () => {
@@ -76,7 +72,8 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
                         name={bookmark.name} 
                         url={bookmark.url} 
                         id={bookmark.id}
-                        websiteColor={bookmark.color} onClick={handleClick} 
+                        websiteColor={bookmark.color} 
+                        onClick={handleClick} 
                         shelfId={shelfId} 
                         shelfName={shelfName} 
                         Delete={Delete}
@@ -105,7 +102,6 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
               url={url}
               setUrl={setUrl}
               shelfId={shelfId} 
-              Create={createBookmark}
               />
           {output}
     </section>

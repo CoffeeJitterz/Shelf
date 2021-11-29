@@ -18,34 +18,23 @@ const updateShelf = (e) => {
   console.log('edited shelf', editedShelf)
   e.preventDefault();
   Update('shelves', id, editedShelf).then(()=>{
-    console.log("THEN I DID THIS")
+    onClick()
   })
 }
-// const deleteShelf = () => {
-//   Delete('shelves', id).then(()=>{
-//     console.log("THEN I DID THIS")
-//   })
-// }
   return (
-    <div className="edit_shelf_panel">
-   
-     <form style={{backgroundColor: shelfCompColor}} className="edit_shelf_form" onSubmit={updateShelf}>
+    <div className="edit_shelf_panel"  style={{backgroundColor: shelfCompColor}}>
+      <form className="edit_shelf_form" onSubmit={updateShelf}>
        <HuePicker className="color_picker" color={color} onChange={color => setColor(color.hex)}/>
-        <input
-        style={{color: shelfCompColor2}}
-          className="name_input"
-          type="text"
-          required
-          value={newName}
-          onChange={e => setNewName(e.target.value)}
+      <input
+       style={{color: shelfCompColor2}}
+       className="name_input"
+       type="text"
+       required
+       value={newName}
+       onChange={e => setNewName(e.target.value)}
         />
-        <div className="edit_shelf_buttons">
-            <button className="shelf_save"><FontAwesomeIcon icon={faSave}></FontAwesomeIcon></button>                   
-          <div>
-            
-          </div>
-        </div>
-        </form>
-      </div>
+      <button className="shelf_save" ><FontAwesomeIcon icon={faSave}></FontAwesomeIcon></button>                   
+      </form>
+   </div>
   )
 }
