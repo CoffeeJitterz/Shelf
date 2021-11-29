@@ -64,6 +64,11 @@ jimmyBookmark12 = Bookmark.create(name: 'Prime Videos', url: 'https://www.amazon
 jimmyBookmark11 = Bookmark.create(name: 'Freecodecamp', url: 'https://www.freecodecamp.org/news/tag/trees/', description: 'articles', color: 'pink', shelf_id: jimmyShelf5.id)
 jimmyBookmark11 = Bookmark.create(name: 'Medium', url: 'https://medium.com/', description: 'movies', color: 'pink', shelf_id: jimmyShelf5.id)
 
+#Jimmy's Bookmarks Articles shelf
+jimmyBookmark12 = Bookmark.create(name: 'wekipedia-Coding', url: 'https://en.wikipedia.org/wiki/Coding', description: 'articles', color: 'pink', shelf_id: jimmyShelf6.id) 
+jimmyBookmark13 = Bookmark.create(name: 'wekipedia-React', url: 'https://en.wikipedia.org/wiki/React', description: 'articles', color: 'pink', shelf_id: jimmyShelf6.id) 
+jimmyBookmark14 = Bookmark.create(name: 'wekipedia-Javascripts', url: 'https://en.wikipedia.org/wiki/JavaScript', description: 'articles', color: 'pink', shelf_id: jimmyShelf6.id) 
+
 bookmarks_categories1 = BookmarksCategory.create(bookmarks_id: bookmark1.id, categories_id: category1.id)
 bookmarks_categories2 = BookmarksCategory.create(bookmarks_id: bookmark2.id, categories_id: category2.id)
 bookmarks_categories3 = BookmarksCategory.create(bookmarks_id: bookmark3.id, categories_id: category3.id)
