@@ -23,8 +23,6 @@ const updateBookmark = (e) => {
 }
 
 
-
-
   return (
     <div className="edit_bookmark_panel" style={{backgroundColor: shelfCompColor}}>
      <form className="edit_bookmark_form" onSubmit={updateBookmark}>
@@ -45,9 +43,7 @@ const updateBookmark = (e) => {
           style={{backgroundColor: shelfCompColor, borderColor: shelfCompColor2}}
         />
         <HuePicker className="color_picker" color={color} onChange={color => setColor(color.hex)}/>
-        <div className="edit_bookmark_buttons">
         <button className="bookmark_save" onClick={onClick}><FontAwesomeIcon icon={faSave}></FontAwesomeIcon></button>
-        </div>
         </form>
       </div>
   )

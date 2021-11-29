@@ -39,7 +39,7 @@ const deleteShelf = () => {
         <HuePicker className="color_picker" color={color} onChange={color => setColor(color.hex)}/>
         <div className="edit_shelf_buttons">
           <div>
-            <button className="bookmark_trash"><FontAwesomeIcon icon={faSave}></FontAwesomeIcon></button>
+            <button className="bookmark_save"><FontAwesomeIcon icon={faSave}></FontAwesomeIcon></button>
       <button className="bookmark_trash" onClick={deleteShelf}><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon></button>
             
           </div>
