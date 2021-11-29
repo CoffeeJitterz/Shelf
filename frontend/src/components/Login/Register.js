@@ -1,5 +1,10 @@
 
 import { useState } from "react";
+import axios from "axios";
+
+import './styles/login.css'
+
+import './styles/login.css'
 
 import './styles/login.css'
 
@@ -7,6 +12,18 @@ export default function Register(props){
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   function handleSubmit(event) {
+    axios.post('http://localhost:3000/users', { user: {
+      email,
+      password
+    }},
+    // { withCredentials: true }
+    )
+    .then(res => {
+      console.log(res)
+    } )
+    .catch(e => {
+      console.log(e)
+    })
     event.preventDefault();
 
   }
@@ -15,21 +32,21 @@ export default function Register(props){
       <h1>
         Register
       </h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input type="text" 
-        className="login_form"
+        className="registration_form"
             value={email}
             placeholder="Enter email..."
             onChange={(e) => setEmail(e.target.value)}>
         </input>
         <input
-            className="login_form_password"
+            className="registration_form_password"
             type="password"
             value={password}
             placeholder="Enter password..."
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button onClick={handleSubmit} >Register</button>
+          <button type="submit" onClick={handleSubmit} >Register</button>
       </form>
     </div>
   )
