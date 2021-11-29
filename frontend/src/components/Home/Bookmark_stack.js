@@ -38,8 +38,8 @@ const handleClick = () => {
 
 //Create bookmark
 const [url, setUrl] = useState("Url")
-const [name, setName] = useState("null");
-const [bookmarkColor, setBookmarkColor] = useState()
+const [name, setName] = useState("Your Name");
+const [bookmarkColor, setBookmarkColor] = useState('#fff')
 const newBookmark = {shelf_id: shelfId, name, url, color: bookmarkColor};
 const createBookmark = (e) => {
   e.preventDefault();
@@ -80,7 +80,7 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
       <div style={{backgroundColor: brightColor}}>
           <h1 className="shelf_name" style={{color: compColor}}>{newShelfName}</h1>
       </div>
-          <Create_bookmark 
+          <Create_bookmark
               shelfCompColor={brightColor}
               shelfColor={shelfColor}
               color={bookmarkColor} 

@@ -11,10 +11,17 @@
 .display_bookmark {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 40vw;
   height: 8vh;
   margin:1em;
-  box-shadow: 5px 5px purple;
+  border-style: solid;
+  border-color: black;
+
+}
+.bookmark_wrapper {
+  margin: .2em;
+  margin-bottom: 0px;
 }
 .create_bookmark_form{
   display: flex;
