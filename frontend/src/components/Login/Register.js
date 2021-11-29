@@ -46,7 +46,7 @@ export default function Register(props){
             placeholder="Enter password..."
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Register</button>
+          <button type="submit" onClick={handleSubmit} >Register</button>
       </form>
     </div>
   )

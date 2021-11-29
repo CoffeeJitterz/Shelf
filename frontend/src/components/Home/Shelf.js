@@ -3,11 +3,14 @@ import React, { Fragment, useState, useEffect } from "react";
 import {Bookmark_stack} from './Bookmark_stack'
 import {Create_shelf} from './Create_shelf'
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faWrench} from '@fortawesome/free-solid-svg-icons'
+
 import './styles/shelf.css'
 
 export function Shelf (props) {
 //deconstruct props
-const {onClick, shelves, Get, Delete, Update, Create} = props;
+const {shelves, Get, Delete, Update, Create} = props;
 
 
 //get shelves array from api and set shelves state to array
@@ -22,7 +25,6 @@ const output = Array.isArray(shelves) && shelves.map(shelf => {
           shelfName={shelf.name} 
           shelfId={shelf.id} 
           baseColor={shelf.color}
-          onClick={onClick} 
           bookmarks={shelf.bookmarks}
           Delete={Delete}
           Update={Update}
@@ -33,14 +35,12 @@ const output = Array.isArray(shelves) && shelves.map(shelf => {
   return (
    
     <div className="shelf">
-
-      <Create_shelf user_id='11' onClick={onClick}/>
-
-        Create={Create}
-        />
-
+      <Create_shelf 
+      user_id='6' 
+      Create={Create}
+      />            
       {output}
-
+      
     </div>  
   
    

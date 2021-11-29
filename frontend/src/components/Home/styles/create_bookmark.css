@@ -1,15 +1,35 @@
 .create_bookmark {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: .5em;
-}
-.open_button {
   background-color: transparent;
-  border: none;
+  transition: transform 1s;
+
+}
+.create_bookmark:hover{ 
+  width: 40vw;
+  height: 8vh;
+  border-style: dashed;
+  transform: scale(1.05);
+}
+.create_bookmark:hover:before {
+  content: "CREATE"
+}
+.create_bookmark:hover:after {
+  content: "BOOKMARK"
+}
+.open_create_bookmark {
+  background-color: transparent;
+  border-width: 4px;
+  height: 2em;
+  border-style: outset; 
+  border-color: rgb(99, 97, 255);
+  
 }
 
 
-.open_button:hover::after{
-  content: attr(data-hover);
+.open_create_bookmark:hover{
+  border-style: inset; 
 
 }

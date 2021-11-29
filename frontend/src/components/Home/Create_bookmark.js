@@ -2,12 +2,18 @@ import React, { Fragment, useState, useEffect } from "react";
 import {Create_bookmark_panel} from './Create_bookmark_panel'
 import axios from 'axios';
 
+
+//Font awesome
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faPlusCircle} from '@fortawesome/free-solid-svg-icons'
+
+
 //import styles
 import './styles/create_bookmark.css'
 
 
 export function Create_bookmark(props){
-  const {Create, name, setName, url, setUrl, color, setColor, shelfId, shelfName} = props;
+  const {Create, name, setName, url, setUrl, color, setColor, shelfId, shelfName, shelfColor, shelfCompColor, shelfCompColor2} = props;
 //Create modes for handelClick (toggle)
 const First = 'First';
 const Second = 'Second';
@@ -28,15 +34,17 @@ const [newBookmarkColor, setNewBookmarkColor] = useState('#fff')
   return (
     <Fragment>
       {mode === First && (
-        <div className="create_bookmark">
-          <input className="open_button" value="+" type="button" onClick={handleClick} />
-         
+        <div className="create_bookmark" style={{borderColor: shelfCompColor2, backgroundColor: shelfCompColor
+        }}>
+          <button className="open_create_bookmark" onClick={handleClick} ><FontAwesomeIcon icon={faPlusCircle} /></button>        
           </div>
   
       )}
       {mode === Second && (
         <div >
             <Create_bookmark_panel
+                shelfCompColor2={shelfCompColor2}
+               shelfCompColor={shelfCompColor}
                color={color} 
                setColor={setColor} 
                name={name}
@@ -48,7 +56,6 @@ const [newBookmarkColor, setNewBookmarkColor] = useState('#fff')
               shelfName={shelfName}
               Create={Create}
               />
-            <input className="close_button" value="-" type="button" onClick={handleClick} />
           </div>
   
       )}

@@ -1,5 +1,9 @@
 import React, { Fragment, useState } from "react";
 
+//Font awesome
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faWrench, faTimesCircle, faTrashAlt} from '@fortawesome/free-solid-svg-icons'
+
 //import components
 import { HuePicker} from "react-color";
 import { Edit_bookmark_panel } from "./Edit_bookmark_panel";
@@ -7,16 +11,26 @@ import { Edit_bookmark_panel } from "./Edit_bookmark_panel";
 //import hooks
 import { ToggleWindow } from "../../hooks/useToggleWindow";
 
+//import helpers
+import { hextoRgb, complimentaryColor } from '../../helpers/color_helpers';
+
 //import styles
 import './styles/bookmark.css'
 
 export function Bookmark(props){
 //deconstruct props
-const {Delete, Update, id, url, name, websiteColor, shelfId} = props;
+const {Delete, Update, id, url, name, websiteColor, shelfId, onClick, shelfCompColor, shelfCompColor2} = props;
+
+const deleteBookmark = () => {
+  Delete('bookmarks', id).then(()=>{
+    console.log("THEN I DID THIS")
+  })
+}
 
 //Create modes for handelClick (toggle)
 const Closed = 'Closed';
 const Open = 'Open'
+const confirmDelete = 'Delete'
   const [mode, setMode] = useState(Closed)
   const handleClick = () => {
 
@@ -26,36 +40,51 @@ const Open = 'Open'
         setMode(Closed)
       }
   };
+  const handleConfirmDelete = () => {
+    setMode(confirmDelete)
+  }
 
 //set state for bookmarkName
 const [newBookmarkName, setNewBookmarkName] = useState(name)
 
 //Set state for bookmarkColor
 const [bookmarkColor, setBookmarkColor] = useState(websiteColor ? websiteColor : '#fff')
-console.log(shelfId)
+
+//set complimentary colors
+const compColor = complimentaryColor(hextoRgb(bookmarkColor), 255)
+const compColor2 = complimentaryColor(hextoRgb(bookmarkColor), -90)
   return (
     <Fragment>
     {/* Bookmark_stack */}
     {mode === Closed && (
-      <section>
-      <div className="bookmark" style={{backgroundColor: bookmarkColor}} onClick={()=> window.open(url, "_blank")}>
-        <div>
-          <p>{newBookmarkName}</p>
-        </div>
-      <button onClick={handleClick}>edit</button>
+      <section className="bookmark_container">
+        <div className="bookmark_wrapper" style={{backgroundColor: shelfCompColor}}>
+      <div className="bookmark" style={{backgroundColor: bookmarkColor, borderColor: 'black' }}>
+      <div className="click_box"  onClick={()=> window.open(url, "_blank")}>
+        
+          <p className="bookmark_name" style={{color: compColor}}>{newBookmarkName}</p>
+      </div>
+      <div className="bookmark_buttons">
+      <button className="bookmark_wrench" onClick={handleClick}><FontAwesomeIcon icon={faWrench}></FontAwesomeIcon></button>
+      <button className="bookmark_delete" onClick={handleConfirmDelete}><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon></button>
+      </div>
+      </div>
       </div>
       </section>
     )}
     {/* Bookmark with edit_panel */}
     {mode === Open && (
-      <section>
+      <section className="bookmark_container">
+        <div className="bookmark_wrapper" style={{backgroundColor: shelfCompColor}}>
       <div className="bookmark" style={{backgroundColor: bookmarkColor}}>
-        <div>
-          <p>{newBookmarkName}</p>
+        <div className="click_box"  onClick={()=> window.open(url, "_blank")}>
+          <p className="bookmark_name" style={{color: compColor}}>{newBookmarkName}</p>
           <p>{url}</p>
         </div>
-      <button onClick={handleClick}>^</button>
+        <button className="bookmark_wrench" onClick={handleClick}><FontAwesomeIcon icon={faTimesCircle}></FontAwesomeIcon></button>
+        </div>
       </div>
+      
       <Edit_bookmark_panel 
           id={id} 
           name={name} 
@@ -67,9 +96,26 @@ console.log(shelfId)
           shelf_id={shelfId}
           Delete={Delete}
           Update={Update}
+          onClick={onClick}
+          shelfCompColor={shelfCompColor}
+          shelfCompColor2={shelfCompColor2}
+          bookmarkCompColor={compColor}
           />
+          
       </section>
     )}
+    {mode === confirmDelete && (
+      <section className="bookmark_container">
+      <div className="bookmark_wrapper" style={{backgroundColor: shelfCompColor}}>
+      <div className="bookmark" style={{backgroundColor: bookmarkColor}}>
+        <div className="click_box"  onClick={()=> window.open(url, "_blank")}>
+          <p className="bookmark_name" style={{color: compColor}}>AreYou Sure You Want To Delete?</p>
+        </div>
+        <button onClick={deleteBookmark}>Yes</button><button onClick={handleClick} >No</button>
+        </div>
+        </div>
+      </section>
+    )} 
   </Fragment>
   )
 }

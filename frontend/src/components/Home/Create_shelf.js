@@ -1,6 +1,11 @@
 import React, { Fragment, useState, useEffect } from "react";
 import {Create_shelf_panel} from './Create_shelf_panel'
 
+
+//Font awesome
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faPlusCircle, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
+
 import './styles/create_shelf.css'
 
 export function Create_shelf(props){
@@ -26,7 +31,7 @@ const [newShelfColor, setShelfColor] = useState('#fff')
     <Fragment>
       {mode === First && (
         <div className="create_shelf">
-            <input className="create_button" type="button" value="+" onClick={handleClick} />
+            <button className="open_create_shelf" onClick={handleClick}><FontAwesomeIcon icon={faPlusCircle}/></button>
           </div>
   
       )}
@@ -39,6 +44,7 @@ const [newShelfColor, setShelfColor] = useState('#fff')
               user_id={user_id}
               Create={Create}
               />
+              <button className="close_create_shelf" onClick={handleClick}><FontAwesomeIcon icon={faTimesCircle}/></button>
           </div>
   
       )}

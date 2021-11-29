@@ -1,27 +1,37 @@
 .bookmark_stack {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
+  align-items: center;
   
-  height:30em;
-  margin-top: 4em;
+  margin-top: 3em;
+}
+.shelf_name {
+  text-shadow: 2px 2px #7b08ff;
+  width: 40vw;
+
 }
 
-
 .stack_edit {
-  display: flex;
-flex-direction: column;
-align-items: center;
-width: 40em;
+display: flex;
+width: 40vw;
 height: 22vh;
 padding: 1em;
 background-color: rgb(255, 225, 189);
 }
-
-
+.bookmark_stack_wrench {
+  display: flex;
+  align-self: flex-end;
+  background-color: transparent;
+  border-width: 5px;
+  height: 2em;
+  border-style: outset; 
+}
+.bookmark_stack_wrench:hover {
+  border-style: inset;  
+}
 
 .shelf_name {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
 }
