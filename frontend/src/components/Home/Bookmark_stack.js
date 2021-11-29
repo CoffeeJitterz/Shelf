@@ -4,7 +4,7 @@ import { HuePicker} from "react-color";
 
 //Font awesome
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faWrench, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
+import {faWrench, faTimesCircle, faTrashAlt} from '@fortawesome/free-solid-svg-icons'
 
 //import helpers
 import { hextoRgb, complimentaryColor, increaseBrightness} from '../../helpers/color_helpers';
@@ -25,6 +25,7 @@ const {shelf, Delete, Create, Update, shelfName, bookmarks, shelfId, user_id, ba
 //Create modes for handelClick (toggle)
 const First = 'First';
 const Second = 'Second';
+const confirmDelete= 'confirmDelete';
 const [mode, setMode] = useState(First)
 const handleClick = () => {
   if (mode === First) {
@@ -36,6 +37,7 @@ const handleClick = () => {
   }
 };
 
+
 //Create bookmark
 const [url, setUrl] = useState("Url")
 const [name, setName] = useState("Your Name");
@@ -44,6 +46,14 @@ const newBookmark = {shelf_id: shelfId, name, url, color: bookmarkColor};
 const createBookmark = (e) => {
   e.preventDefault();
   Create('bookmarks', newBookmark)
+}
+const deleteShelf = () => {
+    Delete('shelves', shelfId).then(()=>{
+      console.log("THEN I DID THIS")
+    })
+  }
+const handleConfirmDelete = () => {
+  setMode(confirmDelete)
 }
 
 //set state for newShelfName
@@ -77,7 +87,10 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
    {/* Bookmark_stack */}
     {mode === First && (
     <section className="bookmark_stack" style={{backgroundColor: shelfColor}}>
+      <div className="bookmark_stack_buttons">
       <button className="bookmark_stack_wrench" onClick={handleClick}><FontAwesomeIcon icon={faWrench}></FontAwesomeIcon></button>
+      <button className="bookmark_stack_trash" onClick={handleConfirmDelete}><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon></button>
+      </div>
       <div style={{backgroundColor: brightColor}}>
           <h1 className="shelf_name" style={{color: compColor}}>{newShelfName}</h1>
       </div>
@@ -101,7 +114,9 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
      {mode === Second && (
     <section className="bookmark_stack" style={{backgroundColor: shelfColor}}>
       <button className="bookmark_stack_wrench" onClick={handleClick}><FontAwesomeIcon icon={faTimesCircle}></FontAwesomeIcon></button>
-        <Edit_Shelf_panel 
+        <Edit_Shelf_panel
+        shelfCompColor2={compColor}
+        shelfCompColor={brightColor} 
         shelfName={shelfName} 
         color={shelfColor} 
         setColor={setShelfColor} 
@@ -130,6 +145,25 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
             shelfName={shelfName}/>
           {output}    
     </section>
+    )}
+    {mode === confirmDelete && (
+      <section className="bookmark_stack">
+        <div className="delete_confirm_message">
+        <p className="bookmark_name" style={{color: compColor}}>AreYou Sure You Want To Delete?</p>
+        <button onClick={deleteShelf}>Yes</button><button onClick={handleClick} >No</button>
+        </div>
+        <Create_bookmark 
+            onClick={handleClick} 
+            color={bookmarkColor} 
+            setColor={setBookmarkColor} 
+            name={name}
+            setName={setName}
+            url={url}
+            setUrl={setUrl}
+            shelfId={shelfId} 
+            shelfName={shelfName}/>
+          {output}            
+      </section>
     )}
     </Fragment>
   )

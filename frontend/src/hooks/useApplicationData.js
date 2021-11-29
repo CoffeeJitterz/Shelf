@@ -5,7 +5,7 @@ export function useApplicationData() {
 const [shelves, setShelves] = useState()
 
 const handleGet = (param) => {
-  axios.get(`http://localhost:3000/${param}`).then(res => {
+  return axios.get(`http://localhost:3000/${param}`).then(res => {
     console.log(res.data)
     setShelves(res.data)
   })

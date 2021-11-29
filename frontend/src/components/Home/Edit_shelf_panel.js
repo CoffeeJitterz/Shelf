@@ -21,11 +21,11 @@ const updateShelf = (e) => {
     console.log("THEN I DID THIS")
   })
 }
-const deleteShelf = () => {
-  Delete('shelves', id).then(()=>{
-    console.log("THEN I DID THIS")
-  })
-}
+// const deleteShelf = () => {
+//   Delete('shelves', id).then(()=>{
+//     console.log("THEN I DID THIS")
+//   })
+// }
   return (
     <div className="edit_shelf_panel">
    
@@ -39,9 +39,7 @@ const deleteShelf = () => {
         <HuePicker className="color_picker" color={color} onChange={color => setColor(color.hex)}/>
         <div className="edit_shelf_buttons">
           <div>
-            <button className="bookmark_save"><FontAwesomeIcon icon={faSave}></FontAwesomeIcon></button>
-      <button className="bookmark_trash" onClick={deleteShelf}><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon></button>
-            
+            <button className="bookmark_save"><FontAwesomeIcon icon={faSave}></FontAwesomeIcon></button>          
           </div>
           <div>
             
