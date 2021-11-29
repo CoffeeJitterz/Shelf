@@ -19,7 +19,7 @@ import './styles/bookmark.css'
 
 export function Bookmark(props){
 //deconstruct props
-const {Delete, Update, id, url, name, websiteColor, shelfId, onClick, shelfCompColor} = props;
+const {Delete, Update, id, url, name, websiteColor, shelfId, onClick, shelfCompColor, shelfCompColor2} = props;
 
 const deleteBookmark = () => {
   Delete('bookmarks', id).then(()=>{
@@ -97,6 +97,9 @@ const compColor2 = complimentaryColor(hextoRgb(bookmarkColor), -90)
           Delete={Delete}
           Update={Update}
           onClick={onClick}
+          shelfCompColor={shelfCompColor}
+          shelfCompColor2={shelfCompColor2}
+          bookmarkCompColor={compColor}
           />
           
       </section>

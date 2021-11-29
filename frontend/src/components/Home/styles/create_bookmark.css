@@ -4,12 +4,12 @@
   align-items: center;
   margin-top: .5em;
   background-color: transparent;
-  transition: transform 250ms;
+  transition: transform 1s;
 
 }
 .create_bookmark:hover{ 
-  width: 44vw;
-  height: 16vh;
+  width: 40vw;
+  height: 8vh;
   border-style: dashed;
   transform: scale(1.05);
 }

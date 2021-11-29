@@ -34,7 +34,8 @@ const [newBookmarkColor, setNewBookmarkColor] = useState('#fff')
   return (
     <Fragment>
       {mode === First && (
-        <div className="create_bookmark" style={{borderColor: shelfCompColor}}>
+        <div className="create_bookmark" style={{borderColor: shelfCompColor2, backgroundColor: shelfCompColor
+        }}>
           <button className="open_create_bookmark" onClick={handleClick} ><FontAwesomeIcon icon={faPlusCircle} /></button>        
           </div>
   

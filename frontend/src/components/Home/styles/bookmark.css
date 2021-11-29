@@ -2,10 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.bookmark_wrapper {
-  margin: .5em;
+  margin:.5em;
   margin-bottom: 0px;
+  margin-top: 0px;
 }
 .bookmark {
   display: flex;
@@ -14,8 +13,8 @@
   align-items:center;
   width: 40vw;
   height: 8vh;
-  padding: 1em;
-  margin: 1em;
+  margin:.5em;
+
   border-style: solid;
   
  
