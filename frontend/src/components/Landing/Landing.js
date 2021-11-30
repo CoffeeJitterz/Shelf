@@ -1,12 +1,19 @@
 import App from "../../App"
 import books from '../books.jpeg'
 
-export default function Landing(props){
+import Login from '../Login/Login'
 
+import './styles/landing.css'
+
+export default function Landing(props){
+const {loggedIn, setloggedIn} = props;
 
   return (
-   <div> 
+   <div className="landing_container"> 
+     <Login loggedIn={loggedIn} setloggedIn={setloggedIn}/>
+    <div>
     <img src={books} />
+    </div>
    </div>
     
   )

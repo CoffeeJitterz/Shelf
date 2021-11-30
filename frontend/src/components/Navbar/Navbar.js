@@ -4,21 +4,22 @@ import { useEffect, useState } from 'react';
 
 export default function Navbar(props){
   
+  const logout = () => {
+    localStorage.clear();
+    window.location.href = '/landing';
+  }
   
-  
+  console.log(props.email)
   return (
     
     <nav>
-      <h1>URLShelves</h1>
-
-      <Link to="/home">Home</Link>
-
-      <div>
-       
-      {props.loggedIn ? <Link to="/landing">{props.email} Logout</Link> : <Link to="/login">Login</Link> }
-      {/* <Link to="/login">Login</Link>
-      <Link to="/register">Register</Link>  */}
-      {/* <Link to="/logout">Logout</Link> */}
+      <h1 className="logo">URLShelves</h1>
+      <div>       
+      {props.loggedIn ? 
+      <div className="email_logout">    
+      <h4 className="email">{props.email}</h4>
+      <button className="logout_button" onClick={logout}>Logout</button>
+      </div> : <button className="register_button"><Link to="/register">Register</Link></button>}
       </div>
     </nav>
 

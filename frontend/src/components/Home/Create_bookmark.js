@@ -13,7 +13,7 @@ import './styles/create_bookmark.css'
 
 
 export function Create_bookmark(props){
-  const {Create, name, setName, url, setUrl, color, setColor, shelfId, shelfName, shelfColor, shelfCompColor, shelfCompColor2} = props;
+  const {Create, name, setName, url, setUrl, color, setColor, option, setOption, handleSelect, shelfId, shelfName, shelfColor, shelfCompColor, shelfCompColor2} = props;
 //Create modes for handelClick (toggle)
 const First = 'First';
 const Second = 'Second';
@@ -55,6 +55,9 @@ const [newBookmarkColor, setNewBookmarkColor] = useState('#fff')
               shelfId={shelfId} 
               shelfName={shelfName}
               Create={Create}
+              option={option}
+              setOption={setOption}
+              handleSelect={handleSelect}
               />
           </div>
   
