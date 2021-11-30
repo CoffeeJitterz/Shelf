@@ -60,7 +60,7 @@ export default function Login(props){
             placeholder="Enter password..."
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button onClick={handleSubmit} disabled={!validateForm()}>Login</button>
+          <button className="login_button" onClick={handleSubmit} disabled={!validateForm()}>Login</button>
       
       
     </div>
