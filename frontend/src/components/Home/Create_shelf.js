@@ -27,7 +27,7 @@ const handleClick = () => {
   };
 
 //Set state for newBookmarkColor 
-const [newShelfColor, setShelfColor] = useState('#fff')
+const [newShelfColor, setShelfColor] = useState('blueviolet')
 
 // const [createShelfColor] = shelves;
 // console.log("shelvesShelves", createShelfColor)
@@ -42,7 +42,7 @@ const [newShelfColor, setShelfColor] = useState('#fff')
   
       )}
       {mode === Second && (
-        <div className="create_shelf_open">
+        <div>
             <Create_shelf_panel 
               onClick={handleClick} 
               color={newShelfColor} 
