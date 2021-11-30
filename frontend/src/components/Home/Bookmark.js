@@ -7,6 +7,7 @@ import {faWrench, faTimesCircle, faTrashAlt} from '@fortawesome/free-solid-svg-i
 //import components
 import { HuePicker} from "react-color";
 import { Edit_bookmark_panel } from "./Edit_bookmark_panel";
+import Confirm_delete_boomark from "./Confirm_delete_bookmark"
 
 //import hooks
 import { ToggleWindow } from "../../hooks/useToggleWindow";
@@ -117,12 +118,10 @@ const compColor2 = complimentaryColor(hextoRgb(bookmarkColor), -90)
     {mode === confirmDelete && (
       <section className="bookmark_container">
       <div className="bookmark_wrapper" style={{backgroundColor: shelfCompColor}}>
-      <div className="bookmark" style={{backgroundColor: bookmarkColor}}>
-        <div className="click_box"  onClick={()=> window.open(url, "_blank")}>
-          <p className="bookmark_name" style={{color: compColor}}>AreYou Sure You Want To Delete?</p>
-        </div>
-        <button onClick={deleteBookmark}>Yes</button><button onClick={handleClick} >No</button>
-        </div>
+       <Confirm_delete_boomark 
+          deleteBookmark={deleteBookmark}
+          handleClick={handleClick}
+          bookmarkName={name}/>
         </div>
       </section>
     )} 

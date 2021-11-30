@@ -5,7 +5,7 @@ class ShelvesController < ApplicationController
 
 
     @shelves = Shelf.includes(:bookmarks).where(user_id: 1).map do |shelf|
-      bookmarks = shelf.bookmarks
+      bookmarks = shelf.bookmarks.order(id: :desc)
 
     
 
