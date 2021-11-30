@@ -13,19 +13,13 @@ export default function Navbar(props){
   return (
     
     <nav>
-      <h1>URLShelves</h1>
-
-      <div>
-       
+      <h1 className="logo">URLShelves</h1>
+      <div>       
       {props.loggedIn ? 
-      <div>
-        <div>
-        {props.email}
-        </div>
-        <div>
-          <button onClick={logout}>Logout</button>
-        </div>
-      </div> : <Link to="/login">Login</Link> }
+      <div className="email_logout">    
+      <h4 className="email">{props.email}</h4>
+      <button className="logout_button" onClick={logout}>Logout</button>
+      </div> : <button className="register_button"><Link to="/register">Register</Link></button>}
       </div>
     </nav>
 
