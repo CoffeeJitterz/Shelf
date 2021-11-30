@@ -31,7 +31,7 @@ export function Create_shelf_panel(props){
   const createShelf = (e) => {
     e.preventDefault();
     Create('shelves', newShelf).then(()=>{
-      console.log("Then I did this")
+      onClick()
     })
   }
   //create colors

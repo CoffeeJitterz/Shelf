@@ -19,14 +19,13 @@ import './styles/bookmark.css'
 
 export function Bookmark(props){
 //deconstruct props
-const {Delete, Update, id, url, name, websiteColor, shelfId, onClick, shelfCompColor, shelfCompColor2} = props;
-
+const {Delete, Update, id, url, name, websiteColor, shelfId, onClick, shelfCompColor, shelfCompColor2, font, setFont, bookmarkFont} = props;
+setFont(bookmarkFont ? bookmarkFont : font)
 const deleteBookmark = () => {
   Delete('bookmarks', id).then(()=>{
     onClick()
   })
 }
-
 //Create modes for handelClick (toggle)
 const Closed = 'Closed';
 const Open = 'Open'
@@ -45,6 +44,10 @@ const confirmDelete = 'Delete'
   const handleConfirmDelete = () => {
     setMode(confirmDelete)
   }
+  const handleChange = e => {
+    setFont(e.target.value )
+  }  
+  
 
 //set state for bookmarkName
 const [newBookmarkName, setNewBookmarkName] = useState(name)
@@ -63,7 +66,7 @@ const compColor2 = complimentaryColor(hextoRgb(bookmarkColor), -90)
         <div className="bookmark_wrapper" style={{backgroundColor: shelfCompColor}}>
       <div className="bookmark" style={{backgroundColor: bookmarkColor, borderColor: 'black' }}>
       <div className="click_box"  onClick={()=> window.open(url, "_blank")}>
-          <p className="bookmark_name" style={{color: compColor}}>{newBookmarkName}</p>
+          <p className="bookmark_name" style={{color: compColor, fontFamily: font}}>{newBookmarkName}</p>
           <p className="bookmark_url">{url}</p>
       </div>
       <div className="bookmark_buttons">
@@ -80,7 +83,7 @@ const compColor2 = complimentaryColor(hextoRgb(bookmarkColor), -90)
         <div className="bookmark_wrapper" style={{backgroundColor: shelfCompColor}}>
       <div className="bookmark" style={{backgroundColor: bookmarkColor}}>
         <div className="click_box"  onClick={()=> window.open(url, "_blank")}>
-          <p className="bookmark_name" style={{color: compColor}}>{newBookmarkName}</p>
+          <p className="bookmark_name" style={{color: compColor, fontFamily: bookmarkFont}}>{newBookmarkName}</p>
           <p className="bookmark_url">{url}</p>
         </div>
         <button className="bookmark_wrench" onClick={handleClick}><FontAwesomeIcon icon={faTimesCircle}></FontAwesomeIcon></button>
@@ -94,7 +97,10 @@ const compColor2 = complimentaryColor(hextoRgb(bookmarkColor), -90)
           color={bookmarkColor}
           setColor={setBookmarkColor} 
           newName={newBookmarkName} 
-          setNewName={setNewBookmarkName} 
+          setNewName={setNewBookmarkName}
+          font={font}
+          setFont={setFont} 
+          handleChange={handleChange}
           shelf_id={shelfId}
           Delete={Delete}
           Update={Update}

@@ -21,7 +21,6 @@ export function Bookmark_stack(props){
 //deconstruct props
 const {shelf, Delete, Create, Update, shelfName, bookmarks, shelfId, user_id, baseColor} = props;
 
-
 //Create modes for handelClick (toggle)
 const First = 'First';
 const Second = 'Second';
@@ -42,6 +41,7 @@ const handleClick = () => {
 const [url, setUrl] = useState("Url")
 const [name, setName] = useState("Your Name");
 const [bookmarkColor, setBookmarkColor] = useState('#fff')
+const [font, setFont] = useState();
 
 const deleteShelf = () => {
     Delete('shelves', shelfId).then(()=>{
@@ -51,6 +51,7 @@ const deleteShelf = () => {
 const handleConfirmDelete = () => {
   setMode(confirmDelete)
 }
+
 
 //set state for newShelfName
 const [newShelfName, setNewShelfName] = useState(shelfName);
@@ -62,7 +63,6 @@ const [shelfColor, setShelfColor] = useState(baseColor ? baseColor : '#fff')
 const compColor = complimentaryColor(hextoRgb(shelfColor), 255)
 const compColor2 = complimentaryColor(hextoRgb(shelfColor), 90)
 const brightColor = increaseBrightness(shelfColor, 50)
-console.log(compColor)
 //map through bookmarks array and pass props to <Bookmark />
 const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) => {return <Bookmark 
                         key={bookmark.id}
@@ -73,6 +73,9 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
                         url={bookmark.url} 
                         id={bookmark.id}
                         websiteColor={bookmark.color} 
+                        font={font}
+                        setFont={setFont}
+                        bookmarkFont={bookmark.font}
                         onClick={handleClick} 
                         shelfId={shelfId} 
                         shelfName={shelfName} 
@@ -92,6 +95,7 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
           <h1 className="shelf_name" style={{color: compColor}}>{newShelfName}</h1>
       </div>
           <Create_bookmark
+              Create={Create}
               shelfCompColor2={compColor}
               shelfCompColor={brightColor}
               shelfColor={shelfColor}
