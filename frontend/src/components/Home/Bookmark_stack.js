@@ -92,9 +92,7 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
       <button className="bookmark_stack_wrench" onClick={handleClick}><FontAwesomeIcon icon={faWrench}></FontAwesomeIcon></button>
       <button className="bookmark_stack_trash" onClick={handleConfirmDelete}><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon></button>
       </div>
-      <div style={{backgroundColor: brightColor}}>
-          <h1 className="shelf_name" style={{color: compColor}}>{newShelfName}</h1>
-      </div>
+          <h1 className="shelf_name" style={{backgroundColor: brightColor, color: compColor}}>{newShelfName}</h1>
           <Create_bookmark
               Create={Create}
               shelfCompColor2={compColor}
@@ -149,10 +147,6 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
     )}
     {mode === confirmDelete && (
       <section className="bookmark_stack">
-        {/* <div className="delete_confirm_message">
-        <p className="bookmark_name" style={{color: compColor}}>AreYou Sure You Want To Delete?</p>
-        <button onClick={deleteShelf}>Yes</button><button onClick={handleClick} >No</button>
-        </div> */}
         <Confirm_delete_shelf 
             deleteShelf={deleteShelf}
             handleClick={handleClick}

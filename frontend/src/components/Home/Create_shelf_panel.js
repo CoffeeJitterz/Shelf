@@ -39,9 +39,7 @@ export function Create_shelf_panel(props){
   const compColor = complimentaryColor(hextoRgb(color), 255);
   return (
     <section className="create_shelf_panel" style={{backgroundColor: color}}>
-      <div className="new_shelf_name_box" style={{backgroundColor: brightColor}}>
-      <h1 className="new_shelf_name" style={{color: compColor}}>{newShelfName}</h1>
-      </div>
+      <h1 className="new_shelf_name" style={{backgroundColor: brightColor, color: compColor}}>{newShelfName}</h1>
       <form className="create_shelf_form" onSubmit={createShelf}>
         <input
           className="name_input"
