@@ -1,7 +1,16 @@
 .login {
   padding-top: 50px;
+  align-content: space-around;
 }
 
 .register {
  padding-top: 50px;
+}
+
+.login_form{
+  display:flex;
+  
+}
+.login_button{
+  display: flex;
 }
