@@ -1,21 +1,30 @@
 .create_shelf {
   display: flex;
-  align-content: center;
-  margin-top: .5em;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 3.5em;
   background-color: transparent;
   transition: transform 1s;
-
 }
 .create_shelf:hover{ 
   border-style: dashed;
   background-color: rgb(132, 132, 255);
-  transform: scale(1.05);
+  width: 8vw;
+  height: 100vh;
+  transform: scaleX(1.25);
 }
-.open_create_shelf {
+.open_create_shelf{
+  margin:.5em;
   background-color: transparent;
-  width:2em;
-  height: 10vh;
-  margin-top: 4em;
+  border-width: 5px;
+  height: 2em;
+  border-style: outset;
+}
+.open_create_shelf:hover {
+  background-color: transparent;
+  border-width: 5px;
+  height: 2em;
+  border-style: inset;
 }
 .close_create_shelf {
   background-color: transparent;

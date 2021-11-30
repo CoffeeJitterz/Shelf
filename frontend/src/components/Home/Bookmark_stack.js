@@ -13,6 +13,7 @@ import { hextoRgb, complimentaryColor, increaseBrightness} from '../../helpers/c
 import {Bookmark} from './Bookmark'
 import { Edit_Shelf_panel } from "./Edit_shelf_panel";
 import {Create_bookmark} from './Create_bookmark'
+import {Confirm_delete_shelf} from './Confirm_delete_shelf'
 
 //import styles
 import './styles/bookmark_stack.css'
@@ -148,10 +149,15 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
     )}
     {mode === confirmDelete && (
       <section className="bookmark_stack">
-        <div className="delete_confirm_message">
+        {/* <div className="delete_confirm_message">
         <p className="bookmark_name" style={{color: compColor}}>AreYou Sure You Want To Delete?</p>
         <button onClick={deleteShelf}>Yes</button><button onClick={handleClick} >No</button>
-        </div>
+        </div> */}
+        <Confirm_delete_shelf 
+            deleteShelf={deleteShelf}
+            handleClick={handleClick}
+            shelfName={shelfName}
+        />
         <Create_bookmark 
             onClick={handleClick} 
             color={bookmarkColor} 

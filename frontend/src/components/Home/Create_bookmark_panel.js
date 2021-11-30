@@ -3,6 +3,9 @@ import axios from 'axios';
 import { HuePicker} from "react-color";
 import Select from 'react-select'
 
+//import components
+import {Select_font} from './Select_font'
+
 //import helpers
 import {complimentaryColor, hextoRgb} from '../../helpers/color_helpers'
 
@@ -52,7 +55,12 @@ const newColor = complimentaryColor(hextoRgb(color ? color : '#fff'), 255);
       onChange={e => setName(e.target.value)}
       style={{backgroundColor: shelfCompColor, borderColor: shelfCompColor2, color: complimentaryColor(hextoRgb(color ? color : '#fff'), 255)}}
         />
-    <select className="select_font" style={{backgroundColor: shelfCompColor, borderColor: shelfCompColor2}} name='option' onChange={e => setOption(e.target.value)}>
+        <Select_font
+          color1={shelfCompColor}
+          color2={shelfCompColor2}
+          handleChange={handleChange}
+        />
+    {/* <select className="select_font" style={{backgroundColor: shelfCompColor, borderColor: shelfCompColor2}} name='option' onChange={handleChange}>
     <option value='Arial'>Arial</option>
     <option value='Copperplate Gothic'>Copperplate Gothic</option>
     <option value='fantasy'>fantasy</option>
@@ -62,7 +70,7 @@ const newColor = complimentaryColor(hextoRgb(color ? color : '#fff'), 255);
     <option value="Courier">Courier</option>
     <option value="Arial Black">Arial Black</option>
     <option value="Luminari">Luminari</option>
-    </select>
+    </select> */}
     <input 
       className="url_input"
       type="text"
