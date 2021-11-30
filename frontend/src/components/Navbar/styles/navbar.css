@@ -7,7 +7,15 @@ nav {
   margin-top: 0px;
   width:100%;
   height: 3.5em;
+  top: 0px;
   background-color: blueviolet;
+}
+
+aside {
+	background-color: #d79922;
+	/* Using an image as a background */
+	background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+	height: 400px;
 }
 .email_logout {
   display: flex;
