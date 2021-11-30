@@ -44,17 +44,17 @@ export default function Login(props){
 
   return (
     <div className="login">
-      <h1>Login</h1>
+      <h1 className="login_header " >Login</h1>
       
       <input
-            className="login_form"
+            className="login_email"
             type="email"
             value={email}
             placeholder="Enter email..."
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
-            className="login_form_password"
+            className="login_password"
             type="password"
             value={password}
             placeholder="Enter password..."

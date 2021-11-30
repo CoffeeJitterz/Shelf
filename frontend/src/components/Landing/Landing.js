@@ -1,6 +1,6 @@
 
 import App from "../../App"
-import books from '../books.jpeg'
+import bookmark from '../bookmark.jpeg'
 
 import Login from '../Login/Login'
 
@@ -12,9 +12,9 @@ const {loggedIn, setloggedIn} = props;
   return (
    <div className="landing_container"> 
      <Login loggedIn={loggedIn} setloggedIn={setloggedIn}/>
-    <div>
-    <img src={books} />
-    </div>
+    
+    <img src={bookmark} />
+   
    </div>
 
   )

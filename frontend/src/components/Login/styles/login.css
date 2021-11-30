@@ -1,16 +1,22 @@
 .login {
   padding-top: 50px;
   align-content: space-around;
+  margin: 1em;
 }
 
 .register {
  padding-top: 50px;
 }
 
-.login_form{
+.login_email{
   display:flex;
+  margin: 0.5em;
   
 }
 .login_button{
   display: flex;
+  margin: 0.5em;
+}
+.login_password{
+  margin: 0.5em;
 }
