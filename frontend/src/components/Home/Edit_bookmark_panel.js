@@ -13,10 +13,11 @@ export function Edit_bookmark_panel(props){
 const {Delete, Update, id, website, color, setColor, newName, setNewName, shelf_id, onClick, shelfCompColor, shelfCompColor2, bookmarkCompColor, font, setFont, handleChange} = props;
 
 const [url, setUrl] = useState(website)
-const editedBookmark = {shelf_id, id: id, name: newName, url: url, color: color};
+const editedBookmark = {shelf_id, id: id, name: newName, url: url, color: color, font: font};
 
 const updateBookmark = (e) => {
   e.preventDefault();
+  console.log('edited bookmark', editedBookmark)
   Update('bookmarks', id, editedBookmark).then(()=>{
     onClick()
   })
@@ -33,7 +34,7 @@ const updateBookmark = (e) => {
           onChange={e => setNewName(e.target.value)}
           style={{backgroundColor: shelfCompColor, color: bookmarkCompColor, borderColor: shelfCompColor2}}
         />
-        <select className="select_font" style={{backgroundColor: shelfCompColor, borderColor: shelfCompColor2}} name='option' >
+        <select className="select_font" style={{backgroundColor: shelfCompColor, borderColor: shelfCompColor2}} name='option' onChange={e => setFont(e.target.value)}>
         <option value='Arial'>Arial</option>
         <option value='Copperplate Gothic'>Copperplate Gothic</option>
         <option value='fantasy'>fantasy</option>

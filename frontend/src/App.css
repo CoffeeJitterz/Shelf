@@ -38,17 +38,21 @@
 }
 
 ::-webkit-scrollbar{
-  width: 25px
+  width: 1em;
+  height: 1em;
 }
 
 ::-webkit-scrollbar-track {
-  color:brown;
+  background-color:rgb(255, 253, 142);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: cadetblue;
+  background-color:blueviolet;
   border-radius: 25px; 
 }
-::-webkit-scrollbar-track:hover{
-  background-color: chartreuse;
+::-webkit-scrollbar-track:hover {
+  background-color:rgb(255, 254, 190);
+}
+::-webkit-scrollbar-thumb:hover{
+  background-color: rgb(182, 105, 255);
 }

@@ -19,8 +19,10 @@ import './styles/bookmark.css'
 
 export function Bookmark(props){
 //deconstruct props
-const {Delete, Update, id, url, name, websiteColor, shelfId, onClick, shelfCompColor, shelfCompColor2, font, setFont, bookmarkFont} = props;
-setFont(bookmarkFont ? bookmarkFont : font)
+const {Delete, Update, id, url, name, websiteColor, shelfId, onClick, shelfCompColor, shelfCompColor2, bookmarkFont} = props;
+
+const [font, setFont] = useState(bookmarkFont);
+
 const deleteBookmark = () => {
   Delete('bookmarks', id).then(()=>{
     onClick()
@@ -66,7 +68,7 @@ const compColor2 = complimentaryColor(hextoRgb(bookmarkColor), -90)
         <div className="bookmark_wrapper" style={{backgroundColor: shelfCompColor}}>
       <div className="bookmark" style={{backgroundColor: bookmarkColor, borderColor: 'black' }}>
       <div className="click_box"  onClick={()=> window.open(url, "_blank")}>
-          <p className="bookmark_name" style={{color: compColor, fontFamily: font}}>{newBookmarkName}</p>
+          <p className="bookmark_name" style={{color: compColor, fontFamily: bookmarkFont}}>{newBookmarkName}</p>
           <p className="bookmark_url">{url}</p>
       </div>
       <div className="bookmark_buttons">
@@ -83,7 +85,7 @@ const compColor2 = complimentaryColor(hextoRgb(bookmarkColor), -90)
         <div className="bookmark_wrapper" style={{backgroundColor: shelfCompColor}}>
       <div className="bookmark" style={{backgroundColor: bookmarkColor}}>
         <div className="click_box"  onClick={()=> window.open(url, "_blank")}>
-          <p className="bookmark_name" style={{color: compColor, fontFamily: bookmarkFont}}>{newBookmarkName}</p>
+          <p className="bookmark_name" style={{color: compColor, fontFamily: font}}>{newBookmarkName}</p>
           <p className="bookmark_url">{url}</p>
         </div>
         <button className="bookmark_wrench" onClick={handleClick}><FontAwesomeIcon icon={faTimesCircle}></FontAwesomeIcon></button>
