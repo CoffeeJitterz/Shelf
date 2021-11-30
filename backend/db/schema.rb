@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_26_175442) do
+ActiveRecord::Schema.define(version: 2021_11_29_235825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_11_26_175442) do
     t.integer "shelf_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "font"
     t.index ["shelf_id"], name: "index_bookmarks_on_shelf_id"
   end
 

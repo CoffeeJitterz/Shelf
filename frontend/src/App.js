@@ -26,10 +26,10 @@ function App() {
     <BrowserRouter>
     <Navbar loggedIn ={loggedIn.loggedInStatus} email={loggedIn.email}/>
       <Routes>
-        <Route path="/" element={!loggedIn ? <Navigate to="/landing"/> : <Home />} />
+        <Route path="/" element={!loggedIn.loggedInStatus ? <Navigate to="/landing"/> : <Home />} />
         <Route path="/login" element={loggedIn.loggedInStatus ? <Navigate to="/"/> : <Login loggedIn={loggedIn} setloggedIn={setloggedIn}  />} />
         <Route path="/register" element={<Register/>} />
-        <Route path="/landing" element={<Landing/>} />
+        <Route path="/landing" element={loggedIn.loggedInStatus ? <Navigate to="/"/> : <Landing loggedIn={loggedIn} setloggedIn={setloggedIn}/>} />
      
       </Routes>   
     </BrowserRouter> 
