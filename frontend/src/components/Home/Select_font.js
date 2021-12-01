@@ -1,8 +1,8 @@
 export function Select_font(props){
 //deconstruct props
-const {color1, color2, handleChange} = props;
+const {shelfColor, color1, color2, handleChange} = props;
 return (
-  <select className="select_font" style={{backgroundColor: color1, borderColor: color2}} name='option' onChange={handleChange}>
+  <select className="select_font" style={{backgroundColor: color1, borderColor: shelfColor}} name='option' onChange={handleChange}>
     <option value='Arial'>Arial</option>
     <option value='Copperplate Gothic'>Copperplate Gothic</option>
     <option value='fantasy'>fantasy</option>

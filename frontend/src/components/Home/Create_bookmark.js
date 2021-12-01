@@ -43,6 +43,7 @@ const [newBookmarkColor, setNewBookmarkColor] = useState('#fff')
       {mode === Second && (
         <div >
             <Create_bookmark_panel
+                shelfColor={shelfColor}
                 shelfCompColor2={shelfCompColor2}
                shelfCompColor={shelfCompColor}
                color={color} 

@@ -1,19 +1,40 @@
 .create_shelf {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-top: 3.5em;
+  margin-top: 4em;
   background-color: transparent;
   transition: transform 1s;
 }
 .create_shelf:hover{ 
   border-style: dashed;
+  border-color: rgb(195, 130, 238);
   background-color: rgb(132, 132, 255);
   width: 8vw;
   height: 100vh;
   transform: scaleX(1.25);
 }
+.create_shelf:hover:before {
+  text-decoration-line: overline underline;
+  text-decoration-style: wavy;
+  font-family: Impact;
+  color:white;
+  writing-mode: vertical-rl;
+text-orientation: upright;
+  content: "CREATE"
+}
+.create_shelf:hover:after {
+  text-decoration-line: overline underline;
+  text-decoration-style: wavy;
+  font-family: Impact;
+  color:white;
+  writing-mode: vertical-rl;
+text-orientation: upright;
+  content: "SHELF"
+}
 .open_create_shelf{
+  display: flex;
   margin:.5em;
   background-color: transparent;
   border-width: 5px;

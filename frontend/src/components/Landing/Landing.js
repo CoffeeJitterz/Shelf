@@ -29,7 +29,9 @@ const Second = 'Second'
 
   return (
    <div className="landing_container"> 
+    <div className="login_container">
      <Login loggedIn={loggedIn} setloggedIn={setloggedIn}/>
+    </div>
      <div className="image_container">
        <h1 className="image_text">URL SHELVES RULE</h1>
      {mode === First && (

@@ -18,7 +18,7 @@ import './styles/create_bookmark_panel.css'
 
 export function Create_bookmark_panel(props){
 //deconstruct props
-const {Create, name, setName, url, setUrl, color, setColor, shelfName, shelfId,  onClick, shelfCompColor, shelfCompColor2} = props;
+const {Create, name, setName, url, setUrl, color, setColor, shelfName, shelfId,  onClick, shelfColor, shelfCompColor, shelfCompColor2} = props;
 
 
 const [option, setOption] = useState();
@@ -38,8 +38,8 @@ const createBookmark = (e) => {
 //create complimentary color
 const newColor = complimentaryColor(hextoRgb(color ? color : '#fff'), 255);
   return (
-  <div className="create_bookmark_panel" style={{borderColor: shelfCompColor}}>
-    <div className="display_bookmark_container" style={{backgroundColor: shelfCompColor}}>
+  <div className="create_bookmark_panel" style={{backgroundColor: shelfCompColor}}>
+    <div className="display_bookmark_container">
       <div className="display_bookmark_wrapper">
         <div className="display_bookmark" style={{backgroundColor: color}} >
           <p style={{fontFamily: option, color: newColor}}>{name}</p>
@@ -53,38 +53,26 @@ const newColor = complimentaryColor(hextoRgb(color ? color : '#fff'), 255);
       required
       value={name}
       onChange={e => setName(e.target.value)}
-      style={{backgroundColor: shelfCompColor, borderColor: shelfCompColor2, color: complimentaryColor(hextoRgb(color ? color : '#fff'), 255)}}
+      style={{backgroundColor: shelfCompColor, borderColor: shelfColor, color: newColor}}
         />
         <Select_font
+          shelfColor={shelfColor}
           color1={shelfCompColor}
           color2={shelfCompColor2}
           handleChange={handleChange}
         />
-    {/* <select className="select_font" style={{backgroundColor: shelfCompColor, borderColor: shelfCompColor2}} name='option' onChange={handleChange}>
-    <option value='Arial'>Arial</option>
-    <option value='Copperplate Gothic'>Copperplate Gothic</option>
-    <option value='fantasy'>fantasy</option>
-    <option value='Brush Script MT'>Brush Script MT</option>
-    <option value='Comic Sans MS'>Comic Sans MS</option>
-    <option value="American Typewriter">American Typewriter</option>
-    <option value="Courier">Courier</option>
-    <option value="Arial Black">Arial Black</option>
-    <option value="Luminari">Luminari</option>
-    </select> */}
     <input 
       className="url_input"
       type="text"
       required
       value={url}
       onChange={e => setUrl(e.target.value)}
-      style={{backgroundColor: shelfCompColor, borderColor: shelfCompColor2}}
+      style={{backgroundColor: shelfCompColor, borderColor: shelfColor, color: newColor}}
       />
     <HuePicker color={color} onChange={color => setColor(color.hex)}/>
-      <div className="save_bookmark">
-        <button className="save_bookmark_button" ><FontAwesomeIcon icon={faSave} /></button>
-      </div>
+      <button className="save_bookmark_button" ><FontAwesomeIcon icon={faSave} /></button>
     </form>
-        <button className="close_create_bookmark" onClick={onClick}><FontAwesomeIcon icon={faTimesCircle} /></button>
+        <button className="create_bookmark_exit" onClick={onClick}><FontAwesomeIcon icon={faTimesCircle} /></button>
       </div>
   )
 }

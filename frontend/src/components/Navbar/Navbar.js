@@ -38,7 +38,7 @@ const Second = 'Second'
           <img className="logo_books" src={header_books2} /> 
         </div>
       )}
-      <h1 className="logo">URLShelves</h1>   
+      <h1 className="logo">URL - Shelves</h1>   
       </div>
       <div>       
       {props.loggedIn ? 

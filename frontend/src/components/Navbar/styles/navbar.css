@@ -36,9 +36,16 @@ nav {
 }
 
 .logo {
+  font-family: Impact;
   color: rgb(48, 48, 207);
-  text-shadow: 2px 2px 1px #7b08ff;
-} 
+  text-shadow: 1px 1px 1px #7b08ff;
+  margin:.5em;
+  
+}
+.logo:hover {
+  text-decoration-line: overline underline;
+  text-decoration-style: wavy;
+}
 .email {
   
   background-color: rgb(255, 253, 142);

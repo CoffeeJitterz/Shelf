@@ -1,5 +1,6 @@
 
 import axios from "axios";
+import { Link } from 'react-router-dom';
 import React, { useState } from "react";
 //import { browserHistory } from 'react-router';
 //import { useHistory } from "react-router-dom";
@@ -44,7 +45,7 @@ export default function Login(props){
 
   return (
     <div className="login">
-      <h1 className="login_header " >Login</h1>
+      <h1 className="login_header" >Login</h1>
       
       <input
             className="login_email"
@@ -60,6 +61,9 @@ export default function Login(props){
             placeholder="Enter password..."
             onChange={(e) => setPassword(e.target.value)}
           />
+          <div className="register_message">
+          <p className="register_message_text">Not registered yet? &nbsp;</p><Link to="/register" className="register_message_link">Click Here</Link>
+          </div>
           <button className="login_button" onClick={handleSubmit} disabled={!validateForm()}>Login</button>
       
       

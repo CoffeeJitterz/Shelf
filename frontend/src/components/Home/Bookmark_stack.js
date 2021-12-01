@@ -31,11 +31,14 @@ const handleClick = () => {
   if (mode === First) {
     setMode(Second)
     console.log(mode)
+  } else if (mode === confirmDelete) {
+    setMode(Second)
   } else {
     setMode(First)
     console.log(mode)
   }
 };
+
 
 
 //Create bookmark
@@ -51,6 +54,9 @@ const deleteShelf = () => {
   }
 const handleConfirmDelete = () => {
   setMode(confirmDelete)
+}
+const handleDeleteClick = () => {
+  setMode(First)
 }
 
 
@@ -78,6 +84,7 @@ const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) 
                         setFont={setFont}
                         bookmarkFont={bookmark.font}
                         onClick={handleClick} 
+                        onDeleteClick={handleDeleteClick} 
                         shelfId={shelfId} 
                         shelfName={shelfName} 
                         Delete={Delete}

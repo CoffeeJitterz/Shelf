@@ -32,7 +32,8 @@ const [newShelfColor, setShelfColor] = useState('blueviolet')
 // const [createShelfColor] = shelves;
 // console.log("shelvesShelves", createShelfColor)
 // const createShelfColor = shelves[0].color 
-// const brightColor = increaseBrightness(createShelfColor, 50)
+
+
   return (
     <Fragment>
       {mode === First && (
