@@ -5,6 +5,7 @@ import bookmark from '../bookmark.jpeg'
 import books1 from '../books1.png'
 import books2 from '../books2.png'
 
+
 import Login from '../Login/Login'
 
 import './styles/landing.css'
@@ -29,16 +30,19 @@ const Second = 'Second'
   return (
    <div className="landing_container"> 
      <Login loggedIn={loggedIn} setloggedIn={setloggedIn}/>
-    {mode === First && (
+     <div className="image_container">
+       <h1 className="image_text">URL SHELVES RULE</h1>
+     {mode === First && (
       <div onMouseEnter={handleHover}>
-        <img src={books1} /> 
+        <img className="books_img" src={books1} /> 
       </div>
     )}
     {mode === Second && (
        <div onMouseEnter={handleHover}>
-         <img src={books2} />       
-       </div>
+         <img className="books_img" src={books2} />       
+       </div>   
     )}
+    </div>
    </div>
 
   )

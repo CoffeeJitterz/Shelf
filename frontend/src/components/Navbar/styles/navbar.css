@@ -6,32 +6,39 @@ nav {
   overflow: hidden;
   margin-top: 0px;
   width:100%;
-  height: 3.5em;
+  height: 4em;
   top: 0px;
   background-color: blueviolet;
 }
 
-aside {
-	background-color: #d79922;
-	/* Using an image as a background */
-	background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
-	height: 400px;
-}
 .email_logout {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
+.logo_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 2.5em;
+  margin: 2em;
+  background-color: yellow;
+  border-style: solid;
+  border-color: black;
+}
+.logo_books {
+  width: 4.5em;
+  transition: transform .25s
+}
+.logo_books:hover {
+  width: 4.5em;
+  transform: scale(1.1)
+}
 
 .logo {
-  margin: 1.5em;
-  padding: .25em;
-  background-color: rgb(255, 253, 142);
   color: rgb(48, 48, 207);
   text-shadow: 2px 2px 1px #7b08ff;
-  border-style:ridge;
-  border-color: rgb(0, 0, 0);
-}
+} 
 .email {
   
   background-color: rgb(255, 253, 142);
