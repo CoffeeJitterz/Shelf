@@ -35,8 +35,6 @@ const Second = 'Second'
      <div className="login_container" onMouseEnter={handleHover}>
       <Login loggedIn={loggedIn} setloggedIn={setloggedIn}/>
      </div>
-      <div className="image_container">   
-        </div> 
        </div>
      )}
            {mode === Second && (
@@ -44,8 +42,6 @@ const Second = 'Second'
      <div className="login_container" onMouseEnter={handleHover}>
       <Login loggedIn={loggedIn} setloggedIn={setloggedIn}/>
      </div>
-      <div className="image_container">    
-        </div> 
        </div>
      )}
     </Fragment>
