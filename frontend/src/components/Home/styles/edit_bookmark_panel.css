@@ -17,7 +17,7 @@
     margin-top:0em;
     margin-bottom: 0em;
   }
- .save_bookmark_button {
+ .bookmark_save {
    display: flex;
    align-self: flex-end;
    margin: .5em;
@@ -26,7 +26,7 @@
   height: 2em;
   border-style: outset;
  }
- .save_bookmark_button:hover {
+ .bookmark_save:hover {
   border-style: inset;
  }
  .create_bookmark_exit {

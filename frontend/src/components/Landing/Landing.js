@@ -1,9 +1,10 @@
 
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import App from "../../App"
 import bookmark from '../bookmark.jpeg'
 import books1 from '../books1.png'
 import books2 from '../books2.png'
+
 
 
 import Login from '../Login/Login'
@@ -28,24 +29,27 @@ const Second = 'Second'
   };
 
   return (
-   <div className="landing_container"> 
-    <div className="login_container">
-     <Login loggedIn={loggedIn} setloggedIn={setloggedIn}/>
-    </div>
-     <div className="image_container">
-       <h1 className="image_text">URL SHELVES RULE</h1>
-     {mode === First && (
-      <div onMouseEnter={handleHover}>
-        <img className="books_img" src={books1} /> 
-      </div>
-    )}
-    {mode === Second && (
-       <div onMouseEnter={handleHover}>
-         <img className="books_img" src={books2} />       
-       </div>   
-    )}
-    </div>
-   </div>
+    <Fragment>
+      {mode === First && (
+    <div className="landing_container" style={{backgroundImage: `url(${books1})`}}> 
+     <div className="login_container" onMouseEnter={handleHover}>
+      <Login loggedIn={loggedIn} setloggedIn={setloggedIn}/>
+     </div>
+      <div className="image_container">   
+        </div> 
+       </div>
+     )}
+           {mode === Second && (
+    <div className="landing_container" style={{backgroundImage: `url(${books2})`}}> 
+     <div className="login_container" onMouseEnter={handleHover}>
+      <Login loggedIn={loggedIn} setloggedIn={setloggedIn}/>
+     </div>
+      <div className="image_container">    
+        </div> 
+       </div>
+     )}
+    </Fragment>
+  
 
   )
 }
