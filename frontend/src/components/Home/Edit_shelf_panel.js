@@ -26,7 +26,7 @@ const updateShelf = (e) => {
       <form className="edit_shelf_form" onSubmit={updateShelf}>
        <HuePicker className="color_picker" color={color} onChange={color => setColor(color.hex)}/>
       <input
-       style={{color: shelfCompColor2}}
+       style={{backgroundColor: shelfCompColor, borderColor: color, color: shelfCompColor2}}
        className="name_input"
        type="text"
        required

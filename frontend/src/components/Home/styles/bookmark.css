@@ -12,7 +12,7 @@
   justify-content:end;
   align-items:center;
   width: 40vw;
-  height: 8vh;
+  height: 10vh;
   margin:.5em;
   gap: 3.5em;
   border-style: solid; 
@@ -22,21 +22,32 @@
   flex-direction: column;
   align-items: center;
   margin: 0px;
+  padding:0px;
 }
 .bookmark_name {
  margin:0px;
- font-size: medium;
+ padding:0px;
+ font-size: 10;
  text-shadow: 2px 2px 2px #7b08ff;
+ transition: transform .75s;
+}
+.bookmark_name:hover {
+  transform: scale(1.35);
 }
 .bookmark_url {
   margin:0px;
-  font-size:x-small;
+  font-size:xx-small;
+  color: white;
 }
 .bookmark:hover {
   box-shadow:6px 6px rgb(13, 5, 126);
 }
+.bookmark_buttons {
+  margin:.25em;
+}
 
 .bookmark_wrench {
+  margin:.25em;
   background-color: transparent;
   border-width: 5px;
   height: 2em;
@@ -45,3 +56,24 @@
 .bookmark_wrench:hover {
   border-style: inset;  
 }
+.bookmark_delete {
+  margin:.25em;
+  background-color: transparent;
+  border-width: 5px;
+  height: 2em;
+  border-style: outset; 
+}
+.bookmark_delete:hover {
+  border-style: inset;
+}
+.bookmark_exit {
+  background-color: transparent;
+  border-width: 5px;
+  height: 2em;
+  border-style: outset; 
+  margin-right: 2em;
+}
+.bookmark_exit:hover {
+  border-style: inset;
+}
+

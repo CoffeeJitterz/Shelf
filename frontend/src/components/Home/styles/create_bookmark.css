@@ -14,9 +14,19 @@
   transform: scale(1.05);
 }
 .create_bookmark:hover:before {
+  letter-spacing: .25em;
+  text-decoration-line: overline underline;
+  text-decoration-style: wavy;
+  font-family: Impact;
+  color:white;
   content: "CREATE"
 }
 .create_bookmark:hover:after {
+  letter-spacing: .25em;
+  text-decoration-line: overline underline;
+  text-decoration-style: wavy;
+  font-family: Impact;
+  color:white;
   content: "BOOKMARK"
 }
 .open_create_bookmark {

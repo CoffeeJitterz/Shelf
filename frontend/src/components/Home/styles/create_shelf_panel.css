@@ -5,7 +5,19 @@
   background-color: transparent;
   height: 100vh;
   padding: 1em;
-  margin-top: 3em;
+  margin-top: 4em;
+}
+.new_shelf_name_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height:12vh;
+  margin:.5em;
+  margin-top: 1.2em;
+}
+.new_shelf_name {
+  text-shadow: 2px 2px #7b08ff;
 }
 .create_shelf_form {
   display: flex;
@@ -31,14 +43,6 @@
   height: 2em;
   border-style: outset;
   margin: .25em; 
-}
-.new_shelf_name {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-shadow: 2px 2px #7b08ff;
-  width: 40vw;
-  margin: .05em;
 }
 .create_shelf_exit:hover {
   border-style:inset;
