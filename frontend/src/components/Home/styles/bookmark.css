@@ -28,7 +28,7 @@
  margin:0px;
  padding:0px;
  font-size: 10;
- text-shadow: 2px 2px 2px #7b08ff;
+ text-shadow: 1px 1px 2px #7b08ff;
  transition: transform .75s;
 }
 .bookmark_name:hover {
@@ -40,7 +40,7 @@
   color: white;
 }
 .bookmark:hover {
-  box-shadow:6px 6px rgb(13, 5, 126);
+  box-shadow:2px 2px rgb(255, 252, 101);
 }
 .bookmark_buttons {
   margin:.25em;

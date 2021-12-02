@@ -8,7 +8,8 @@ import Login from './components/Login/Login';
 import Register from './components/Login/Register';
 import Landing from './components/Landing/Landing'
 import Home from './components/Home/Home';
-import Navbar from './components/Navbar/Navbar'
+import Navbar from './components/Navbar/Navbar';
+import Registration from './components/Landing/Registration'
 
  
 
@@ -28,7 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={!loggedIn.loggedInStatus ? <Navigate to="/landing"/> : <Home />} />
         <Route path="/login" element={loggedIn.loggedInStatus ? <Navigate to="/"/> : <Login loggedIn={loggedIn} setloggedIn={setloggedIn}  />} />
-        <Route path="/register" element={<Register/>} />
+        <Route path="/register" element={<Registration/>} />
         <Route path="/landing" element={loggedIn.loggedInStatus ? <Navigate to="/"/> : <Landing loggedIn={loggedIn} setloggedIn={setloggedIn}/>} />
      
       </Routes>   

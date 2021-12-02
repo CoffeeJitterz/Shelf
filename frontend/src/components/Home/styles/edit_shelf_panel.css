@@ -20,7 +20,6 @@ align-items: flex-end;
   border-width: 4px;
  height: 2em;
  border-style: outset; 
- border-color: rgb(99, 97, 255);
 }
 .shelf_save:hover {
   border-style: inset;

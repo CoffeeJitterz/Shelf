@@ -50,8 +50,4 @@ text-orientation: upright;
 .close_create_shelf {
   background-color: transparent;
 }
-.create_shelf_open {
-  display: flex;
-  flex-direction: row;
-  background-color: rgb(109, 112, 255);
-}
+

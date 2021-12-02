@@ -51,22 +51,19 @@ margin:.25em;
   height: 2em;
   margin: .25em;
   border-style: outset; 
-  border-color: rgb(99, 97, 255);
 }
 .close_create_bookmark:hover{
   border-style: inset; 
 }
-.save_bookmark {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin:1em;
- 
-}
+
 .save_bookmark_button {
+  align-self: flex-end;
   background-color: transparent;
+  border-width: 4px;
+  height: 2em;
+  margin: .5em;
   border-style: outset; 
-  border-color: rgb(99, 97, 255);
+  
 }
 .save_bookmark_button:hover {
   border-style: inset;

@@ -1,14 +1,14 @@
 
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 import axios from "axios";
 
-import './styles/login.css'
+import './styles/register.css'
 
-import './styles/login.css'
-
-import './styles/login.css'
+import books1 from '../books1.png'
 
 export default function Register(props){
+  const {handleHover} = props;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   function handleSubmit(event) {
@@ -28,25 +28,26 @@ export default function Register(props){
 
   }
   return (
-    <div className="register">
-      <h1>
-        Register
-      </h1>
-      <form onSubmit={handleSubmit}>
+    <div className="register" onMouseEnter={handleHover}>
+      <h1 className="register_header">Register</h1>
+      <form className="register_form"onSubmit={handleSubmit}>
         <input type="text" 
-        className="registration_form"
+        className="register_email"
             value={email}
             placeholder="Enter email..."
             onChange={(e) => setEmail(e.target.value)}>
         </input>
         <input
-            className="registration_form_password"
+            className="register_password"
             type="password"
             value={password}
             placeholder="Enter password..."
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit" onClick={handleSubmit} >Register</button>
+          <div className="login_message">
+          <p className="login_message_text">Already A Member? &nbsp;</p><Link to="/landing" className="login_message_link">Click Here</Link>
+          </div>
+          <button className="register_button" type="submit" onClick={handleSubmit} >Register</button>
       </form>
     </div>
   )

@@ -1,43 +1,49 @@
-.login {
+.register {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 25em;
+  height: 14em;
   background-color: blueviolet;
   border-style: solid;
   border-color: black;
+  margin-top: 1em;
 }
-
-.login_header {
+.register_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.register_header {
   font-family: Impact;
   margin:.5em;
 }
-.login_email{
+.register_email{
   display:flex;
   margin: 0.5em;
   border-style: solid;
   border-color: black;
 }
-.login_password{
+.register_password{
   margin: 0.5em;
   border-style: solid;
   border-color: black;
 }
-.register_message {
+.login_message {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin:0em;
 }
-.register_message_text {
+.login_message_text {
   font-size:x-small;
   margin:0em;
 }
-.register_message_link {
+.login_message_link {
   font-size: small;
   margin:0em;
 }
-.login_button{
+.register_button{
   margin:.5em;
   display: flex;
   background-color: transparent;
@@ -45,6 +51,6 @@
   height: 2em;
   border-style: outset; 
 }
-.login_button:hover {
+.register_button:hover {
   border-style: inset;
 }

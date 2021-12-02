@@ -33,13 +33,9 @@
   background-color: transparent;
   border-width: 4px;
   height: 2em;
-  border-style: outset; 
-  border-color: rgb(99, 97, 255);
-  
+  border-style: outset;  
 }
-
 
 .open_create_bookmark:hover{
   border-style: inset; 
-
 }
