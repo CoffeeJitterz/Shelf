@@ -8,6 +8,7 @@ import './styles/register.css'
 import books1 from '../books1.png'
 
 export default function Register(props){
+  const {handleHover} = props;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   function handleSubmit(event) {
@@ -27,7 +28,7 @@ export default function Register(props){
 
   }
   return (
-    <div className="register">
+    <div className="register" onMouseEnter={handleHover}>
       <h1 className="register_header">Register</h1>
       <form className="register_form"onSubmit={handleSubmit}>
         <input type="text" 

@@ -43,7 +43,7 @@ const handleClick = () => {
 
 //Create bookmark
 const [url, setUrl] = useState("Url")
-const [name, setName] = useState("Your Name");
+const [name, setName] = useState("New Bookmark");
 const [bookmarkColor, setBookmarkColor] = useState('#fff')
 const [font, setFont] = useState();
 
@@ -70,6 +70,7 @@ const [shelfColor, setShelfColor] = useState(baseColor ? baseColor : '#fff')
 const compColor = complimentaryColor(hextoRgb(shelfColor), 255)
 const compColor2 = complimentaryColor(hextoRgb(shelfColor), 90)
 const brightColor = increaseBrightness(shelfColor, 50)
+
 //map through bookmarks array and pass props to <Bookmark />
 const output = Array.isArray(shelf.bookmarks) && shelf.bookmarks.map((bookmark) => {return <Bookmark 
                         key={bookmark.id}

@@ -9,8 +9,9 @@
   margin: 1em;
 }
 .delete_message {
+  text-align: center;
   margin:.5em;
-  color:rgb(255, 0, 0);
+  color:rgb(0, 0, 0);
 font-family: Arial-black;
 }
 

@@ -30,14 +30,14 @@ const Second = 'Second'
       {mode === First && (
     <div className="registration_container" style={{backgroundImage: `url(${books1})`}}> 
      <div className="register_container" onMouseEnter={handleHover}>
-      <Register />
+      <Register handleHover={handleHover}/>
      </div>
        </div>
      )}
            {mode === Second && (
     <div className="registration_container" style={{backgroundImage: `url(${books2})`}}> 
      <div className="register_container" onMouseEnter={handleHover}>
-     <Register />
+     <Register handleHover={handleHover}/>
      </div>
        </div>
      )}

@@ -36,7 +36,7 @@ const output = Array.isArray(shelves) && shelves.map(shelf => {
    
     <div className="shelf">
       <Create_shelf 
-      user_id='1' 
+      user_id='6' 
       Create={Create}
       shelves={shelves}
    

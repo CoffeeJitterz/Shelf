@@ -32,15 +32,15 @@ const Second = 'Second'
     <Fragment>
       {mode === First && (
     <div className="landing_container" style={{backgroundImage: `url(${books1})`}}> 
-     <div className="login_container" onMouseEnter={handleHover}>
-      <Login loggedIn={loggedIn} setloggedIn={setloggedIn}/>
+     <div className="login_container">
+      <Login loggedIn={loggedIn} setloggedIn={setloggedIn} handleHover={handleHover}/>
      </div>
        </div>
      )}
            {mode === Second && (
     <div className="landing_container" style={{backgroundImage: `url(${books2})`}}> 
-     <div className="login_container" onMouseEnter={handleHover}>
-      <Login loggedIn={loggedIn} setloggedIn={setloggedIn}/>
+     <div className="login_container" >
+      <Login loggedIn={loggedIn} setloggedIn={setloggedIn} handleHover={handleHover}/>
      </div>
        </div>
      )}

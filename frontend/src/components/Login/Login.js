@@ -10,6 +10,7 @@ import './styles/login.css'
 
 
 export default function Login(props){
+  const {handleHover} = props;
   const [email, setEmail] = useState("");
   //const navigate = useNavigate ();
   
@@ -44,7 +45,7 @@ export default function Login(props){
   }
 
   return (
-    <div className="login">
+    <div className="login" onMouseEnter={handleHover}>
       <h1 className="login_header" >Login</h1>
       
       <input
